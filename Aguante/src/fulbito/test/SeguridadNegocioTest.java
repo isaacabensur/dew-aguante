@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import fulbito.business.SeguridadNegocio;
 import fulbito.exception.DAOExcepcion;
+//prueba
 
 public class SeguridadNegocioTest {
 
