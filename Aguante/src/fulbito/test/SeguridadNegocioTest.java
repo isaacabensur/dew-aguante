@@ -13,10 +13,6 @@ public class SeguridadNegocioTest {
 		
 		SeguridadNegocio neg = new SeguridadNegocio();
 		try {
-			//SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy", Locale.getDefault());
-			//String fecnac = "09/03/2012";
-			//Date nacimiento;
-			//nacimiento = df.parse(fecnac);
 		
 			neg.insertarPersona(2,"DUE", "Jorge", "Perez", "Garcia", "m", "DNI", "45124566", "abc@abc.com", "pass", "09/03/2012", 1234567);
 		} catch (DAOExcepcion e) {
