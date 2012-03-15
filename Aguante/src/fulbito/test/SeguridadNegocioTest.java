@@ -8,7 +8,10 @@ import fulbito.exception.DAOExcepcion;
 //prueba
 
 public class SeguridadNegocioTest {
-
+	
+	// Jasen VB - Cambios realizados a las 20:45
+	
+	
 	@Test
 	public void insertarRolTest(){
 		
