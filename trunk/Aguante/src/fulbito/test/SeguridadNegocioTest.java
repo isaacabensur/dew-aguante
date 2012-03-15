@@ -11,6 +11,8 @@ public class SeguridadNegocioTest {
 	
 	// Jasen VB - Cambios realizados a las 20:45
 	
+	//Esta cuestion esta bacan
+	
 	
 	@Test
 	public void insertarRolTest(){
