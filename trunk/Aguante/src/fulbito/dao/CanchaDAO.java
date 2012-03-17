@@ -49,6 +49,35 @@ public void insertar(Cancha vo) throws DAOExcepcion {
 	}
 
 
+public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAOExcepcion {
+	System.out.println("CanchaDAO: buscarPorNombre(String nombre)");
+	String query = "SELECT nombre FROM cancha WHERE nombre like ? and Local_codLoc = ? ";
+	Collection<Cancha> lista = new ArrayList<Cancha>();
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	try {
+		con = ConexionBD.obtenerConexion();
+		stmt = con.prepareStatement(query);
+		stmt.setString(1, "%" + nombre + "%");
+		stmt.setInt(2, codlocal);
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+			Cancha vo = new Cancha();
+			vo.setNombre(rs.getString("nombre"));
+			lista.add(vo);
+		}
+	} catch (SQLException e) {
+		System.err.println(e.getMessage());
+		throw new DAOExcepcion(e.getMessage());
+	} finally {
+		this.cerrarResultSet(rs);
+		this.cerrarStatement(stmt);
+		this.cerrarConexion(con);
+	}
+	return lista;
+}
+
 
 }
 
