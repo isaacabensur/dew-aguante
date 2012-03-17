@@ -26,7 +26,7 @@ public class AlquilerDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, "%" + fecha + "%");
+			stmt.setString(1, fecha);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Alquiler vo = new Alquiler();
