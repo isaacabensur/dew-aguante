@@ -23,6 +23,11 @@ public class SeguridadNegocioTest {
 			System.out.println(ex);
 		}
 	}
+
+	
+	
+	
+	
 	
 	@Test
 	public void insertarPublicidadTest() {
