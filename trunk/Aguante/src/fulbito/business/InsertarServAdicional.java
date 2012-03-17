@@ -13,7 +13,7 @@ public class InsertarServAdicional {
 		Local oLocal = new Local();
 		
 		
-		if(!tipo.equals("")  ){
+		if(!tipo.equals("") && !descripcion.equals("") && tarifa>0 && local>0  ){
 		model.setTipo(tipo);
 		model.setDescripcion(descripcion);
 		model.setTarifa(tarifa);
