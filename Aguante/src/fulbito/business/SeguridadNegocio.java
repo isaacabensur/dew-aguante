@@ -1,11 +1,5 @@
 package fulbito.business;
 
-import java.text.NumberFormat;
-
-import javax.swing.text.NumberFormatter;
-
-import com.mysql.jdbc.StringUtils;
-
 import fulbito.dao.PersonaDAO;
 import fulbito.dao.PublicidadDAO;
 import fulbito.exception.DAOExcepcion;
