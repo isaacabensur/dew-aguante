@@ -5,18 +5,47 @@ import org.junit.Test;
 
 import fulbito.business.SeguridadNegocio;
 import fulbito.exception.DAOExcepcion;
+import fulbito.model.Persona;
 
 public class SeguridadNegocioTest {
 	
 	
 	
-	//@Test
+	Persona vo = new Persona();
+	public SeguridadNegocioTest() {
+		vo.setTipoPer("DUE");
+		vo.setNombres("Jesus");
+		vo.setPaterno("Paivca");
+		vo.setMaterno("domingez");
+		vo.setSexo("M");
+		vo.setTipoDoc("DNI");
+		vo.setNumDoc("427708462");
+		vo.setCorreo("jpaiva2d@hotmail.com");
+		vo.setPassword("gi12345");
+		vo.setFecNac("18/12/1984");
+		vo.setCelular(65656);
+	}
+
+	@Test
 	public void insertarPersonaTest(){
 		
 		SeguridadNegocio neg = new SeguridadNegocio();
 		try {
-		
-			neg.insertarPersona(1,"DUE", "Jorge", "Perez", "Garcia", "m", "DNI", "45124566", "abc@abc.com", "pass", "09/03/2012", 1234567);
+			
+			Persona persona = null;
+			persona=neg.buscarCorreo(vo.getCorreo());
+			if (persona!=null)
+				Assert.fail("correo se encuentra registrado junit!!!");
+			
+			persona=neg.buscarNumDoc(vo.getNumDoc());
+			if (persona!=null)
+				Assert.fail("La persona se encuetra registrada");
+			
+			
+			neg.insertarPersona(1,vo.getTipoPer(), vo.getNombres(), vo.getPaterno(), vo.getMaterno(), vo.getSexo(), vo.getTipoDoc(), vo.getNumDoc(), vo.getCorreo(), vo.getPassword(), vo.getFecNac(), vo.getCelular());
+			
+			
+			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -24,24 +53,5 @@ public class SeguridadNegocioTest {
 		}
 	}
 
-	
-	
-	
-	
-	
-	@Test
-	public void insertarPublicidadTest() {
-		
-		SeguridadNegocio neg = new SeguridadNegocio();
-		try {
-			neg.isertarPublicidad("Bienvenida", "Se da una grata bienvenida a los inscritos", "15/03/2012", "18/03/2012", 1000.0, 0, "P1", 1);
-		} catch (DAOExcepcion e) {
-			Assert.fail("Falló: " + e.getMessage());
-		} catch (Exception ex) {
-			System.out.println(ex);
-		}
-		
-	}
-	
 }
 
