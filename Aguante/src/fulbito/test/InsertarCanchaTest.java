@@ -4,6 +4,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import fulbito.business.InsertarCancha;
+import fulbito.business.InsertarServAdicional;
 import fulbito.exception.DAOExcepcion;
 
 public class InsertarCanchaTest {
@@ -52,5 +53,19 @@ public void MensajeErrorNombreDuplicadoTest(){
 	}
 }
 
+public void insertarServAdicionalTest(){
+	
+	InsertarServAdicional neg = new InsertarServAdicional();
+	try {
+	
+		neg.insertarServAdicional("", "", 0.0 , 0);
+	} catch (DAOExcepcion e) {
+		System.out.print(e.getMessage());
+		Assert.fail("Falló: " + e.getMessage());
+		
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+}
 
 }
