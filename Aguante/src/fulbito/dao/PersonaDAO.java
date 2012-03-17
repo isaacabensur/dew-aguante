@@ -9,7 +9,7 @@ import java.util.Collection;
 
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Persona;
-import fulbito.model.ServAdicional;
+//import fulbito.model.ServAdicional;
 import fulbito.util.ConexionBD;
 
 
