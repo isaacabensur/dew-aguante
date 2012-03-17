@@ -1,5 +1,7 @@
 package fulbito.business;
 
+import java.util.Collection;
+
 import fulbito.dao.CanchaDAO;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Cancha;
@@ -13,7 +15,7 @@ public class InsertarCancha {
 		Local oLocal = new Local();
 		
 		
-		if(!nombre.equals("")  ){
+		if(!nombre.equals("") && !caracteristicas.equals("") && !diasAtencion.equals("") && !horasAtencion.equals("") && tarifa >0 && !promo.equals("") && !foto.equals("")&& !disponible.equals("") && local > 0 ){
 		model.setNombre(nombre);
 		model.setCaracteristicas(caracteristicas);
 		model.setDiasAtencion(diasAtencion);
@@ -26,8 +28,14 @@ public class InsertarCancha {
 		model.setoLocal(oLocal);
 		
 		CanchaDAO dao = new CanchaDAO();
-		dao.insertar(model);
+		Collection<Cancha> Canchas = dao.buscarPorNombre(nombre, local);
 		
+		if(Canchas.size()==0){
+		dao.insertar(model);
+		}else{
+			
+			throw new DAOExcepcion("El nombre de la cancha ya existe");
+		}
 		
 		}
 		
@@ -38,4 +46,6 @@ public class InsertarCancha {
 		
 	}
 
+	
+	
 }
