@@ -11,7 +11,6 @@ import fulbito.exception.DAOExcepcion;
 import fulbito.model.Alquiler;
 import fulbito.model.Cancha;
 import fulbito.model.Horario;
-import fulbito.model.Cliente;
 import fulbito.util.ConexionBD;
 
 
@@ -20,7 +19,7 @@ public class HorarioDAO extends BaseDAO {
 
 	public Collection<Horario> buscarPorFecha(String fecha) throws DAOExcepcion {
 		System.out.println("HorarioDAO: buscarPorFecha(String fecha)");
-		String query = "SELECT codHorario, horaInicio, horaFin, estado, Cancha_numCancha, Alquiler_codAlquiler FROM horario WHERE trunc(fecha) = STR_TO_DATE(?,'%d/%m/%Y')";
+		String query = "SELECT codHorario, horaInicio, horaFin, estado, Cancha_numCancha, Alquiler_codAlquiler FROM horario WHERE fecha = STR_TO_DATE(?,'%d/%m/%Y')";
 		Collection<Horario> lista = new ArrayList<Horario>();
 		Cancha cancha = new Cancha();
 		Alquiler alquiler = new Alquiler();
