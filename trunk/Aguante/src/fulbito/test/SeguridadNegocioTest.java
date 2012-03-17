@@ -21,7 +21,7 @@ public class SeguridadNegocioTest {
 		vo.setNumDoc("44546462");
 		vo.setCorreo("aaaad@hotmail.com");
 		vo.setPassword("gi12345");
-		vo.setFecNac("18/15/1984");
+		vo.setFecNac("18/12/1984");
 		vo.setCelular(65656);
 	}
 	
@@ -35,7 +35,7 @@ public class SeguridadNegocioTest {
 			
 			Persona persona = null;
 			
-			if (vo.getPaterno().equals(""))
+			/*if (vo.getPaterno().equals(""))
 				Assert.fail("Ingrese apellido paterno");
 			
 			//INGRESAR TODO LO DEMAS
@@ -48,7 +48,7 @@ public class SeguridadNegocioTest {
 			if (persona!=null)
 				Assert.fail("El DNI ya se encuentra registrado");
 			
-	
+	*/
 			
 			neg.insertarPersona(1,vo.getTipoPer(), vo.getNombres(), vo.getPaterno(), vo.getMaterno(), vo.getSexo(), vo.getTipoDoc(), vo.getNumDoc(), vo.getCorreo(), vo.getPassword(), vo.getFecNac(), vo.getCelular());
 			
@@ -79,8 +79,8 @@ public class SeguridadNegocioTest {
 }
 	
 	
-	/*
-	@Test
+	
+	//@Test
 	public void insertarPublicidadTest() {
 		
 		SeguridadNegocio neg = new SeguridadNegocio();
@@ -93,6 +93,6 @@ public class SeguridadNegocioTest {
 		}
 		
 	}
-	*/
+	
 	
 
