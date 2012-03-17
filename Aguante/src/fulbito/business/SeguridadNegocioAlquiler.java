@@ -1,63 +1,33 @@
 package fulbito.business;
 
-import fulbito.dao.PublicidadDAO;
+import fulbito.dao.AlquilerDAO;
 import fulbito.exception.DAOExcepcion;
-import fulbito.model.Administrador;
-import fulbito.model.Publicidad;
+import fulbito.model.Alquiler;
+import fulbito.model.Cliente;
 
 public class SeguridadNegocioAlquiler {
 	
-	public void isertarPublicidad(String titulo, String contenido, String fecInicio, String fecFin, Double tarifa, Integer clicks, String seccion, Integer codPersona) throws DAOExcepcion {
+	public void isertarAlquiler(String fecAlquiler, Integer codPer) throws DAOExcepcion {
 		
 		boolean flag = true; 
-		Publicidad model = new Publicidad();
-		Administrador admin = new Administrador();
-		model.setTitulo(titulo);
-		model.setContenido(contenido);
-		model.setFechaInicio(fecInicio);
-		model.setFechaFin(fecFin);
-		model.setTarifa(tarifa);
-		model.setClicks(clicks);
-		model.setSeccion(seccion);
-		admin.setCodPer(codPersona);
-		model.setoAdministrador(admin);
+		Alquiler model = new Alquiler();
+		Cliente cliente = new Cliente();
+		model.setFecAlquiler(fecAlquiler);
+		cliente.setCodPer(codPer);
+		model.setoCliente(cliente);
 		
-		if(titulo == null || titulo.equals("")) {
+		if(fecAlquiler == null || fecAlquiler.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el título");
+			System.out.println("Ingrese la fecha del alquiler");
 		}
-		if(contenido == null || contenido.equals("")) {
+		if(codPer == null || codPer.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el contenido");
+			System.out.println("Ingrese el código del cliente");
 		}
-		if(fecInicio == null || fecInicio.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la fecha de inicio");
-		}
-		if(fecFin == null || fecFin.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la fecha de fin");
-		}
-		if(tarifa == null || tarifa.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la tarifa");
-		}
-		if(clicks == null || clicks.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la tarifa");
-		}
-		if(seccion == null || seccion.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la seccion");
-		}
-		if(codPersona == null || codPersona.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la el código del Administrador");
-		}
-		PublicidadDAO dao = new PublicidadDAO();
+		AlquilerDAO dao = new AlquilerDAO();
 		if(flag) {
 			dao.insertar(model);
-			System.out.println("La publicidad con título "+titulo+" se ha insertado correctamente.");
+			System.out.println("El alquiler de fecha "+fecAlquiler+" se ha insertado correctamente.");
 		}
 		
 	}
