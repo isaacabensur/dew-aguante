@@ -1,6 +1,6 @@
 package fulbito.model;
 
-import java.util.Date;
+
 
 
 public class Evento {
@@ -9,7 +9,7 @@ public class Evento {
 	private String nombre;
 	private String premio;
 	private int limiteCantidad;
-	private Date plazoInscripcion;
+	private String plazoInscripcion;
 	private Local oLocal;
 	
 	public Evento() {
@@ -17,7 +17,7 @@ public class Evento {
 	}
 	
 	public Evento(int codEvento, String nombre, String premio,
-			int limiteCantidad, Date plazoInscripcion, Local oLocal) {
+			int limiteCantidad, String plazoInscripcion, Local oLocal) {
 		super();
 		this.codEvento = codEvento;
 		this.nombre = nombre;
@@ -59,11 +59,11 @@ public class Evento {
 		this.limiteCantidad = limiteCantidad;
 	}
 
-	public Date getPlazoInscripcion() {
+	public String getPlazoInscripcion() {
 		return plazoInscripcion;
 	}
 
-	public void setPlazoInscripcion(Date plazoInscripcion) {
+	public void setPlazoInscripcion(String plazoInscripcion) {
 		this.plazoInscripcion = plazoInscripcion;
 	}
 
