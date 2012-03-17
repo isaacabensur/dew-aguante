@@ -25,8 +25,9 @@ public class SeguridadNegocioTest {
 		vo.setCelular(65656);
 	}
 	
+		
 	
-	@Test
+	//@Test
 	public void insertarPersonaTest(){
 		
 		SeguridadNegocio neg = new SeguridadNegocio();
@@ -61,6 +62,21 @@ public class SeguridadNegocioTest {
 	}
 	
 	
+	@Test
+    public void insertarSerAdic(){
+            
+            SeguridadNegocio neg = new SeguridadNegocio();
+            try {
+            
+                    neg.insertarServAdic(2,"Camisetas", "Indumentaria del grupo en la cancha", 20.00,02);
+            } catch (DAOExcepcion e) {
+                    Assert.fail("Falló: " + e.getMessage());
+            } catch (Exception ex) {
+                    System.out.println(ex);
+    }
+    
+    }
+}
 	
 	
 	/*
@@ -79,4 +95,4 @@ public class SeguridadNegocioTest {
 	}
 	*/
 	
-}
+
