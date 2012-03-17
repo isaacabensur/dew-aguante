@@ -1,16 +1,15 @@
 package fulbito.business;
 
 import fulbito.dao.PersonaDAO;
-import fulbito.dao.PublicidadDAO;
 import fulbito.exception.DAOExcepcion;
-import fulbito.model.Administrador;
+//import fulbito.model.Administrador;
 import fulbito.model.Persona;
-import fulbito.model.Publicidad;
 
 public class SeguridadNegocioPersona {
-
-	public void insertarPersona(int codPer, String tipoPer, String nombres, String paterno, String materno, String sexo, String tipoDoc, String numDoc, String correo, String password, String fecNac, Integer celular) throws DAOExcepcion {
-
+	
+	public void insertarPersona(String tipoPer, String nombres, String paterno, String materno, String sexo, String tipoDoc, String numDoc, String correo, String password, String fecNac, Integer celular) throws DAOExcepcion {
+		
+		boolean flag = true; 
 		Persona model = new Persona();
 		//model.setCodPer(codPer);
 		model.setTipoPer(tipoPer);
@@ -25,70 +24,55 @@ public class SeguridadNegocioPersona {
 		model.setFecNac(fecNac);
 		model.setCelular(celular);
 		
-		PersonaDAO dao = new PersonaDAO();
-		dao.insertar(model);
-	}
-	
-	public Persona buscarCorreo(String correo) throws DAOExcepcion {
-		PersonaDAO dao = new PersonaDAO();
-		return dao.buscarCorreo(correo);
-	}
-	public Persona buscarNumDoc(String numDoc) throws DAOExcepcion {
-		PersonaDAO dao = new PersonaDAO();
-		return dao.buscarNumDoc(numDoc);
-	}
-	
-	public void isertarPublicidad(String titulo, String contenido, String fecInicio, String fecFin, Double tarifa, Integer clicks, String seccion, Integer codPersona) throws DAOExcepcion {
+		if(tipoPer == null || tipoPer.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el tipo de persona");
+		}
+		if(nombres == null || nombres.equals("")) {
+			flag = false;
+			System.out.println("Ingrese los nombres");
+		}
+		if(paterno == null || paterno.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el apellido paterno");
+		}
+		if(materno == null || materno.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el apellido materno");
+		}
+		if(sexo == null || sexo.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el sexo");
+		}
+		if(tipoDoc == null || tipoDoc.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el tipo de documento");
+		}
+		if(numDoc == null || numDoc.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el número de documento");
+		}
+		if(correo == null || correo.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el correo");
+		}
+		if(password == null || password.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el password");
+		}
+		if(fecNac == null || fecNac.equals("")) {
+			flag = false;
+			System.out.println("Ingrese la fecha de nacimiento");
+		}
+		if(celular == null || celular.equals("")) {
+			flag = false;
+			System.out.println("Ingrese el celular");
+		}
 		
-		boolean flag = true; 
-		Publicidad model = new Publicidad();
-		Administrador admin = new Administrador();
-		model.setTitulo(titulo);
-		model.setContenido(contenido);
-		model.setFechaInicio(fecInicio);
-		model.setFechaFin(fecFin);
-		model.setTarifa(tarifa);
-		model.setClicks(clicks);
-		model.setSeccion(seccion);
-		admin.setCodPer(codPersona);
-		model.setoAdministrador(admin);
-		
-		if(titulo == null || titulo.equals("")) {
-			flag = false;
-			System.out.println("Ingrese el título");
-		}
-		if(contenido == null || contenido.equals("")) {
-			flag = false;
-			System.out.println("Ingrese el contenido");
-		}
-		if(fecInicio == null || fecInicio.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la fecha de inicio");
-		}
-		if(fecFin == null || fecFin.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la fecha de fin");
-		}
-		if(tarifa == null || tarifa.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la tarifa");
-		}
-		if(clicks == null || clicks.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la tarifa");
-		}
-		if(seccion == null || seccion.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la seccion");
-		}
-		if(codPersona == null || codPersona.equals("")) {
-			flag = false;
-			System.out.println("Ingrese la el código del Administrador");
-		}
-		PublicidadDAO dao = new PublicidadDAO();
+		PersonaDAO dao = new PersonaDAO();
 		if(flag) {
 			dao.insertar(model);
-			System.out.println("La publicidad con título "+titulo+" se ha insertado correctamente.");
+			System.out.println("El usuario "+nombres+" se ha insertado correctamente.");
 		}
 		
 	}
