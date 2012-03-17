@@ -27,7 +27,7 @@ public class SeguridadNegocioAlquiler {
 		AlquilerDAO dao = new AlquilerDAO();
 		if(flag) {
 			dao.insertar(model);
-			System.out.println("El alquiler de fecha "+fecAlquiler+" se ha insertado correctamente.");
+			System.out.println("El alquiler para la fecha "+fecAlquiler+" se ha insertado correctamente.");
 		}
 		
 	}
