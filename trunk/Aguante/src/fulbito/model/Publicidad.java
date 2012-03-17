@@ -1,14 +1,12 @@
 package fulbito.model;
 
-import java.util.Date;
-
 public class Publicidad {
 	
 	private int codPublicidad;
 	private String titulo;
 	private String contenido;
-	private Date fechaInicio;
-	private Date fechaFin;
+	private String fechaInicio;
+	private String fechaFin;
 	private double tarifa;
 	private int clicks;
 	private String seccion;
@@ -19,7 +17,7 @@ public class Publicidad {
 	}
 	
 	public Publicidad(int codPublicidad, String titulo, String contenido,
-			Date fechaInicio, Date fechaFin, double tarifa, int clicks,
+			String fechaInicio, String fechaFin, double tarifa, int clicks,
 			String seccion, Administrador oAdministrador) {
 		super();
 		this.codPublicidad = codPublicidad;
@@ -57,19 +55,19 @@ public class Publicidad {
 		this.contenido = contenido;
 	}
 
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 
