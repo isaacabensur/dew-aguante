@@ -2,10 +2,14 @@ package fulbito.business;
 
 import fulbito.dao.PersonaDAO;
 import fulbito.dao.PublicidadDAO;
+import fulbito.dao.ServAdicionalDAO;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Administrador;
+import fulbito.model.Local;
 import fulbito.model.Persona;
 import fulbito.model.Publicidad;
+import fulbito.model.ServAdicional;
+import fulbito.util.ConexionBD;
 
 public class SeguridadNegocio {
 
@@ -91,6 +95,22 @@ public class SeguridadNegocio {
 			System.out.println("La publicidad con título "+titulo+" se ha insertado correctamente.");
 		}
 		
+	}
+
+	public void insertarServAdic(int codServ, String tipo, String descripcion, Double tarifa, int oLocal ) throws DAOExcepcion {
+
+		ServAdicional model = new ServAdicional();
+		model.setCodServ(codServ);
+		model.setTipo(tipo);
+		model.setDescripcion(descripcion);
+		model.setTarifa(tarifa);
+		Local x=new Local();
+		x.setCodLoc(oLocal);
+		model.setoLocal(x);
+		
+				
+		ServAdicionalDAO dao = new ServAdicionalDAO();
+		dao.insertar(model);
 	}
 	
 }
