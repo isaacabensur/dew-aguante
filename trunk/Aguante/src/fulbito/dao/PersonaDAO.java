@@ -9,6 +9,7 @@ import java.util.Collection;
 
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Persona;
+import fulbito.model.ServAdicional;
 import fulbito.util.ConexionBD;
 
 
@@ -43,9 +44,8 @@ public class PersonaDAO extends BaseDAO {
 		}
 		return lista;
 	}
-
 	
-public void insertar(Persona vo) throws DAOExcepcion {
+	public void insertar(Persona vo) throws DAOExcepcion {
 		System.out.println("PersonaDAO: insertar(Persona vo)");
 		String query = "INSERT INTO Persona(codPer,tipoPer,nombres,paterno,materno,sexo,tipoDoc,numDoc,correo,password,fecNac,celular) VALUES (?,?,?,?,?,?,?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)";
 		Connection con = null;
@@ -152,32 +152,57 @@ public void insertar(Persona vo) throws DAOExcepcion {
 	}
 
 	
-public Collection<Persona> listar() throws DAOExcepcion {
+	public Collection<Persona> listar() throws DAOExcepcion {
 		System.out.println("PersonaDAO: listar()");
 		Collection<Persona> c = new ArrayList<Persona>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			con = ConexionBD.obtenerConexion();
-			String query = "SELECT Persona_nombre,descripcion from Persona";
-			stmt = con.prepareStatement(query);
-			rs = stmt.executeQuery();
-			while (rs.next()) {
-				Persona vo = new Persona();
-				vo.setNombres(rs.getString("Persona_nombre"));
-				vo.setPaterno(rs.getString("descripcion"));
-				c.add(vo);
-			}
+		con = ConexionBD.obtenerConexion();
+		String query = "SELECT Persona_nombre,descripcion from Persona";
+		stmt = con.prepareStatement(query);
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+		Persona vo = new Persona();
+		vo.setNombres(rs.getString("Persona_nombre"));
+		vo.setPaterno(rs.getString("descripcion"));
+		c.add(vo);
+		}
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
+		System.err.println(e.getMessage());
+		throw new DAOExcepcion(e.getMessage());
 		} finally {
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
+		this.cerrarStatement(stmt);
+		this.cerrarConexion(con);
 		}
 		return c;
-	}
+		}
 
+	//public void insertar(ServAdicional vo) throws DAOExcepcion {
+	//	System.out.println("PersonaDAO: insertar(ServAdicional vo)");
+	//	String query = "INSERT INTO servadicional(codServ,tipo,descripcion,tarifa,Local_codLoc) VALUES (?,?,?,?,?)";
+	//	Connection con = null;
+	//	PreparedStatement stmt = null;
+	//	try {
+	//		con = ConexionBD.obtenerConexion();
+	//		stmt = con.prepareStatement(query);
+	//		stmt.setInt(1, vo.getCodServ());
+	//		stmt.setString(2, vo.getTipo());
+	//		stmt.setString(3, vo.getDescripcion());
+	//		stmt.setDouble(4, vo.getTarifa());
+	//		stmt.setInt(5, vo.getoLocal().getCodLoc());
+			
+	//		int i = stmt.executeUpdate();
+	//		if (i != 1) {
+	//			throw new SQLException("No se pudo insertar el Servicio Adicional");
+	//		}
+	//	} catch (SQLException e) {
+	//		System.err.println(e.getMessage());
+	//		throw new DAOExcepcion(e.getMessage());
+	//	} finally {
+	//		this.cerrarStatement(stmt);
+	//		this.cerrarConexion(con);
+	//	}
+	//}
 }
-
