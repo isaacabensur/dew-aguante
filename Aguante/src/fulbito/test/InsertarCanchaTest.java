@@ -24,7 +24,7 @@ public class InsertarCanchaTest {
 			System.out.println(ex);
 		}
 	}
-	@Test
+	
 public void insertarMensajeErrorTest(){
 		
 		InsertarCancha neg = new InsertarCancha();
@@ -53,19 +53,6 @@ public void MensajeErrorNombreDuplicadoTest(){
 	}
 }
 
-public void insertarServAdicionalTest(){
-	
-	InsertarServAdicional neg = new InsertarServAdicional();
-	try {
-	
-		neg.insertarServAdicional("", "", 0.0 , 0);
-	} catch (DAOExcepcion e) {
-		System.out.print(e.getMessage());
-		Assert.fail("Falló: " + e.getMessage());
-		
-	} catch (Exception ex) {
-		System.out.println(ex);
-	}
-}
+
 
 }
