@@ -53,7 +53,7 @@ public class PersonaDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			//stmt.setInt(1, vo.getCodPer());
+			stmt.setInt(1, vo.getCodPer());
 			stmt.setString(1, vo.getTipoPer());
 			stmt.setString(2, vo.getNombres());
 			stmt.setString(3, vo.getPaterno());
@@ -65,7 +65,7 @@ public class PersonaDAO extends BaseDAO {
 			stmt.setString(9, vo.getPassword());
 			stmt.setString(10, vo.getFecNac());
 			stmt.setInt(11, vo.getCelular());
-			/*
+			
 			Persona personaBusca = null;
 		
 			personaBusca=buscarCorreo(vo.getCorreo());
@@ -75,8 +75,8 @@ public class PersonaDAO extends BaseDAO {
 			
 			personaBusca=buscarNumDoc(vo.getNumDoc());
 			if (personaBusca!=null)
-				throw new SQLException("La persona con el DNI ingresado ya existe");
-			*/
+				throw new SQLException("El DNI ingresado ya existe");
+		
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
