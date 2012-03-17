@@ -47,28 +47,43 @@ public class PersonaDAO extends BaseDAO {
 	
 	public void insertar(Persona vo) throws DAOExcepcion {
 		System.out.println("PersonaDAO: insertar(Persona vo)");
-		String query = "INSERT INTO Persona(codPer,tipoPer,nombres,paterno,materno,sexo,tipoDoc,numDoc,correo,password,fecNac,celular) VALUES (?,?,?,?,?,?,?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)";
+		String query = "INSERT INTO Persona(tipoPer,nombres,paterno,materno,sexo,tipoDoc,numDoc,correo,password,fecNac,celular) VALUES (?,?,?,?,?,?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, vo.getCodPer());
-			stmt.setString(2, vo.getTipoPer());
-			stmt.setString(3, vo.getNombres());
-			stmt.setString(4, vo.getPaterno());
-			stmt.setString(5, vo.getMaterno());
-			stmt.setString(6, vo.getSexo());
-			stmt.setString(7, vo.getTipoDoc());
-			stmt.setString(8, vo.getNumDoc());
-			stmt.setString(9, vo.getCorreo());
-			stmt.setString(10, vo.getPassword());
-			stmt.setString(11, vo.getFecNac());
-			stmt.setInt(12, vo.getCelular());
+			//stmt.setInt(1, vo.getCodPer());
+			stmt.setString(1, vo.getTipoPer());
+			stmt.setString(2, vo.getNombres());
+			stmt.setString(3, vo.getPaterno());
+			stmt.setString(4, vo.getMaterno());
+			stmt.setString(5, vo.getSexo());
+			stmt.setString(6, vo.getTipoDoc());
+			stmt.setString(7, vo.getNumDoc());
+			stmt.setString(8, vo.getCorreo());
+			stmt.setString(9, vo.getPassword());
+			stmt.setString(10, vo.getFecNac());
+			stmt.setInt(11, vo.getCelular());
+			/*
+			Persona personaBusca = null;
+		
+			personaBusca=buscarCorreo(vo.getCorreo());
+			if (personaBusca!=null)
+				throw new SQLException("El correo ya existe");
 			
+			
+			personaBusca=buscarNumDoc(vo.getNumDoc());
+			if (personaBusca!=null)
+				throw new SQLException("La persona con el DNI ingresado ya existe");
+			*/
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
+			}
+			else
+			{
+				System.out.println("El registro fue ingresado correctamente");
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -79,6 +94,65 @@ public class PersonaDAO extends BaseDAO {
 		}
 	}
 
+	public Persona buscarCorreo(String correo) throws DAOExcepcion {
+		System.out.println("PersonaDAO: buscarCorreo(String correo)");
+		Persona vo = null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select nombres, paterno from Persona where correo=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, correo);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo = new Persona();
+				vo.setNombres(rs.getString(1));
+				vo.setPaterno(rs.getString(2));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
+	
+	
+	public Persona buscarNumDoc(String numDoc) throws DAOExcepcion {
+		System.out.println("PersonaDAO: buscarNumDoc(String numDoc)");
+		Persona vo = null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select nombres, paterno from Persona where numDoc=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, numDoc);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo = new Persona();
+				vo.setNombres(rs.getString(1));
+				vo.setPaterno(rs.getString(2));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
+	
+	
+	
 	public Persona obtener(String PersonaNombre) throws DAOExcepcion {
 		System.out.println("PersonaDAO: obtener(String PersonaNombre)");
 		Persona vo = new Persona();
@@ -106,6 +180,9 @@ public class PersonaDAO extends BaseDAO {
 		return vo;
 	}
 
+	
+	
+	
 	public void eliminar(String PersonaNombre) throws DAOExcepcion {
 		System.out.println("PersonaDAO: eliminar(String PersonaNombre)");
 		String query = "DELETE FROM Persona WHERE Persona_nombre=?";
