@@ -7,13 +7,13 @@ import fulbito.model.Local;
 
 public class InsertarCancha {
 
-	public void insertarCancha(int numCan, String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifa, String promo, String foto, char disponible, int local) throws DAOExcepcion {
+	public void insertarCancha(String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifa, String promo, String foto, String disponible, int local) throws DAOExcepcion {
 
 		Cancha model = new Cancha();
 		Local oLocal = new Local();
 		
 		
-		model.setNumCan(numCan);
+		if(!nombre.equals("")  ){
 		model.setNombre(nombre);
 		model.setCaracteristicas(caracteristicas);
 		model.setDiasAtencion(diasAtencion);
@@ -27,6 +27,15 @@ public class InsertarCancha {
 		
 		CanchaDAO dao = new CanchaDAO();
 		dao.insertar(model);
+		
+		
+		}
+		
+		else {
+			
+			throw new DAOExcepcion("Ingrese datos");
+		}
+		
 	}
 
 }
