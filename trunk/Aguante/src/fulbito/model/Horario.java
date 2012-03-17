@@ -1,14 +1,12 @@
 package fulbito.model;
 
-import java.util.Date;
-
 public class Horario {
 
 	private int codHorario;
-	private Date fecha;
+	private String fecha;
 	private String horaInicio;
 	private String horaFin;
-	private char estado;
+	private String estado;
 	private Alquiler oAlquiler;
 	private Cancha oCancha;
 	
@@ -16,8 +14,8 @@ public class Horario {
 		
 	}
 	
-	public Horario(int codHorario, Date fecha, String horaInicio,
-			String horaFin, char estado, Alquiler oAlquiler, Cancha oCancha) {
+	public Horario(int codHorario, String fecha, String horaInicio,
+			String horaFin, String estado, Alquiler oAlquiler, Cancha oCancha) {
 		super();
 		this.codHorario = codHorario;
 		this.fecha = fecha;
@@ -36,11 +34,11 @@ public class Horario {
 		this.codHorario = codHorario;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -60,11 +58,11 @@ public class Horario {
 		this.horaFin = horaFin;
 	}
 
-	public char getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(char estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
