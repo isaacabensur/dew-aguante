@@ -9,6 +9,7 @@ import java.util.Collection;
 
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Alquiler;
+import fulbito.model.Cliente;
 import fulbito.util.ConexionBD;
 
 
@@ -17,7 +18,7 @@ public class AlquilerDAO extends BaseDAO {
 
 	public Collection<Alquiler> buscarPorFecha(String fecha) throws DAOExcepcion {
 		System.out.println("AlquilerDAO: buscarPorFecha(String fecha)");
-		String query = "SELECT codAlquiler FROM alquiler WHERE fecAlquiler like ?";
+		String query = "SELECT codAlquiler FROM alquiler WHERE trunc(fecAlquiler) = STR_TO_DATE(?,'%d/%m/%Y')";
 		Collection<Alquiler> lista = new ArrayList<Alquiler>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -25,12 +26,11 @@ public class AlquilerDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, "%" + titulo + "%");
+			stmt.setString(1, "%" + fecha + "%");
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Alquiler vo = new Alquiler();
-				vo.setTitulo(rs.getString("titulo"));
-				vo.setContenido(rs.getString("contenido"));
+				vo.setCodAlquiler(rs.getInt("codAlquiler"));
 				lista.add(vo);
 			}
 		} catch (SQLException e) {
@@ -47,20 +47,14 @@ public class AlquilerDAO extends BaseDAO {
 	
 public void insertar(Alquiler vo) throws DAOExcepcion {
 		System.out.println("AlquilerDAO: insertar(Alquiler vo)");
-		String query = "INSERT INTO alquiler(titulo,contenido,fechaInicio,fechaFin,tarifa,clicks,seccion,Persona_codPer) VALUES (?,?,STR_TO_DATE(?,'%d/%m/%Y'),STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?)";
+		String query = "INSERT INTO alquiler(fecAlquiler,Persona_codPer) VALUES (STR_TO_DATE(?,'%d/%m/%Y'),?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, vo.getTitulo());
-			stmt.setString(2, vo.getContenido());
-			stmt.setString(3, vo.getFechaInicio());
-			stmt.setString(4, vo.getFechaFin());
-			stmt.setDouble(5, vo.getTarifa());
-			stmt.setInt(6, vo.getClicks());
-			stmt.setString(7, vo.getSeccion());
-			stmt.setInt(8, vo.getoAdministrador().getCodPer());
+			stmt.setString(1, vo.getFecAlquiler());
+			stmt.setInt(2, vo.getoCliente().getCodPer());
 			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
@@ -78,18 +72,20 @@ public void insertar(Alquiler vo) throws DAOExcepcion {
 	public Alquiler obtener(String codigoAlquiler) throws DAOExcepcion {
 		System.out.println("AlquilerDAO: obtener(String codigoAlquiler)");
 		Alquiler vo = new Alquiler();
+		Cliente cl = new Cliente();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select titulo, contenido from alquiler where codAlquiler=?";
+			String query = "select fecAlquiler, Persona_codPer from alquiler where codAlquiler=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, codigoAlquiler);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				vo.setTitulo(rs.getString(1));
-				vo.setContenido(rs.getString(2));
+				vo.setFecAlquiler(rs.getString(1));
+				cl.setCodPer(rs.getInt(2));
+				vo.setoCliente(cl);
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -126,13 +122,13 @@ public void insertar(Alquiler vo) throws DAOExcepcion {
 
 	public void actualizar(Alquiler vo) throws DAOExcepcion {
 		System.out.println("AlquilerDAO: actualizar(Alquiler vo)");
-		String query = "update alquiler set contenido=? where codAlquiler=?";
+		String query = "update alquiler set fecAlquiler=? where codAlquiler=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, vo.getContenido());
+			stmt.setString(1, vo.getFecAlquiler());
 			stmt.setInt(2, vo.getCodAlquiler());
 			int i = stmt.executeUpdate();
 			if (i != 1) {
@@ -151,22 +147,21 @@ public void insertar(Alquiler vo) throws DAOExcepcion {
 public Collection<Alquiler> listar() throws DAOExcepcion {
 		System.out.println("AlquilerDAO: listar()");
 		Collection<Alquiler> c = new ArrayList<Alquiler>();
+		Cliente cl = new Cliente();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "SELECT codAlquiler, titulo, contenido, fechaInicio, fechaFin, tarifa from alquiler";
+			String query = "SELECT codAlquiler, fecAlquiler, Persona_codPer from alquiler";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Alquiler vo = new Alquiler();
 				vo.setCodAlquiler(rs.getInt("codAlquiler"));
-				vo.setTitulo(rs.getString("titulo"));
-				vo.setContenido(rs.getString("contenido"));
-				vo.setFechaInicio(rs.getString("fechaInicio"));
-				vo.setFechaFin(rs.getString("fechaFin"));
-				vo.setTarifa(rs.getDouble("tarifa"));
+				vo.setFecAlquiler(rs.getString("fecAlquiler"));
+				cl.setCodPer(rs.getInt("Persona_codPer"));
+				vo.setoCliente(cl);
 				c.add(vo);
 			}
 		} catch (SQLException e) {
