@@ -1,8 +1,6 @@
 package fulbito.model;
 
 import java.util.Collection;
-import java.util.Date;
-
 
 public class Alquiler {
 	
