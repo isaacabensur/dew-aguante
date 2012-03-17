@@ -29,6 +29,15 @@ public class SeguridadNegocio {
 		dao.insertar(model);
 	}
 	
+	public Persona buscarCorreo(String correo) throws DAOExcepcion {
+		PersonaDAO dao = new PersonaDAO();
+		return dao.buscarCorreo(correo);
+	}
+	public Persona buscarNumDoc(String numDoc) throws DAOExcepcion {
+		PersonaDAO dao = new PersonaDAO();
+		return dao.buscarNumDoc(numDoc);
+	}
+	
 	public void isertarPublicidad(String titulo, String contenido, String fecInicio, String fecFin, Double tarifa, Integer clicks, String seccion, Integer codPersona) throws DAOExcepcion {
 		
 		boolean flag = true; 
