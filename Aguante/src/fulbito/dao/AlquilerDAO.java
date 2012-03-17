@@ -18,7 +18,7 @@ public class AlquilerDAO extends BaseDAO {
 
 	public Collection<Alquiler> buscarPorFecha(String fecha) throws DAOExcepcion {
 		System.out.println("AlquilerDAO: buscarPorFecha(String fecha)");
-		String query = "SELECT codAlquiler FROM alquiler WHERE trunc(fecAlquiler) = STR_TO_DATE(?,'%d/%m/%Y')";
+		String query = "SELECT codAlquiler FROM alquiler WHERE fecAlquiler = STR_TO_DATE(?,'%d/%m/%Y')";
 		Collection<Alquiler> lista = new ArrayList<Alquiler>();
 		Connection con = null;
 		PreparedStatement stmt = null;
