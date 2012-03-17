@@ -12,7 +12,7 @@ public class Cancha {
 	private double tarifa;
 	private String promo;
 	private String foto;
-	private char disponible;
+	private String disponible;
 	private Collection<Horario> horarios;
 	private Collection<Comentario> comentarios;
 	private Local oLocal;
@@ -23,7 +23,7 @@ public class Cancha {
 
 	public Cancha(int numCan, String nombre, String caracteristicas,
 			String diasAtencion, String horasAtencion, double tarifa,
-			String promo, String foto, char disponible,
+			String promo, String foto, String disponible,
 			Collection<Horario> horarios, Collection<Comentario> comentarios,
 			Local oLocal) {
 		super();
@@ -105,11 +105,11 @@ public class Cancha {
 		this.foto = foto;
 	}
 
-	public char getDisponible() {
+	public String getDisponible() {
 		return disponible;
 	}
 
-	public void setDisponible(char disponible) {
+	public void setDisponible(String disponible) {
 		this.disponible = disponible;
 	}
 
