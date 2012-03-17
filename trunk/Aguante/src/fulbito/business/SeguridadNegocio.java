@@ -97,20 +97,4 @@ public class SeguridadNegocio {
 		
 	}
 
-	public void insertarServAdic(int codServ, String tipo, String descripcion, Double tarifa, int oLocal ) throws DAOExcepcion {
-
-		ServAdicional model = new ServAdicional();
-		model.setCodServ(codServ);
-		model.setTipo(tipo);
-		model.setDescripcion(descripcion);
-		model.setTarifa(tarifa);
-		Local x=new Local();
-		x.setCodLoc(oLocal);
-		model.setoLocal(x);
-		
-				
-		ServAdicionalDAO dao = new ServAdicionalDAO();
-		dao.insertar(model);
-	}
-	
 }
