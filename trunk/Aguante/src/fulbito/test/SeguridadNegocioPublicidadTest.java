@@ -3,7 +3,7 @@ package fulbito.test;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import fulbito.business.SeguridadNegocio;
+import fulbito.business.SeguridadNegocioPublicidad;
 import fulbito.exception.DAOExcepcion;
 
 public class SeguridadNegocioPublicidadTest {
@@ -11,7 +11,7 @@ public class SeguridadNegocioPublicidadTest {
 	@Test
 	public void insertarPublicidadTest() {
 		
-		SeguridadNegocio neg = new SeguridadNegocio();
+		SeguridadNegocioPublicidad neg = new SeguridadNegocioPublicidad();
 		try {
 			neg.isertarPublicidad("Bienvenida", "Se da una grata bienvenida a los inscritos", "15/03/2012", "18/03/2012", 1000.0, 0, "P1", 1);
 		} catch (DAOExcepcion e) {
