@@ -12,7 +12,7 @@ public class SeguridadNegocio {
 	public void insertarPersona(int codPer, String tipoPer, String nombres, String paterno, String materno, String sexo, String tipoDoc, String numDoc, String correo, String password, String fecNac, int celular) throws DAOExcepcion {
 
 		Persona model = new Persona();
-		model.setCodPer(codPer);
+		//model.setCodPer(codPer);
 		model.setTipoPer(tipoPer);
 		model.setNombres(nombres);
 		model.setPaterno(paterno);
