@@ -13,7 +13,7 @@ public class Persona {
 	private String correo;
 	private String password;
 	private String fecNac;
-	private int celular;
+	private Integer celular;
 	
 	public Persona() {
 		
@@ -21,7 +21,7 @@ public class Persona {
 	
 	public Persona(int codPer, String tipoPer, String nombres, String paterno,
 			String materno, String sexo, String tipoDoc, String numDoc,
-			String correo, String password, String fecNac, int celular) {
+			String correo, String password, String fecNac, Integer celular) {
 		super();
 		this.codPer = codPer;
 		this.tipoPer = tipoPer;
@@ -125,7 +125,7 @@ public class Persona {
 		this.fecNac = fecNac;
 	}
 
-	public int getCelular() {
+	public Integer getCelular() {
 		return celular;
 	}
 
