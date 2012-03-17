@@ -11,7 +11,6 @@ public class SeguridadNegocioPersona {
 		
 		boolean flag = true; 
 		Persona model = new Persona();
-		//model.setCodPer(codPer);
 		model.setTipoPer(tipoPer);
 		model.setNombres(nombres);
 		model.setPaterno(paterno);
@@ -72,7 +71,7 @@ public class SeguridadNegocioPersona {
 		PersonaDAO dao = new PersonaDAO();
 		if(flag) {
 			dao.insertar(model);
-			System.out.println("El usuario "+nombres+" se ha insertado correctamente.");
+			System.out.println("El usuario "+nombres+" "+paterno+" "+materno+" se ha insertado correctamente.");
 		}
 		
 	}
