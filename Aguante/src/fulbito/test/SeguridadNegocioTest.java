@@ -9,9 +9,6 @@ import fulbito.exception.DAOExcepcion;
 
 public class SeguridadNegocioTest {
 	
-	// Jasen VB - Cambios realizados a las 20:45
-	
-	//Esta cuestion esta bacan
 	
 	
 	@Test
@@ -30,9 +27,3 @@ public class SeguridadNegocioTest {
 	
 }
 
-
-// Vamos AGUANTE!!!
-
-//Deleted project Aguante
-
-//VAMOS CREMAS
