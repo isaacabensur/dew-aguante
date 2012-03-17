@@ -4,20 +4,19 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import fulbito.business.InsertarCancha;
-import fulbito.business.InsertarServAdicional;
 import fulbito.exception.DAOExcepcion;
 
 public class InsertarCanchaTest {
 	
 	
 	
-	
+	@Test
 	public void insertarCanchaTest(){
 		
 		InsertarCancha neg = new InsertarCancha();
 		try {
 		
-			neg.insertarCancha("Cancha Francia", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", "s", 1);
+			neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", "s", 1);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -25,6 +24,7 @@ public class InsertarCanchaTest {
 		}
 	}
 	
+	@Test
 public void insertarMensajeErrorTest(){
 		
 		InsertarCancha neg = new InsertarCancha();
@@ -40,19 +40,23 @@ public void insertarMensajeErrorTest(){
 		}
 	}
 
+@Test
+
 public void MensajeErrorNombreDuplicadoTest(){
 	
 	InsertarCancha neg = new InsertarCancha();
 	try {
-	
-		neg.insertarCancha("Cancha Francia", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", "s", 1);
+         	
+		
+		neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", "s", 1);
+		
+		
 	} catch (DAOExcepcion e) {
 		Assert.fail("Falló: " + e.getMessage());
 	} catch (Exception ex) {
 		System.out.println(ex);
 	}
 }
-
 
 
 }
