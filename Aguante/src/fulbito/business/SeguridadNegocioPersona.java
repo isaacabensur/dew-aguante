@@ -26,46 +26,57 @@ public class SeguridadNegocioPersona {
 		if(tipoPer == null || tipoPer.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el tipo de persona");
+			throw new DAOExcepcion("Ingrese el tipo de persona");
 		}
 		if(nombres == null || nombres.equals("")) {
 			flag = false;
 			System.out.println("Ingrese los nombres");
+			throw new DAOExcepcion("Ingrese los nombres");
 		}
 		if(paterno == null || paterno.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el apellido paterno");
+			throw new DAOExcepcion("Ingrese el apellido paterno");
 		}
 		if(materno == null || materno.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el apellido materno");
+			throw new DAOExcepcion("Ingrese el apellido materno");
 		}
 		if(sexo == null || sexo.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el sexo");
+			throw new DAOExcepcion("Ingrese el sexo");
 		}
 		if(tipoDoc == null || tipoDoc.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el tipo de documento");
+			throw new DAOExcepcion("Ingrese el tipo de documento");
 		}
 		if(numDoc == null || numDoc.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el número de documento");
+			throw new DAOExcepcion("Ingrese el número de documento");
 		}
 		if(correo == null || correo.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el correo");
+			throw new DAOExcepcion("Ingrese el correo");
 		}
 		if(password == null || password.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el password");
+			throw new DAOExcepcion("Ingrese el password");
 		}
 		if(fecNac == null || fecNac.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la fecha de nacimiento");
+			throw new DAOExcepcion("Ingrese la fecha de nacimiento");
 		}
 		if(celular == null || celular.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el celular");
+			throw new DAOExcepcion("Ingrese el celular");
 		}
 		
 		PersonaDAO dao = new PersonaDAO();
