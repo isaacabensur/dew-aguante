@@ -3,7 +3,6 @@ package fulbito.test;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import fulbito.business.SeguridadNegocio;
 import fulbito.business.SeguridadNegocioPersona;
 import fulbito.exception.DAOExcepcion;
 
