@@ -13,7 +13,7 @@ public class SeguridadNegocioPersonaTest {
 		
 		SeguridadNegocioPersona neg = new SeguridadNegocioPersona();
 		try {
-			neg.insertarPersona("ewrw", "Adrian", "Domingo", "Fernandez","F","DNI","132478785","132j23s@asd.com","576678","21/05/1995",45);
+			neg.insertarPersona("NAT", "user9", "Dante", "Fernandez","M","DNI","18637455","user9@asd.com","576678","21/05/1995",45);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
