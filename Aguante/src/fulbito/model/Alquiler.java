@@ -7,7 +7,7 @@ import java.util.Date;
 public class Alquiler {
 	
 	private int codAlquiler;
-	private Date fecAlquiler;
+	private String fecAlquiler;
 	private Collection<Horario> horarios;
 	private Cliente oCliente;
 	
@@ -15,7 +15,7 @@ public class Alquiler {
 		
 	}
 	
-	public Alquiler(int codAlquiler, Date fecAlquiler,
+	public Alquiler(int codAlquiler, String fecAlquiler,
 			Collection<Horario> horarios, Cliente oCliente) {
 		super();
 		this.codAlquiler = codAlquiler;
@@ -32,11 +32,11 @@ public class Alquiler {
 		this.codAlquiler = codAlquiler;
 	}
 
-	public Date getFecAlquiler() {
+	public String getFecAlquiler() {
 		return fecAlquiler;
 	}
 
-	public void setFecAlquiler(Date fecAlquiler) {
+	public void setFecAlquiler(String fecAlquiler) {
 		this.fecAlquiler = fecAlquiler;
 	}
 
