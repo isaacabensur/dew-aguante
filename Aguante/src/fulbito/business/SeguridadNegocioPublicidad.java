@@ -25,39 +25,48 @@ public class SeguridadNegocioPublicidad {
 		if(titulo == null || titulo.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el título");
+			throw new DAOExcepcion("Ingrese el título");
 		}
 		if(contenido == null || contenido.equals("")) {
 			flag = false;
 			System.out.println("Ingrese el contenido");
+			throw new DAOExcepcion("Ingrese el contenido");
 		}
 		if(fecInicio == null || fecInicio.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la fecha de inicio");
+			throw new DAOExcepcion("Ingrese la fecha de inicio");
 		}
 		if(fecFin == null || fecFin.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la fecha de fin");
+			throw new DAOExcepcion("Ingrese la fecha de fin");
 		}
 		if(tarifa == null || tarifa.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la tarifa");
+			throw new DAOExcepcion("Ingrese la tarifa");
 		}
 		if(clicks == null || clicks.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la tarifa");
+			System.out.println("Ingrese un número de clics");
+			throw new DAOExcepcion("Ingrese un número de clics");
 		}
 		if(seccion == null || seccion.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la seccion");
+			throw new DAOExcepcion("Ingrese la seccion");
 		}
 		if(codPersona == null || codPersona.equals("")) {
 			flag = false;
 			System.out.println("Ingrese la el código del Administrador");
+			throw new DAOExcepcion("Ingrese la el código del Administrador");
 		}
 		PublicidadDAO dao = new PublicidadDAO();
 		if(flag) {
 			dao.insertar(model);
 			System.out.println("La publicidad con título "+titulo+" se ha insertado correctamente.");
+			throw new DAOExcepcion("La publicidad con título "+titulo+" se ha insertado correctamente.");
 		}
 		
 	}
