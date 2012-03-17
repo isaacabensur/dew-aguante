@@ -13,7 +13,7 @@ public class SeguridadNegocioHorarioTest {
 		
 		SeguridadNegocioHorario neg = new SeguridadNegocioHorario();
 		try {
-			neg.isertarHorario("17/03/2012", "12:00", "14:00", "D", 1, 1);
+			neg.isertarHorario("17/03/2012", "12:00", "14:00", "D", 3, 1);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
