@@ -16,7 +16,7 @@ public class InsertarEventoTest {
 		InsertarEvento neg = new InsertarEvento();
 		try {
 		
-			neg.insertarEvento("COPA LIBERTADORES", "COPA", 20, "17/03/2012", 1);
+			neg.insertarEvento("COPA DEL REY", "COPA", 20, "23/03/2012", 1);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
