@@ -44,11 +44,11 @@ public class Local {
 		this.codLoc = codLoc;
 	}
 
-	public String getDescLoc() {
+	public String getDesLoc() {
 		return desLoc;
 	}
 
-	public void setDescLoc(String descLoc) {
+	public void setDesLoc(String descLoc) {
 		this.desLoc = descLoc;
 	}
 
