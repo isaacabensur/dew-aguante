@@ -10,7 +10,7 @@ public class InsertarLocal {
 		
 		boolean flag = true; 
 		Local model = new Local();
-		model.setDescLoc(desLoc);
+		model.setDesLoc(desLoc);
 		model.setDireccion(direccion);
 		model.setDistrito(distrito);
 		model.setDicGoogle(dicGoogle);
