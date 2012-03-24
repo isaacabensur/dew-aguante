@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import fulbito.dao.EventoDAO;
 import fulbito.exception.DAOExcepcion;
-import fulbito.model.Cancha;
 import fulbito.model.Evento;
 import fulbito.model.Local;
 

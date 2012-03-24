@@ -22,8 +22,8 @@ public class SeguridadNegocioAlquilerTest {
 			flag = negh.buscarPorFecha(fecha);
 			if(!flag) neg.isertarAlquiler(fecha, 1);
 			else{
-				System.out.println("La cacha ya esta alquilada");
-				throw new DAOExcepcion("La cacha ya esta alquilada");
+				System.out.println("La cancha ya esta alquilada");
+				throw new DAOExcepcion("La cancha ya esta alquilada");
 			
 			}
 		} catch (DAOExcepcion e) {

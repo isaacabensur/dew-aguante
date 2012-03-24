@@ -1,6 +1,5 @@
 package fulbito.business;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import fulbito.dao.HorarioDAO;
