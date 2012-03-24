@@ -13,7 +13,7 @@ public class InsertarLocalTest {
 		
 		InsertarLocal neg = new InsertarLocal();
 		try {
-			neg.insertarLocal("avdsda afa", "sadasds", "Lince", "google",45698545);
+			neg.insertarLocal("a2213da afa", "sadasds", "Lince", "google",45698545);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -21,8 +21,7 @@ public class InsertarLocalTest {
 		}
 		
 	}
-	/*
-	
+		
 	@Test
 	public void insertarErrorLocalTest() {
 		
@@ -51,6 +50,5 @@ public class InsertarLocalTest {
 		
 	}
 	
-	*/
 	
 }
