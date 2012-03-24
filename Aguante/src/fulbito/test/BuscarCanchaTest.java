@@ -16,7 +16,7 @@ public class BuscarCanchaTest {
 		SeguridadNegocioCancha neg = new SeguridadNegocioCancha();
 		try {
 		
-			neg.BuscarCanchaFulbito("Cancha Carlos", "Natural, sin iluminacion", "L-S");
+			neg.BuscarCanchaFulbito("Barranco", "Mar - Sab - Dom", "10:00 - 22:00");
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
