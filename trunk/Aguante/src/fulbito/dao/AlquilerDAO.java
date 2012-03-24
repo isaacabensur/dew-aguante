@@ -177,9 +177,9 @@ public void insertar(Alquiler vo) throws DAOExcepcion {
 		return c;
 	}
 	
-	public Collection<Alquiler> buscarAlquileres(int codlocal, String horainicio, String horasfin) throws DAOExcepcion {
+	public Collection<Alquiler> listarAlquileres(int codlocal, String horainicio, String horasfin) throws DAOExcepcion {
 		System.out.println("CanchaDAO: buscarAlquileres(int codlocal, String horainicio, String horasfin)");
-		String query = "select a.codAlquiler, a.fecAlquiler, a.Persona_codPer from alquiler a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+		String query = "select a.codAlquiler, a.fecAlquiler, a.Persona_codPer from alquiler a, horario b, cancha c where a.codAlquiler = b.Alquiler_codAlquiler and c.numCancha = b.Cancha_numCancha and c.Local_codLoc = ? and b.horaInicio = ? and b.horaFin = ? ";
 		Collection<Alquiler> lista = new ArrayList<Alquiler>();
 		Connection con = null;
 		PreparedStatement stmt = null;
