@@ -2,7 +2,6 @@ package fulbito.business;
 
 import fulbito.dao.PersonaDAO;
 import fulbito.exception.DAOExcepcion;
-//import fulbito.model.Administrador;
 import fulbito.model.Persona;
 
 public class SeguridadNegocioPersona {
