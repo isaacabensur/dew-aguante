@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Cancha;
+import fulbito.model.Local;
 import fulbito.util.ConexionBD;
 
 
@@ -65,6 +66,34 @@ public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAO
 		while (rs.next()) {
 			Cancha vo = new Cancha();
 			vo.setNombre(rs.getString("nombre"));
+			lista.add(vo);
+		}
+	} catch (SQLException e) {
+		System.err.println(e.getMessage());
+		throw new DAOExcepcion(e.getMessage());
+	} finally {
+		this.cerrarResultSet(rs);
+		this.cerrarStatement(stmt);
+		this.cerrarConexion(con);
+	}
+	return lista;
+}
+
+public Collection<Local> buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion) throws DAOExcepcion {
+	System.out.println("CanchaDAO: buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion)");
+	String query = "select * from cancha a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+	Collection<Local> lista = new ArrayList<Local>();
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	try {
+		con = ConexionBD.obtenerConexion();
+		stmt = con.prepareStatement(query);
+		stmt.setString(1, "%" + distrito + "%");
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+			Local vo = new Local();
+			vo.setDistrito(rs.getString("distrito"));
 			lista.add(vo);
 		}
 	} catch (SQLException e) {
