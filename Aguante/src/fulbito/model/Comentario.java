@@ -9,7 +9,7 @@ public class Comentario {
 	private String texto;
 	private int calificacion;
 	private int nivel;
-	private Collection<Comentario> conmentarios;
+	private Collection<Comentario> comentarios;
 	private Comentario oComentario;
 	private Cancha oCancha;
 	private Cliente oCliente;
@@ -19,14 +19,14 @@ public class Comentario {
 	}
 	
 	public Comentario(int codComent, String texto, int calificacion, int nivel,
-			Collection<Comentario> conmentarios, Comentario oComentario,
+			Collection<Comentario> comentarios, Comentario oComentario,
 			Cancha oCancha, Cliente oCliente) {
 		super();
 		this.codComent = codComent;
 		this.texto = texto;
 		this.calificacion = calificacion;
 		this.nivel = nivel;
-		this.conmentarios = conmentarios;
+		this.comentarios = comentarios;
 		this.oComentario = oComentario;
 		this.oCancha = oCancha;
 		this.oCliente = oCliente;
@@ -65,11 +65,11 @@ public class Comentario {
 	}
 
 	public Collection<Comentario> getConmentarios() {
-		return conmentarios;
+		return comentarios;
 	}
 
-	public void setConmentarios(Collection<Comentario> conmentarios) {
-		this.conmentarios = conmentarios;
+	public void setComentarios(Collection<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	public Cancha getoCancha() {
