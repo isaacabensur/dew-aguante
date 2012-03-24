@@ -79,10 +79,10 @@ public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAO
 	return lista;
 }
 
-public Collection<Local> buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion) throws DAOExcepcion {
+public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion) throws DAOExcepcion {
 	System.out.println("CanchaDAO: buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion)");
-	String query = "select * from cancha a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
-	Collection<Local> lista = new ArrayList<Local>();
+	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifa, a.promo, a.foto, a.disponible, a.Local_codLoc from cancha a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+	Collection<Cancha> lista = new ArrayList<Cancha>();
 	Connection con = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
@@ -90,10 +90,23 @@ public Collection<Local> buscarcanchafulbito(String distrito, String diasAtencio
 		con = ConexionBD.obtenerConexion();
 		stmt = con.prepareStatement(query);
 		stmt.setString(1, "%" + distrito + "%");
+		stmt.setString(2, "%" + diasAtencion + "%");
+		stmt.setString(3, "%" + horasAtencion + "%");
 		rs = stmt.executeQuery();
 		while (rs.next()) {
-			Local vo = new Local();
-			vo.setDistrito(rs.getString("distrito"));
+			Cancha vo = new Cancha();
+			Local _vo = new Local();
+			vo.setNumCan(rs.getInt("numCancha"));
+			vo.setNombre(rs.getString("nombre"));
+			vo.setCaracteristicas(rs.getString("caracteristicas"));
+			vo.setDiasAtencion(rs.getString("diasAtencion"));
+			vo.setHorasAtencion(rs.getString("horasAtencion"));
+			vo.setTarifa(rs.getDouble("tarifa"));
+			vo.setPromo(rs.getString("promo"));
+			vo.setFoto(rs.getString("foto"));
+			vo.setDisponible(rs.getString("disponible"));
+			_vo.setCodLoc(rs.getInt("Local_codLoc"));
+			vo.setoLocal(_vo);
 			lista.add(vo);
 		}
 	} catch (SQLException e) {
