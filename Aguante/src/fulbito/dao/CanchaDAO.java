@@ -81,7 +81,7 @@ public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAO
 
 public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion) throws DAOExcepcion {
 	System.out.println("CanchaDAO: buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion)");
-	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifa, a.promo, a.foto, a.disponible, a.Local_codLoc from cancha a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifa, a.promo, a.foto, a.disponible, a.Local_codLoc from cancha a, local b where a.Local_codLoc = b.codLoc and b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
 	Collection<Cancha> lista = new ArrayList<Cancha>();
 	Connection con = null;
 	PreparedStatement stmt = null;

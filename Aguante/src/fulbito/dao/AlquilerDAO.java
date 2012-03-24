@@ -9,7 +9,10 @@ import java.util.Collection;
 
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Alquiler;
+import fulbito.model.Cancha;
 import fulbito.model.Cliente;
+import fulbito.model.Local;
+import fulbito.model.Persona;
 import fulbito.util.ConexionBD;
 
 
@@ -144,7 +147,7 @@ public void insertar(Alquiler vo) throws DAOExcepcion {
 	}
 
 	
-public Collection<Alquiler> listar() throws DAOExcepcion {
+	public Collection<Alquiler> listar() throws DAOExcepcion {
 		System.out.println("AlquilerDAO: listar()");
 		Collection<Alquiler> c = new ArrayList<Alquiler>();
 		Cliente cl = new Cliente();
@@ -173,6 +176,39 @@ public Collection<Alquiler> listar() throws DAOExcepcion {
 		}
 		return c;
 	}
+	
+	public Collection<Alquiler> buscarAlquileres(int codlocal, String horainicio, String horasfin) throws DAOExcepcion {
+		System.out.println("CanchaDAO: buscarAlquileres(int codlocal, String horainicio, String horasfin)");
+		String query = "select a.codAlquiler, a.fecAlquiler, a.Persona_codPer from alquiler a, local b where b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+		Collection<Alquiler> lista = new ArrayList<Alquiler>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, codlocal);
+			stmt.setString(2, horainicio);
+			stmt.setString(3, horasfin);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Alquiler vo = new Alquiler();
+				Cliente _vo = new Cliente();
+				vo.setCodAlquiler(rs.getInt("codAlquiler"));
+				vo.setFecAlquiler(rs.getString("fecAlquiler"));
+				_vo.setCodPer(rs.getInt("Persona_codPer"));
+				vo.setoCliente(_vo);
+				lista.add(vo);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return lista;
+	}
 
 }
-
