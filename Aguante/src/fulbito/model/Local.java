@@ -5,7 +5,7 @@ import java.util.Collection;
 public class Local {
 	
 	private int codLoc;
-	private String descLoc;
+	private String desLoc;
 	private String direccion;
 	private String distrito;
 	private String dicGoogle;
@@ -19,13 +19,13 @@ public class Local {
 		
 	}
 
-	public Local(int codLoc, String descLoc, String direccion, String distrito,
+	public Local(int codLoc, String desLoc, String direccion, String distrito,
 			String dicGoogle, int telefonoFijo, Collection<Evento> eventos,
 			Collection<ServAdicional> servAdicionales,
 			Collection<Cancha> canchas, Duenio oDuenio) {
 		super();
 		this.codLoc = codLoc;
-		this.descLoc = descLoc;
+		this.desLoc = desLoc;
 		this.direccion = direccion;
 		this.distrito = distrito;
 		this.dicGoogle = dicGoogle;
@@ -45,11 +45,11 @@ public class Local {
 	}
 
 	public String getDescLoc() {
-		return descLoc;
+		return desLoc;
 	}
 
 	public void setDescLoc(String descLoc) {
-		this.descLoc = descLoc;
+		this.desLoc = descLoc;
 	}
 
 	public String getDireccion() {
