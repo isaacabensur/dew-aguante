@@ -28,7 +28,7 @@ public class LocalDAO extends BaseDAO {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Local vo = new Local();
-				vo.setDescLoc(rs.getString("desLoc"));
+				vo.setDesLoc(rs.getString("desLoc"));
 				vo.setDireccion(rs.getString("direccion"));
 				lista.add(vo);
 			}
@@ -52,7 +52,7 @@ public class LocalDAO extends BaseDAO {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, vo.getCodLoc());
-			stmt.setString(1, vo.getDescLoc());
+			stmt.setString(1, vo.getDesLoc());
 			stmt.setString(2, vo.getDireccion());
 			stmt.setString(3, vo.getDistrito());
 			stmt.setString(4, vo.getDicGoogle());
@@ -60,7 +60,7 @@ public class LocalDAO extends BaseDAO {
 			
 			Local localBusca = null;
 		
-			localBusca=buscarDescripcion(vo.getDescLoc());
+			localBusca=buscarDescripcion(vo.getDesLoc());
 			if (localBusca!=null)
 				throw new SQLException("El local ya existe");
 			
@@ -96,7 +96,7 @@ public class LocalDAO extends BaseDAO {
 			rs = stmt.executeQuery();
 			if (rs.next()) {
 				vo = new Local();
-				vo.setDescLoc(rs.getString(1));
+				vo.setDesLoc(rs.getString(1));
 				vo.setDireccion(rs.getString(2));
 			}
 		} catch (SQLException e) {
