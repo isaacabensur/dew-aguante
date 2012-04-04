@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-image: url(../imagenes/fondo_cancha_futbol.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #000;
+	background-position:bottom;
+}
+#contenedorPrincipal {
+	width: 1024px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding: 10px;
+	background-repeat: repeat;
+	height: 555px;
+}
+#menuInferior li {
+	float: left;
+	list-style-type: none;
+	display: block;
+	margin-left: 30px;
+	border-bottom: 5px solid #84D06A;
+	width: 120px;
+	text-align: center;
+	background-image: url(../imagenes/boton-menu.png);
+	background-repeat: no-repeat;
+	height: 23px;
+	padding-top: 5px;
+}
+#contenedorPrincipal #cuerpo {
+	width: 100%;
+	border: 1px solid #FFF;
+}
+#piecera {
+	color: #FFF;
+	height: 40px;
+	width: 100%;
+	background-image: url(../imagenes/fondo_piecera.png);
+	background-repeat: repeat;
+	position:fixed;
+}
+#contenedorPrincipal #cuerpo #menuInferior {
+}
+#contenedorPrincipal #cuerpo #menuInferior {
+	float: right;
+	margin-top: 390px;
+}
+#contenedorPrincipal #cuerpo #menuInferior li a {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #333;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+#cuerpo {
+	background-image: url(../imagenes/fondoContenedorPrincipal.png);
+	background-repeat: repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#cuerpo input {
+	height: 31px;
+	width: 252px;
+	border: 1px solid #060;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#cuerpo textarea {
+	
+	border: 1px solid #060;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+#cuerpo select {
+	padding: 5px;
+	border: 1px solid #060;
+}
+#cuerpo label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #063;
+}
+#cuerpo form table tr td #registrar {
+	background-color: #093;
+	width: 150px;
+	color: #FFF;
+	font-weight: bold;
+}
+
+#cuerpo form table tr td #buscar {
+	background-color: #093;
+	width: 150px;
+	color: #FFF;
+	font-weight: bold;
+}
+#cabecera {
+	margin-bottom: 20px;
+}
+#cuerpo h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #063;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+#cuerpo table.resultadosTabla {
+	
+	width: 95%;
+	margin: 20px;
+	
+	
+}
+#cuerpo .resultadosTabla tr td {
+	
+	border: 1px solid #063;
+	padding: 3px;
+	background-color:#FFFFFF;
+	
+	}#cuerpo .resultadosTabla tr th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #060;
+	padding: 5px;
+}
+#cuerpo  .comentario input {
+	height:0;
+	width: 0;
+	border: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
