@@ -86,4 +86,11 @@ public class SeguridadNegocioPersona {
 		
 	}
 	
+	public Persona validarPersona(String correo, String password) throws DAOExcepcion {
+		Persona persona = new Persona();
+		PersonaDAO dao = new PersonaDAO();
+		persona = dao.buscarCorreoPassword(correo, password);
+		return persona;
+	}
+	
 }
