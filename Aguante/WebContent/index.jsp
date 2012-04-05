@@ -15,11 +15,11 @@
     
   </div>
 <div id="login">
-  <form action="" method="post">
+  <form action="LoginServlet" method="post">
     <table width="390px" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><label for="correo">Dirección de correo electrónico</label></td>
-        <td><label for="password">Contraseña</label></td>
+        <td><label for="correo">Direcci&oacute;n de correo electr&oacute;nico</label></td>
+        <td><label for="password">Contrase&ntilde;a</label></td>
         <td>&nbsp;</td>
         </tr>
       <tr>
@@ -29,7 +29,7 @@
         <td><input name="Entrar" type="submit" value="Entrar" id="Entrar"/></td>
         </tr>
       <tr>
-        <td><label>Si no tienes una cuenta <a href="registro.html">¡Regístrate!</a></label></td>
+        <td><label>Si no tienes una cuenta <a href="registro.jsp">¡Regístrate!</a></label></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         </tr>

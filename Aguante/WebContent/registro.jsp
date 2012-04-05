@@ -57,21 +57,21 @@
          }
 		 if (document.f1.numDoc.value == ""){
            
-				alert("Ingresa tu número de documento");
+				alert("Ingresa tu n�mero de documento");
           		document.f1.numDoc.focus();
     		   
 		    return false;
          }
 		 if (document.f1.correo.value == ""){
            
-				alert("Ingresa tu correo electrónico");
+				alert("Ingresa tu correo electr�nico");
           		document.f1.correo.focus();
     		   
 		    return false;
          }	
 		 if (document.f1.correoconf.value == ""){
            
-				alert("Confirma tu correo electrónico");
+				alert("Confirma tu correo electr�nico");
           		document.f1.correoconf.focus();
     		   
 		    return false;
@@ -79,14 +79,14 @@
 		 
 		 if (document.f1.password.value == ""){
            
-				alert("Ingresa tu contraseña");
+				alert("Ingresa tu contrase�a");
           		document.f1.password.focus();
     		   
 		    return false;
          }
 		 if (document.f1.passwordconf.value == ""){
            
-				alert("Confirma tu contraseña");
+				alert("Confirma tu contrase�a");
           		document.f1.passwordconf.focus();
     		   
 		    return false;
@@ -107,10 +107,10 @@
     		   
 		    return false;
          }
-		 if (document.f1.año.value == ""){
+		 if (document.f1.anio.value == ""){
            
-				alert("Ingresa el año de tu nacimiento");
-          		document.f1.año.focus();
+				alert("Ingresa el a�o de tu nacimiento");
+          		document.f1.anio.focus();
     		   
 		    return false;
          }
@@ -137,13 +137,13 @@
       <div id="barraSuperior"> </div>
       <div id="cuerpo">
         <h3>Registro de usuario</h3>
-        <form name="f1" action="" method="post" onSubmit="return validar();">
+        <form name="f1" action="RegistroServlet" method="post" onSubmit="return validar();">
           <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr>
               <td width="29%" align="right" valign="middle"><label for="tipoPer" id="tipoPerlabel">Tipo  de persona</label></td>
               <td width="71%"><select name="tipoPer" id="tipoPer">
                   <option value="">Seleccionar</option>
-                  <option value="dueno">Dueño</option>
+                  <option value="dueno">Due�o</option>
                   <option value="cliente">Cliente</option>
                 </select></td>
             </tr>
@@ -176,12 +176,12 @@
                 </select></td>
             </tr>
             <tr>
-              <td align="right" valign="middle"><label for="numDoc">Número de documento de identidad</label></td>
+              <td align="right" valign="middle"><label for="numDoc">N&uacute;mero de documento de identidad</label></td>
               <td><input type="text" name="numDoc" id="numDoc" /></td>
             </tr>
             <tr>
               <td align="right" valign="top"><label for="correo"><br />
-                  Correo electrónico</label></td>
+                  Correo electr&oacute;nico</label></td>
               <td><input type="text" name="correo" id="correo" />
                 <br />
                 <label for="correoconf">Confirme su correo</label>
@@ -190,17 +190,17 @@
             </tr>
             <tr>
               <td align="right" valign="top"><label for="password"><br />
-                  Contraseña</label></td>
+                  Contrase&ntilde;a</label></td>
               <td><input type="password" name="password" id="password" />
                 <br />
-                <label for="passwordconf"> Confirme su contraseña</label>
+                <label for="passwordconf"> Confirme su contrase&ntilde;a</label>
                 <br />
                 <input type="password" name="passwordconf" id="passwordconf" /></td>
             </tr>
             <tr>
               <td align="right" valign="middle"><label for="fecha">Fecha de Nacimiento</label></td>
-              <td><select name="Día" id="dia">
-                  <option selected="selected" value="">Día</option>
+              <td><select name="dia" id="dia">
+                  <option selected="selected" value="">D�a</option>
                   <option value="1" >1</option>
                   <option value="2" >2</option>
                   <option value="3" >3</option>
@@ -235,21 +235,21 @@
                 </select>
                 <select name="mes" id="mes">
                   <option selected="selected" value="">Mes</option>
-                  <option value="Enero" >Enero</option>
-                  <option value="Febrero" >Febrero</option>
-                  <option value="Marzo" >Marzo</option>
-                  <option value="Abril" >Abril</option>
-                  <option value="Mayo" >Mayo</option>
-                  <option value="Junio" >Junio</option>
-                  <option value="Julio" >Julio</option>
-                  <option value="Agosto" >Agosto</option>
-                  <option value="Septiembre" >Septiembre</option>
-                  <option value="Octubre" >Octubre</option>
-                  <option value="Noviembre" >Noviembre</option>
-                  <option value="Diciembre" >Diciembre</option>
+                  <option value="01" >Enero</option>
+                  <option value="02" >Febrero</option>
+                  <option value="03" >Marzo</option>
+                  <option value="04" >Abril</option>
+                  <option value="05" >Mayo</option>
+                  <option value="06" >Junio</option>
+                  <option value="07" >Julio</option>
+                  <option value="08" >Agosto</option>
+                  <option value="09" >Septiembre</option>
+                  <option value="10" >Octubre</option>
+                  <option value="11" >Noviembre</option>
+                  <option value="12" >Diciembre</option>
                 </select>
-                <select name="año" id="año">
-                  <option selected="selected" value="">Año</option>
+                <select name="anio" id="anio">
+                  <option selected="selected" value="">A�o</option>
                   <option value="2012" >2012</option>
                   <option value="2011" >2011</option>
                   <option value="2010" >2010</option>
@@ -361,13 +361,13 @@
                 </select></td>
             </tr>
             <tr>
-              <td align="right" valign="middle"><label for="celular">Número de celular</label></td>
+              <td align="right" valign="middle"><label for="celular">N&uacute;mero de celular</label></td>
               <td><input type="text" name="celular" id="celular" /></td>
             </tr>
             <tr>
               <td>&nbsp;</td>
               <td><br />
-                <input type="submit" name="registrar" id="registrar" value="Regístrate" /></td>
+                <input type="submit" name="registrar" id="registrar" value="Reg�strate" /></td>
             </tr>
             <tr>
               <td>&nbsp;</td>

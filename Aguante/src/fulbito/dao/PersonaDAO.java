@@ -122,6 +122,43 @@ public class PersonaDAO extends BaseDAO {
 		return vo;
 	}
 	
+	public Persona buscarCorreoPassword(String correo, String password) throws DAOExcepcion {
+		System.out.println("PersonaDAO: buscarCorreoPassword(String correo, String password)");
+		Persona vo = null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select codPer, tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, fecNac, celular from Persona where correo=? and password=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, correo);
+			stmt.setString(2, password);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo = new Persona();
+				vo.setCodPer(rs.getInt(1));
+				vo.setTipoPer(rs.getString(2));
+				vo.setNombres(rs.getString(3));
+				vo.setPaterno(rs.getString(4));
+				vo.setMaterno(rs.getString(5));
+				vo.setSexo(rs.getString(6));
+				vo.setTipoDoc(rs.getString(7));
+				vo.setNumDoc(rs.getString(8));
+				vo.setCorreo(rs.getString(9));
+				vo.setFecNac(rs.getString(10));
+				vo.setCelular(rs.getInt(11));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
 	
 	public Persona buscarNumDoc(String numDoc) throws DAOExcepcion {
 		System.out.println("PersonaDAO: buscarNumDoc(String numDoc)");
