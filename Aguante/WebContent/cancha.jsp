@@ -5,6 +5,11 @@
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
 </head>
+<%@page import="fulbito.business.InsertarCancha,java.util.*" %>
+<%@page import="fulbito.model.Local"%>
+<%@page import="fulbito.model.Cancha"%>
+
+
 
 <body>
 <div id="contenedorPrincipal">
@@ -16,17 +21,39 @@
   </div>
 <div id="cuerpo">
     <h3>Registro de cancha</h3>
+     <%
+ 	InsertarCancha neg = new InsertarCancha();
+    Collection<Local> lstLocal = new ArrayList<Local>();
+    lstLocal=neg.ListarLocal();
+    request.setAttribute("Listadolocales",lstLocal);
+    %>
     
-    <form action="" method="get">
+    <%
+     String accion=request.getParameter("accion");
+     if (accion==null)
+     {
+     accion="n";
+     }
+     if (accion.equals("n"))
+     	{
+     %>
+    <form name="RegistrarCancha" action="ServRegCancha" method="post" onSubmit="return ValidarRegistroCancha();">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
       
       <tr>
           <td width="29%" align="right" valign="middle"><label for="local">Local</label></td>
           <td width="71%">
             
-            <select name="local" id="local">
-              <option>Seleccionar</option>
-</select></td>
+            
+
+<select name="local" id="local">
+   <option value="">Seleccionar</option>
+    <c:forEach items="${requestScope.Listadolocales}"  var="p" varStatus="i" >
+    <option value=${p.codLocal}>${p.desLoc}</option>
+    </c:forEach>
+    </select>
+
+</td>
         </tr>
         <tr>
           <td width="29%" align="right" valign="middle"><label for="nombre">Nombre de cancha</label></td>
@@ -91,6 +118,19 @@
     
     
     </form>
+    
+     <%
+    } 
+    else if (accion.equals("u"))
+    {
+    Sala objSala=(Cancha)request.getAttribute("cancha");
+    request.setAttribute("codLoc",objSala.getCodLoc());
+    
+    %>
+    
+     <%
+    }
+    %>
   </div></div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
 </body>
 </html>
