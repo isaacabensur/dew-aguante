@@ -111,4 +111,32 @@ public class LocalDAO extends BaseDAO {
 	}
 	
 	
-}
+	
+		public Collection<Local> ListarLocales() throws DAOExcepcion {
+			System.out.println("Local: ListarLocales");
+			String query = "SELECT codLocal,descLoc FROM local";
+			Collection<Local> lstLocal = new ArrayList<Local>();
+			Connection con = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			try {
+				con = ConexionBD.obtenerConexion();
+				stmt = con.prepareStatement(query);
+				rs = stmt.executeQuery();
+				while (rs.next()) {
+					Local objLocal = new Local();
+								objLocal.setCodLoc(rs.getInt("codLocal"));
+								objLocal.setDesLoc(rs.getString("deslocal"));						
+								lstLocal.add(objLocal);
+				}
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+				throw new DAOExcepcion(e.getMessage());
+			} finally {
+				this.cerrarResultSet(rs);
+				this.cerrarStatement(stmt);
+				this.cerrarConexion(con);
+			}
+			return lstLocal;
+		}	
+	}
