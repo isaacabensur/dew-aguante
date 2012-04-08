@@ -7,7 +7,7 @@ import fulbito.model.Duenio;
 
 public class InsertarLocal {
 
-	public void insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo, Integer codPer) throws DAOExcepcion {
+	public void insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo, Integer codPer ) throws DAOExcepcion {
 		
 		Duenio oDuenio = new Duenio();
 		
