@@ -31,6 +31,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>EventoServlet</display-name>
+    <servlet-name>EventoServlet</servlet-name>
+    <servlet-class>fulbito.servlet.EventoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EventoServlet</servlet-name>
+    <url-pattern>/EventoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>LocalServlet</display-name>
     <servlet-name>LocalServlet</servlet-name>
     <servlet-class>fulbito.servlet.LocalServlet</servlet-class>
