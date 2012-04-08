@@ -1,7 +1,11 @@
 package fulbito.business;
 
+import java.util.Collection;
+
+import fulbito.dao.HorarioDAO;
 import fulbito.dao.LocalDAO;
 import fulbito.exception.DAOExcepcion;
+import fulbito.model.Horario;
 import fulbito.model.Local;
 import fulbito.model.Duenio;
 
@@ -55,5 +59,11 @@ public class InsertarLocal {
 		
 	}
 		
-	
+	public Collection<Local> buscarPorPersona(int codPersona) throws DAOExcepcion {
+		
+		boolean flag = true; 
+		LocalDAO dao = new LocalDAO();
+		Collection<Local> lista = dao.buscarPorPersona(codPersona);
+		return lista;
+	}
 }
