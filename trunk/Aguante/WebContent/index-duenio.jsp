@@ -18,7 +18,7 @@
     <li><a href="local.html">Registrar  local</a></li>
     <li><a href="cancha.html">Registrar  cancha</a></li>
     <li><a href="servicios-adicionales.html">Registrar Servicios adicionales</a></li>
-    <li><a href="evento.html">Eventos</a></li>
+    <li><a href="evento.jsp">Eventos</a></li>
         <li><a href="misalquileres.html">Mis alquileres</a></li>
   </ul>
 </div>
