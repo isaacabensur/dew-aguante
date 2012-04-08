@@ -13,7 +13,7 @@ public class InsertarLocalTest {
 		
 		InsertarLocal neg = new InsertarLocal();
 		try {
-			neg.insertarLocal("a2213da afa", "sadasds", "Lince", "google",45698545,1);
+			neg.insertarLocal("Leyendas peruanas", "Av. San Luis 397", "San Borja", "123456",3489632,1 );
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -27,7 +27,7 @@ public class InsertarLocalTest {
 		
 		InsertarLocal neg = new InsertarLocal();
 		try {
-			neg.insertarLocal("av los safa", "av los", "Lince", "google",45698545,1);
+			neg.insertarLocal("Leyendas peruanas", "Av. San Luis 397", "San Borja", "123456",3489632,1 );
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -41,7 +41,7 @@ public class InsertarLocalTest {
 		
 		InsertarLocal neg = new InsertarLocal();
 		try {
-			neg.insertarLocal("av los safa", "av los", "Lince", "google",45698545,1);
+			neg.insertarLocal("Leyendas peruanas", "Av. San Luis 397", "San Borja", "123456",3489632,1 );
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
