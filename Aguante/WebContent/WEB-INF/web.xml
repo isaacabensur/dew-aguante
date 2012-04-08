@@ -29,4 +29,14 @@
     <servlet-name>RegistroServlet</servlet-name>
     <url-pattern>/RegistroServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LocalServlet</display-name>
+    <servlet-name>LocalServlet</servlet-name>
+    <servlet-class>fulbito.servlet.LocalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LocalServlet</servlet-name>
+    <url-pattern>/LocalServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -9,21 +9,21 @@
 <body>
 <div id="contenedorPrincipal">
   <div id="cabecera">
-    <div id="logo"><a href="index.html"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
+    <div id="logo"><a href="index.jsp"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div>
   <div id="barraSuperior">
     
   </div>
 <div id="cuerpo">
-    <h3>Registro de local</h3><form action="" method="get">
+    <h3>Registro de local</h3><form name="registrarLocal" action="LocalServlet" method="post" >
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
           <td width="29%" align="right" valign="middle"><label for="descLoc">Nombre de local</label></td>
           <td width="71%">
-          <input type="text" name="descLoc" id="descLoc" /></td>
+          <input type="text" name="desLoc" id="desLoc" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="direccion">DirecciÃ³n</label></td>
+          <td align="right" valign="middle"><label for="direccion">Dirección</label></td>
           <td>
           <input type="text" name="direccion" id="direccion" /></td>
         </tr>
@@ -32,7 +32,7 @@
           <td><label for="distrito"></label>
             <select name="distrito" id="distrito">
               <option selected="selected">Seleccionar</option>
-             <option value="AncÃ³n">AncÃ³n</option>
+             <option value="AncÃ³n">Año</option>
 <option value="Ate">Ate</option>
 <option value="Barranco">Barranco</option>
 <option value="Bellavista">Bellavista</option>
@@ -85,17 +85,17 @@
           </select></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="dicGoogle">DirecciÃ³n de Google</label></td>
+          <td align="right" valign="middle"><label for="dicGoogle">Dirección de Google</label></td>
           <td>
           <input type="text" name="dicGoogle" id="dicGoogle" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="telefonoFijo">TelÃ©fono fijo</label></td>
+          <td align="right" valign="middle"><label for="telefonoFijo">Teléfono fijo</label></td>
           <td><input type="text" name="telefonoFijo" id="telefonoFijo" /></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><br />            <input type="submit" name="registrar" id="registrar" value="RegÃ­stra tu local" /><p><a href="servicios-adicionales.html">Registrar servicios adicionales</a></p></td>
+          <td><br />            <input type="submit" name="registrar" id="registrar" value="Regístra tu local" /></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -106,6 +106,6 @@
     
     
     </form>
-  </div></div><div id="piecera">Futbol Camp tiene todos los derechos Â® reservados  </div>
+  </div></div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
 </body>
 </html>
