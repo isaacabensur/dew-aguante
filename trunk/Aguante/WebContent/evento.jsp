@@ -1,9 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.Iterator"%>
+<%@page import="fulbito.model.Persona"%>
+<%@page import="fulbito.model.Local"%>
+<%@page import="java.util.Collection"%>
+<%@page import="fulbito.business.InsertarLocal"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+<% 
+HttpSession sesion = request.getSession();
+Persona vo = (Persona)sesion.getAttribute("USUARIO_ACTUAL");
+int codPersona = vo.getCodPer();
+InsertarLocal neg = new InsertarLocal();
+Collection<Local> listaLocales=neg.buscarPorPersona(codPersona);
+request.setAttribute("listaLocales",listaLocales);
+%>
 </head>
 
 <body>
@@ -17,7 +30,7 @@
 <div id="cuerpo">
     <h3>Registro de evento</h3>
     
-    <form action="" method="get">
+    <form action="EventoServlet" method="post">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
           <td width="29%" align="right" valign="middle"><label for="nombre">Nombre</label></td>
@@ -30,14 +43,14 @@
           <input type="text" name="premio" id="premio" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="limiteCantidad">Cantidad límite de equipos</label></td>
+          <td align="right" valign="middle"><label for="limiteCantidad">Cantidad l&iacute;mite de equipos</label></td>
           <td>
           <input type="text" name="limiteCantidad" id="limiteCantidad" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="fecha2">Plazo para la inscripción al evento</label></td>
-          <td><select name="Día2" id="Día">
-            <option selected="selected">Día</option>
+          <td align="right" valign="middle"><label for="fecha2">Plazo para la inscripci&oacute;n al evento</label></td>
+          <td><select name="dia" id="dia">
+            <option selected="selected">D&iacute;a</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -70,23 +83,23 @@
             <option value="30" >30</option>
             <option value="31" >31</option>
           </select>
-            <select name="mes2" id="mes2">
+            <select name="mes" id="mes">
               <option selected="selected">Mes</option>
-              <option value="Enero" >Enero</option>
-              <option value="Febrero" >Febrero</option>
-              <option value="Marzo" >Marzo</option>
-              <option value="Abril" >Abril</option>
-              <option value="Mayo" >Mayo</option>
-              <option value="Junio" >Junio</option>
-              <option value="Julio" >Julio</option>
-              <option value="Agosto" >Agosto</option>
-              <option value="Septiembre" >Septiembre</option>
-              <option value="Octubre" >Octubre</option>
-              <option value="Noviembre" >Noviembre</option>
-              <option value="Diciembre" >Diciembre</option>
+              <option value="01" >Enero</option>
+              <option value="02" >Febrero</option>
+              <option value="03" >Marzo</option>
+              <option value="04" >Abril</option>
+              <option value="05" >Mayo</option>
+              <option value="06" >Junio</option>
+              <option value="07" >Julio</option>
+              <option value="08" >Agosto</option>
+              <option value="09" >Septiembre</option>
+              <option value="10" >Octubre</option>
+              <option value="11" >Noviembre</option>
+              <option value="12" >Diciembre</option>
             </select>
-            <select name="año2" id="año2">
-              <option selected="selected">Año</option>
+            <select name="anio" id="anio">
+              <option selected="selected">A&ntilde;o</option>
               <option value="2012" >2012</option>
               <option value="2011" >2011</option>
               <option value="2010" >2010</option>
@@ -201,7 +214,15 @@
           <td align="right" valign="middle"><label for="local">Local</label></td>
           <td>
             <select name="local" id="local">
-              <option>Seleccionar</option>
+            <option>Seleccionar</option>
+            <% 
+            Collection<Local> locales = (Collection<Local>)request.getAttribute("listaLocales");
+            for(Iterator it = locales.iterator(); it.hasNext();) {
+            	Local local = (Local)it.next();
+            %>
+            <option value="<%=local.getCodLoc()%>"><%=local.getDesLoc()%></option>
+            <%}%>
+              
 </select></td>
         </tr>
         <tr>
