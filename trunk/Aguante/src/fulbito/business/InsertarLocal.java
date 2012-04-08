@@ -3,10 +3,13 @@ package fulbito.business;
 import fulbito.dao.LocalDAO;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Local;
+import fulbito.model.Duenio;
 
 public class InsertarLocal {
 
-	public void insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo) throws DAOExcepcion {
+	public void insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo, Integer codPer) throws DAOExcepcion {
+		
+		Duenio oDuenio = new Duenio();
 		
 		boolean flag = true; 
 		Local model = new Local();
@@ -15,6 +18,8 @@ public class InsertarLocal {
 		model.setDistrito(distrito);
 		model.setDicGoogle(dicGoogle);
 		model.setTelefonoFijo(telefonoFijo);
+		oDuenio.setCodPer(codPer);
+		model.setoDuenio(oDuenio);		
 				
 		if(desLoc == null || desLoc.equals("")) {
 			flag = false;

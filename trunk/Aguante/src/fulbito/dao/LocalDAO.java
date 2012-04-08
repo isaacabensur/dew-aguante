@@ -45,7 +45,7 @@ public class LocalDAO extends BaseDAO {
 	
 	public void insertar(Local vo) throws DAOExcepcion {
 		System.out.println("LocalDAO: insertar(Local vo)");
-		String query = "INSERT INTO Local(desLoc,direccion,distrito,dicGoogle,telefonoFijo) VALUES (?,?,?,?,?)";
+		String query = "INSERT INTO Local(desLoc,direccion,distrito,dicGoogle,telefonoFijo,codPer) VALUES (?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -57,6 +57,7 @@ public class LocalDAO extends BaseDAO {
 			stmt.setString(3, vo.getDistrito());
 			stmt.setString(4, vo.getDicGoogle());
 			stmt.setInt(5, vo.getTelefonoFijo());
+			stmt.setInt(6, vo.getoDuenio().getCodPer());
 			
 			Local localBusca = null;
 		
