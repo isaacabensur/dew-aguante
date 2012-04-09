@@ -49,4 +49,14 @@
     <servlet-name>LocalServlet</servlet-name>
     <url-pattern>/LocalServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServAdicionalServlet</display-name>
+    <servlet-name>ServAdicionalServlet</servlet-name>
+    <servlet-class>fulbito.servlet.ServAdicionalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServAdicionalServlet</servlet-name>
+    <url-pattern>/ServAdicionalServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,15 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="fulbito.model.Persona"%>
+<%@page import="fulbito.model.Local"%>
+<%@page import="java.util.Collection"%>
+<%@page import="fulbito.business.InsertarLocal"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+<% 
+HttpSession sesion = request.getSession();
+Persona vo = (Persona)sesion.getAttribute("USUARIO_ACTUAL");
+int codPersona = vo.getCodPer();
+InsertarLocal neg = new InsertarLocal();
+Collection<Local> listaLocales=neg.buscarPorPersona(codPersona);
+request.setAttribute("listaLocales",listaLocales);
+%>
 </head>
 
 <body>
 <div id="contenedorPrincipal">
   <div id="cabecera">
-    <div id="logo"><a href="index.html"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
+    <div id="logo"><a href="index-duenio.jsp"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div>
   <div id="barraSuperior">
     
@@ -17,7 +31,7 @@
 <div id="cuerpo">
     <h3>Registrar servicios adicionales para el local</h3>
     
-    <form action="" method="get">
+    <form action="ServAdicionalServlet" method="post">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
       
       <tr>
@@ -25,17 +39,17 @@
           <td width="71%">
             
             <select name="tipo" id="tipo">
-              <option selected="selected">Seleccionar</option>
+              <option selected="selected" value="">Seleccionar</option>
               <option>Camisetas</option>
-              <option>√Årbitros</option>
-              <option>Servicio de fotograf√≠a</option>
+              <option>¡rbitros</option>
+              <option>Servicio de fotografÌa</option>
             
 </select></td>
         </tr>
         <tr>
-          <td width="29%" align="right" valign="middle"><label for="descripci√≥n">Descripci√≥n</label></td>
+          <td width="29%" align="right" valign="middle"><label for="descripcion">DescripciÛn</label></td>
           <td width="71%">
-          <input type="text" name="descripci√≥n" id="descripci√≥n" /></td>
+          <input type="text" name="descripcion" id="descripcion" /></td>
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="tarifa">Tarifa</label></td>
@@ -45,13 +59,20 @@
         <tr>
           <td align="right" valign="middle"><label for="local">Local</label></td>
           <td>
-            <select name="local" id="local">
-              <option selected="selected">Seleccionar</option>
+            
+              <select name="local" id="local">
+            <option value="" selected="selected">Seleccionar</option>
+            <% 
+            Collection<Local> locales = (ArrayList<Local>)request.getAttribute("listaLocales");
+            for(Local x: locales) {
+            %>
+            <option value="<%=x.getCodLoc()%>"><%=x.getDesLoc()%></option>
+            <%}%>
 </select></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><br />            <input type="submit" name="registrar" id="registrar" value="Reg√≠stra el servicio" /></td>
+          <td><br />            <input type="submit" name="registrar" id="registrar" value="RegÌstra el servicio" /></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -62,7 +83,7 @@
     
     
     </form>
-</div></div><div id="piecera">Futbol Camp tiene todos los derechos ¬Æ reservados  </div>
+</div></div><div id="piecera">Futbol Camp tiene todos los derechos Æ reservados  </div>
 </body>
 </html>
 

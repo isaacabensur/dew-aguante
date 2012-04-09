@@ -11,13 +11,13 @@
   <div id="cabecera">
     <div id="logo"><a href="/"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div><div id="barraSuperior">
-    Bienvenido DueÃ±o!
+    Bienvenido Dueño!
   </div><div id="menuInferior">
   <ul>
     
-    <li><a href="local.jsp">Registrar  local</a></li>
-    <li><a href="cancha.jsp">Registrar  cancha</a></li>
-    <li><a href="servicios-adicionales.html">Registrar Servicios adicionales</a></li>
+    <li><a href="local.jsp">Registrar local</a></li>
+    <li><a href="cancha.jsp">Registrar cancha</a></li>
+    <li><a href="servicios-adicionales.jsp">Registrar Servicios adicionales</a></li>
     <li><a href="evento.jsp">Eventos</a></li>
         <li><a href="misalquileres.jsp">Mis alquileres</a></li>
   </ul>
@@ -25,6 +25,6 @@
   
 
   
-</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados Â® </div>
+</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados ® </div>
 </body>
 </html>
