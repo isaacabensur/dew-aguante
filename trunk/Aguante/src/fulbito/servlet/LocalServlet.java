@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import fulbito.exception.DAOExcepcion;
 import fulbito.business.InsertarLocal;
+import fulbito.model.Persona;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -45,8 +46,9 @@ public class LocalServlet extends HttpServlet {
 		String distrito = request.getParameter("distrito");
 		String dicGoogle = request.getParameter("dicGoogle");
 		int telefonoFijo = Integer.parseInt(request.getParameter("telefonoFijo"));
-		HttpSession session = request.getSession();
-		int codPer = (Integer) session.getAttribute("codPer");
+		HttpSession sesion = request.getSession();
+		Persona vo = (Persona)sesion.getAttribute("USUARIO_ACTUAL");
+		int codPer = vo.getCodPer();
 		
 		try {
 			negocio.insertarLocal(desLoc, direccion, distrito, dicGoogle, telefonoFijo, codPer);
