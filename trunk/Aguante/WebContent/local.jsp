@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="js/validacionesJS.js"></script>
 </head>
 
 <body>
@@ -15,10 +16,10 @@
     
   </div>
 <div id="cuerpo">
-    <h3>Registro de local</h3><form name="registrarLocal" action="LocalServlet" method="post" >
+    <h3>Registro de local</h3><form name="registrarLocal" action="LocalServlet" method="post" onsubmit="return validarLocal();">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
-          <td width="29%" align="right" valign="middle"><label for="descLoc">Nombre de local</label></td>
+          <td width="29%" align="right" valign="middle"><label for="desLoc">Nombre de local</label></td>
           <td width="71%">
           <input type="text" name="desLoc" id="desLoc" /></td>
         </tr>
@@ -31,12 +32,12 @@
           <td align="right" valign="middle"><label for="distrito">Distrito</label></td>
           <td><label for="distrito"></label>
             <select name="distrito" id="distrito">
-              <option selected="selected">Seleccionar</option>
-             <option value="AncÃ³n">Año</option>
+              <option selected="selected" value="">Seleccionar</option>
+             <option value="Ancón">Ancón</option>
 <option value="Ate">Ate</option>
 <option value="Barranco">Barranco</option>
 <option value="Bellavista">Bellavista</option>
-<option value="BreÃ±a">BreÃ±a</option>
+<option value="Breña">Breña</option>
 <option value="Callao">Callao</option>
 <option value="Carabayllo">Carabayllo</option>
 <option value="Carmen de la Legua ">Carmen de la Legua </option>
@@ -47,15 +48,15 @@
 <option value="Comas">Comas</option>
 <option value="El Agustino">El Agustino</option>
 <option value="Independencia ">Independencia </option>
-<option value="JesÃºs MarÃ­a">JesÃºs MarÃ­a</option>
-<option value="La Molina ">La Molina </option>
-<option value="La Perla       ">La Perla       </option>
+<option value="Jesús María">Jesús María</option>
+<option value="La Molina ">La Molina</option>
+<option value="La Perla">La Perla</option>
 <option value="La Punta">La Punta</option>
 <option value="La Victoria">La Victoria</option>
 <option value="Lince">Lince</option>
 <option value="Los Olivos">Los Olivos</option>
 <option value="Lurigancho">Lurigancho</option>
-<option value="LurÃ­n">LurÃ­n</option>
+<option value="Lurín">Lurín</option>
 <option value="Magdalena del Mar">Magdalena del Mar</option>
 <option value="Miraflores">Miraflores</option>
 <option value="Pachacamac">Pachacamac</option>
@@ -64,14 +65,14 @@
 <option value="Puente Piedra">Puente Piedra</option>
 <option value="Punta Hermosa">Punta Hermosa</option>
 <option value="Punta Negra">Punta Negra</option>
-<option value="RÃ­mac">RÃ­mac</option>
+<option value="Rímac">Rímac</option>
 <option value="San Bartolo">San Bartolo</option>
 <option value="San Borja">San Borja</option>
 <option value="San Isidro">San Isidro</option>
 <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
 <option value="San Juan de Miraflores">San Juan de Miraflores</option>
 <option value="San Luis">San Luis</option>
-<option value="San MartÃ­n de Porres">San MartÃ­n de Porres</option>
+<option value="San Martín de Porres">San Martín de Porres</option>
 <option value="San Miguel">San Miguel</option>
 <option value="Santa Anita">Santa Anita</option>
 <option value="Santa M. del Mar">Santa M. del Mar</option>
@@ -80,7 +81,7 @@
 <option value="Surquillo">Surquillo</option>
 <option value="Ventanilla">Ventanilla</option>
 <option value="Villa El Salvador">Villa El Salvador</option>
-<option value="Villa MarÃ­a del triunfo">Villa MarÃ­a del triunfo</option>
+<option value="Villa María del triunfo">Villa María del triunfo</option>
 
           </select></td>
         </tr>

@@ -4,130 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Red social para alquiler de canchas de futbol</title>
     <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
-    <script>
-       function validar(){
-        
-		 
-		 
-		  if (document.f1.tipoPer.value == ""){
-           
-				alert("Ingresa el tipo de persona");
-          		document.f1.tipoPer.focus();
-    		   
-		    return false;
-         }	
-
-		  if (document.f1.nombres.value == ""){
-           
-				alert("Ingresa tus nombres");
-          		document.f1.nombres.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.paterno.value == ""){
-           
-				alert("Ingresa tu apellido paterno");
-          		document.f1.paterno.focus();
-    		   
-		    return false;
-         }
-		 if (document.f1.materno.value == ""){
-           
-				alert("Ingresa tu apellido materno");
-          		document.f1.materno.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.sexo.value == ""){
-           
-				alert("Ingresa tu sexo");
-          		document.f1.sexo.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.tipoDoc.value == ""){
-           
-				alert("Ingresa tu tipo de documento");
-          		document.f1.tipoDoc.focus();
-    		   
-		    return false;
-         }
-		 if (document.f1.numDoc.value == ""){
-           
-				alert("Ingresa tu número de documento");
-          		document.f1.numDoc.focus();
-    		   
-		    return false;
-         }
-		 if (document.f1.correo.value == ""){
-           
-				alert("Ingresa tu correo electrónico");
-          		document.f1.correo.focus();
-    		   
-		    return false;
-         }	
-		 if (document.f1.correoconf.value == ""){
-           
-				alert("Confirma tu correo electrónico");
-          		document.f1.correoconf.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.password.value == ""){
-           
-				alert("Ingresa tu contraseña");
-          		document.f1.password.focus();
-    		   
-		    return false;
-         }
-		 if (document.f1.passwordconf.value == ""){
-           
-				alert("Confirma tu contraseña");
-          		document.f1.passwordconf.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.dia.value == ""){
-           
-				alert("Ingresar el dia de tu nacimiento");
-          		document.f1.dia.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.mes.value == ""){
-           
-				alert("Ingresar el mes de tu nacimiento");
-          		document.f1.mes.focus();
-    		   
-		    return false;
-         }
-		 if (document.f1.anio.value == ""){
-           
-				alert("Ingresa el año de tu nacimiento");
-          		document.f1.anio.focus();
-    		   
-		    return false;
-         }
-		 
-		 if (document.f1.celular.value == ""){
-           
-				alert("Ingresa tu celular");
-          		document.f1.celular.focus();
-    		   
-		    return false;
-         }
-		 		 
-
-         return true;
-       }
-    </script>
-    </head>
+    <script type="text/javascript" src="js/validacionesJS.js"></script>
+        </head>
 
     <body>
     <div id="contenedorPrincipal">
@@ -137,7 +15,7 @@
       <div id="barraSuperior"> </div>
       <div id="cuerpo">
         <h3>Registro de usuario</h3>
-        <form name="f1" action="RegistroServlet" method="post" onSubmit="return validar();">
+        <form name="f1" action="RegistroServlet" method="post" onsubmit="return validarRegistro();">
           <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr>
               <td width="29%" align="right" valign="middle"><label for="tipoPer" id="tipoPerlabel">Tipo  de persona</label></td>
@@ -377,6 +255,6 @@
         </form>
       </div>
     </div>
-    <div id="piecera">Futbol Camp tiene todos los derechos Â® reservados </div>
+    <div id="piecera">Futbol Camp tiene todos los derechos ® reservados </div>
 </body>
 </html>
