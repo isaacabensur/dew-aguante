@@ -29,7 +29,7 @@
         <td><input name="Entrar" type="submit" value="Entrar" id="Entrar"/></td>
         </tr>
       <tr>
-        <td><label>Si no tienes una cuenta <a href="registro.jsp">Â¡RegÃ­strate!</a></label></td>
+        <td><label>Si no tienes una cuenta <a href="registro.jsp">¡Regístrate!</a></label></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         </tr>
@@ -40,6 +40,6 @@
   
 </div>
   
-</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados Â® </div>
+</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados ® </div>
 </body>
 </html>
