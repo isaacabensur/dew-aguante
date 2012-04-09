@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="fulbito.model.Persona"%>
 <%@page import="fulbito.model.Local"%>
@@ -216,11 +217,10 @@ request.setAttribute("listaLocales",listaLocales);
             <select name="local" id="local">
             <option>Seleccionar</option>
             <% 
-            Collection<Local> locales = (Collection<Local>)request.getAttribute("listaLocales");
-            for(Iterator it = locales.iterator(); it.hasNext();) {
-            	Local local = (Local)it.next();
+            Collection<Local> locales = (ArrayList<Local>)request.getAttribute("listaLocales");
+            for(Local x: locales) {
             %>
-            <option value="<%=local.getCodLoc()%>"><%=local.getDesLoc()%></option>
+            <option value="<%=x.getCodLoc()%>"><%=x.getDesLoc()%></option>
             <%}%>
               
 </select></td>
