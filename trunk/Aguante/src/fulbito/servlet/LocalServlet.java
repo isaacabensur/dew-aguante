@@ -52,7 +52,7 @@ public class LocalServlet extends HttpServlet {
 		
 		try {
 			negocio.insertarLocal(desLoc, direccion, distrito, dicGoogle, telefonoFijo, codPer);
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			response.sendRedirect(request.getContextPath() + "/index-duenio.jsp");
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
