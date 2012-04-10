@@ -21,8 +21,8 @@ public class SeguridadNegocioCancha {
 		for(Iterator<Cancha> i = cancha.iterator();
 				i.hasNext();){
 			Cancha vo = (Cancha)i.next();
-			System.out.println("NumCan :" +  vo.getNumCan() +"  Nombre :" + vo.getNombre() + "  Caracteristicas :"+ vo.getCaracteristicas() + "  DiasAtencion :" + vo.getDiasAtencion() + "  HorasAtencion :" + vo.getHorasAtencion() + "  Tarifa :" + vo.getTarifa() + "  Promo :" + vo.getPromo() + "  Foto :" + vo.getFoto() + "  Disponible :" + vo.getDisponible() + "  CodLoc :" + vo.getoLocal().getCodLoc());
-			throw new DAOExcepcion( "NumCan" + vo.getNumCan() + "Nombre" + vo.getNombre() + "Caracteristicas" + vo.getCaracteristicas() + "DiasAtencion" + vo.getDiasAtencion() + "HorasAtencion"+ vo.getHorasAtencion() + "Tarifa" + vo.getTarifa() + "Promo" + vo.getPromo() + "Foto" + vo.getFoto() + "Disponible" + vo.getDisponible() + "CodLoc" + vo.getoLocal().getCodLoc());
+			System.out.println("NumCan :" +  vo.getNumCan() +"  Nombre :" + vo.getNombre() + "  Caracteristicas :"+ vo.getCaracteristicas() + "  DiasAtencion :" + vo.getDiasAtencion() + "  HorasAtencion :" + vo.getHorasAtencion() + "  Tarifa :" + vo.getTarifa() + "  Promo :" + vo.getPromo() + "  Foto :" + vo.getFoto() + "  CodLoc :" + vo.getoLocal().getCodLoc());
+			throw new DAOExcepcion( "NumCan" + vo.getNumCan() + "Nombre" + vo.getNombre() + "Caracteristicas" + vo.getCaracteristicas() + "DiasAtencion" + vo.getDiasAtencion() + "HorasAtencion"+ vo.getHorasAtencion() + "Tarifa" + vo.getTarifa() + "Promo" + vo.getPromo() + "Foto" + vo.getFoto() + "CodLoc" + vo.getoLocal().getCodLoc());
 		}
 		
 		
