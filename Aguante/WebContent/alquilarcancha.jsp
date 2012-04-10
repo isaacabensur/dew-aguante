@@ -58,61 +58,61 @@
           <td width="29%" align="right" valign="middle"><label for="distrito">Distrito</label></td>
           <td width="71%"><select name="distrito" id="distrito">
             <option selected="selected">Seleccionar</option>
-            <option value="Ancón">Ancón</option>
-            <option value="Ate">Ate</option>
-            <option value="Barranco">Barranco</option>
-            <option value="Bellavista">Bellavista</option>
-            <option value="Breña">Breña</option>
-            <option value="Callao">Callao</option>
-            <option value="Carabayllo">Carabayllo</option>
-            <option value="Carmen de la Legua ">Carmen de la Legua </option>
-            <option value="Cercado de Lima">Cercado de Lima</option>
-            <option value="Chaclacayo">Chaclacayo</option>
-            <option value="Chorrillos">Chorrillos</option>
-            <option value="Cieneguilla">Cieneguilla</option>
-            <option value="Comas">Comas</option>
-            <option value="El Agustino">El Agustino</option>
-            <option value="Independencia ">Independencia </option>
-            <option value="Jesús María">Jesús María</option>
-            <option value="La Molina ">La Molina </option>
-            <option value="La Perla       ">La Perla </option>
-            <option value="La Punta">La Punta</option>
-            <option value="La Victoria">La Victoria</option>
-            <option value="Lince">Lince</option>
-            <option value="Los Olivos">Los Olivos</option>
-            <option value="Lurigancho">Lurigancho</option>
-            <option value="Lurín">Lurín</option>
-            <option value="Magdalena del Mar">Magdalena del Mar</option>
-            <option value="Miraflores">Miraflores</option>
-            <option value="Pachacamac">Pachacamac</option>
-            <option value="Pucusana">Pucusana</option>
-            <option value="Pueblo Libre ">Pueblo Libre </option>
-            <option value="Puente Piedra">Puente Piedra</option>
-            <option value="Punta Hermosa">Punta Hermosa</option>
-            <option value="Punta Negra">Punta Negra</option>
-            <option value="Rímac">Rímac</option>
-            <option value="San Bartolo">San Bartolo</option>
-            <option value="San Borja">San Borja</option>
-            <option value="San Isidro">San Isidro</option>
-            <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
-            <option value="San Juan de Miraflores">San Juan de Miraflores</option>
-            <option value="San Luis">San Luis</option>
-            <option value="San Martín de Porres">San Martín de Porres</option>
-            <option value="San Miguel">San Miguel</option>
-            <option value="Santa Anita">Santa Anita</option>
-            <option value="Santa M. del Mar">Santa M. del Mar</option>
-            <option value="Santa Rosa">Santa Rosa</option>
-            <option value="Santiago de Surco">Santiago de Surco</option>
-            <option value="Surquillo">Surquillo</option>
-            <option value="Ventanilla">Ventanilla</option>
-            <option value="Villa El Salvador">Villa El Salvador</option>
-            <option value="Villa María del triunfo">Villa María del triunfo</option>
+            <option value="ANC">Anc&oacute;n</option>
+            <option value="ATE">Ate</option>
+            <option value="BAR">Barranco</option>
+            <option value="BEL">Bellavista</option>
+            <option value="BRE">Bre&ntilde;a</option>
+            <option value="CAL">Callao</option>
+            <option value="CAR">Carabayllo</option>
+            <option value="CLE">Carmen de la Legua</option>
+            <option value="CLI">Cercado de Lima</option>
+            <option value="CHA">Chaclacayo</option>
+            <option value="CHO">Chorrillos</option>
+            <option value="CIE">Cieneguilla</option>
+            <option value="COM">Comas</option>
+            <option value="EAG">El Agustino</option>
+            <option value="IND">Independencia </option>
+            <option value="JEM">Jes&uacute;s Mar&iacute;a</option>
+            <option value="LMO">La Molina</option>
+            <option value="LPE">La Perla</option>
+            <option value="LPU">La Punta</option>
+            <option value="LVI">La Victoria</option>
+            <option value="LIN">Lince</option>
+            <option value="LOL">Los Olivos</option>
+            <option value="LUI">Lurigancho</option>
+            <option value="LUR">Lur&iacute;n</option>
+            <option value="MMA">Magdalena del Mar</option>
+            <option value="MIR">Miraflores</option>
+            <option value="PAC">Pachacamac</option>
+            <option value="PUC">Pucusana</option>
+            <option value="PLI">Pueblo Libre</option>
+            <option value="PPI">Puente Piedra</option>
+            <option value="PHE">Punta Hermosa</option>
+            <option value="PNE">Punta Negra</option>
+            <option value="RIM">R&iacute;mac</option>
+            <option value="SBA">San Bartolo</option>
+            <option value="SBO">San Borja</option>
+            <option value="SIS">San Isidro</option>
+            <option value="SJL">San Juan de Lurigancho</option>
+            <option value="SJM">San Juan de Miraflores</option>
+            <option value="SLU">San Luis</option>
+            <option value="SMP">San Mart&oacute;n de Porres</option>
+            <option value="SMI">San Miguel</option>
+            <option value="SAN">Santa Anita</option>
+            <option value="SMM">Santa M. del Mar</option>
+            <option value="SRO">Santa Rosa</option>
+            <option value="SSU">Santiago de Surco</option>
+            <option value="SUR">Surquillo</option>
+            <option value="VEN">Ventanilla</option>
+            <option value="VES">Villa El Salvador</option>
+            <option value="VMT">Villa Mar&iacute;a del Triunfo</option>
           </select></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="fecha">Día de atención</label></td>
+          <td align="right" valign="middle"><label for="fecha">D&iacute;a de atenci&oacute;n</label></td>
           <td><select name="dia" id="dia">
-            <option selected="selected" value="">Día</option>
+            <option selected="selected" value="">D&iacute;a</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -146,56 +146,54 @@
             <option value="31" >31</option>
           </select>
             <select name="mes" id="mes">
-              <option selected="selected" value="">Mes</option>
-              <option value="Enero" >Enero</option>
-              <option value="Febrero" >Febrero</option>
-              <option value="Marzo" >Marzo</option>
-              <option value="Abril" >Abril</option>
-              <option value="Mayo" >Mayo</option>
-              <option value="Junio" >Junio</option>
-              <option value="Julio" >Julio</option>
-              <option value="Agosto" >Agosto</option>
-              <option value="Septiembre" >Septiembre</option>
-              <option value="Octubre" >Octubre</option>
-              <option value="Noviembre" >Noviembre</option>
-              <option value="Diciembre" >Diciembre</option>
+				<option selected="selected" value="">Mes</option>
+				<option value="01" >Enero</option>
+				<option value="02" >Febrero</option>
+				<option value="03" >Marzo</option>
+				<option value="04" >Abril</option>
+				<option value="05" >Mayo</option>
+				<option value="06" >Junio</option>
+				<option value="07" >Julio</option>
+				<option value="08" >Agosto</option>
+				<option value="09" >Septiembre</option>
+				<option value="10" >Octubre</option>
+				<option value="11" >Noviembre</option>
+				<option value="12" >Diciembre</option>
             </select>
-            <select name="año" id="año">
-              <option selected="selected" value="">Año</option>
-         <option value="2013" >2013</option>
-  
-
-              <option value="2012" >2012</option>
-     
-          </select></td>
+            <select name="anio" id="anio">
+				<option selected="selected" value="">A&ntilde;o</option>
+				<option value="2013" >2013</option>
+				<option value="2012" >2012</option>
+			</select>
+		</td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="horasAtencion">Horas de atención</label></td>
+          <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
             <select name="horasAtencion" id="horasAtencion">
-              <option selected="selected" value="">Seleccionar</option>
-              <option value="06:00-07:00">06:00-07:00</option>
-<option value="07:00-08:00">07:00-08:00</option>
-<option value="08:00-09:00">08:00-09:00</option>
-<option value="09:00-10:00">09:00-10:00</option>
-<option value="10:00-11:00">10:00-11:00</option>
-<option value="11:00-12:00">11:00-12:00</option>
-<option value="12:00-13:00">12:00-13:00</option>
-<option value="13:00-14:00">13:00-14:00</option>
-<option value="14:00-15:00">14:00-15:00</option>
-<option value="15:00-16:00">15:00-16:00</option>
-<option value="16:00-17:00">16:00-17:00</option>
-<option value="17:00-18:00">17:00-18:00</option>
-<option value="18:00-19:00">18:00-19:00</option>
-<option value="19:00-20:00">19:00-20:00</option>
-<option value="20:00-21:00">20:00-21:00</option>
-<option value="21:00:22:00">21:00:22:00</option>
-
+				<option selected="selected" value="">Seleccionar</option>
+				<option value="06:00-07:00">06:00-07:00</option>
+				<option value="07:00-08:00">07:00-08:00</option>
+				<option value="08:00-09:00">08:00-09:00</option>
+				<option value="09:00-10:00">09:00-10:00</option>
+				<option value="10:00-11:00">10:00-11:00</option>
+				<option value="11:00-12:00">11:00-12:00</option>
+				<option value="12:00-13:00">12:00-13:00</option>
+				<option value="13:00-14:00">13:00-14:00</option>
+				<option value="14:00-15:00">14:00-15:00</option>
+				<option value="15:00-16:00">15:00-16:00</option>
+				<option value="16:00-17:00">16:00-17:00</option>
+				<option value="17:00-18:00">17:00-18:00</option>
+				<option value="18:00-19:00">18:00-19:00</option>
+				<option value="19:00-20:00">19:00-20:00</option>
+				<option value="20:00-21:00">20:00-21:00</option>
+				<option value="21:00:22:00">21:00:22:00</option>
+				<option value="22:00:23:00">22:00:23:00</option>
           </select></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><br />            <input type="submit" name="buscar" id="buscar" value="Buscar cancha" /></td>
+          <td><br/>            <input type="submit" name="buscar" id="buscar" value="Buscar cancha" /></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -210,9 +208,9 @@
     <table border="0" cellspacing="0" cellpadding="0" class="resultadosTabla">
   <tr>
     <th scope="col">Nombre de la cancha</th>
-    <th scope="col">Características</th>
-    <th scope="col">Dias de atención</th>
-    <th scope="col">Horas de atención</th>
+    <th scope="col">Caracter&iacute;sticas</th>
+    <th scope="col">Dias de atenci&oacute;n</th>
+    <th scope="col">Horas de atenci&oacute;n</th>
     <th scope="col">Tarifa</th>
     <th scope="col">Local</th>
     <th scope="col">Distrito</th>
@@ -220,8 +218,8 @@
 
   </tr>
   <tr>
-    <td><a href="teofilo.html">Teófilo &quot;Nene&quot; Cubillas</a></td>
-    <td>Pasto sintético, futbol 6</td>
+    <td><a href="teofilo.html">Te&oacute;filo &quot;Nene&quot; Cubillas</a></td>
+    <td>Pasto sint&eacute;tico, futbol 6</td>
     <td>31/02/12</td>
     <td>07:00 a 08:00</td>
     <td>60</td>
@@ -230,8 +228,8 @@
     <td><input type="submit" name="Alquilar" id="Alquilar" value="Alquilar"  /></td>
   </tr>
   <tr>
-    <td><a href="#">César Cueto</a></td>
-    <td>Pasto natural, fútbol 7</td>
+    <td><a href="#">C&eacute;sar Cueto</a></td>
+    <td>Pasto natural, f&uacute;tbol 7</td>
     <td>31/02/12</td>
     <td>18:00 a 19:00</td>
     <td>90</td>
@@ -241,6 +239,6 @@
   </tr>
   </table>
 
-</div></div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
+</div></div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados </div>
 </body>
 </html>
