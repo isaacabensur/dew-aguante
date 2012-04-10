@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Red social para alquiler de canchas de futbol</title>
     <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/validacionesJS.js"></script>
-        </head>
+	<script type="text/javascript" src="js/validacionesJS.js"></script>
+	</head>
 
     <body>
     <div id="contenedorPrincipal">
@@ -21,7 +21,7 @@
               <td width="29%" align="right" valign="middle"><label for="tipoPer" id="tipoPerlabel">Tipo  de persona</label></td>
               <td width="71%"><select name="tipoPer" id="tipoPer">
                   <option value="">Seleccionar</option>
-                  <option value="dueno">Dueño</option>
+                  <option value="dueno">Due&ntilde;o</option>
                   <option value="cliente">Cliente</option>
                 </select></td>
             </tr>
@@ -78,7 +78,7 @@
             <tr>
               <td align="right" valign="middle"><label for="fecha">Fecha de Nacimiento</label></td>
               <td><select name="dia" id="dia">
-                  <option selected="selected" value="">Día</option>
+                  <option selected="selected" value="">D&iacute;a</option>
                   <option value="1" >1</option>
                   <option value="2" >2</option>
                   <option value="3" >3</option>
@@ -127,7 +127,7 @@
                   <option value="12" >Diciembre</option>
                 </select>
                 <select name="anio" id="anio">
-                  <option selected="selected" value="">Año</option>
+                  <option selected="selected" value="">A&ntilde;o</option>
                   <option value="2012" >2012</option>
                   <option value="2011" >2011</option>
                   <option value="2010" >2010</option>
@@ -255,6 +255,6 @@
         </form>
       </div>
     </div>
-    <div id="piecera">Futbol Camp tiene todos los derechos ® reservados </div>
+    <div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados </div>
 </body>
 </html>
