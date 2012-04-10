@@ -1,25 +1,30 @@
 package fulbito.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fulbito.exception.DAOExcepcion;
+import fulbito.model.Cancha;
 import fulbito.business.InsertarCancha;
+import fulbito.business.SeguridadNegocioCancha;
 import fulbito.business.SeguridadNegocioPersona;
 
 /**
  * Servlet implementation class SerRegCliente
  */
-public class RegistroCanchaServlet extends HttpServlet {
+public class BuscarCanchaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistroCanchaServlet() {
+    public BuscarCanchaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,19 +41,22 @@ public class RegistroCanchaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		InsertarCancha negocio = new InsertarCancha();
-		int local = Integer.parseInt(request.getParameter("local"));
-		String nombre = request.getParameter("nombre");
-		String caracteristicas = request.getParameter("caracteristicas");
+		SeguridadNegocioCancha negocio = new SeguridadNegocioCancha();
+		Collection<Cancha> canchas = new ArrayList<Cancha>();
+		//int local = Integer.parseInt(request.getParameter("local"));
+		String distrito = request.getParameter("distrito");
 		String diasAtencion = request.getParameter("diasAtencion");
+		//String mes = request.getParameter("mes");
+		//String anio = request.getParameter("anio");
 		String horasAtencion = request.getParameter("horasAtencion");
-		double tarifaDiurna = Double.parseDouble(request.getParameter("tarifaDiurna"));
-		double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
-		String promo = request.getParameter("promo");
-		String foto = request.getParameter("foto");
+		System.out.println("distrito:"+distrito+" diasAtencion:"+diasAtencion+" horasAtencion:"+horasAtencion);
+		//double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
+		//String promo = request.getParameter("promo");
+		//String foto = request.getParameter("foto");
 		try {
-			negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
-			response.sendRedirect(request.getContextPath() + "/index-duenio.jsp");
+			canchas = negocio.BuscarCanchaFulbito(distrito, diasAtencion, horasAtencion);
+			request.setAttribute("listaCanchas", canchas);
+			response.sendRedirect(request.getContextPath() + "/alquilarcancha.jsp");
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

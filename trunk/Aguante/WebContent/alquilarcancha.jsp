@@ -1,4 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.ArrayList"%>
+<%@page import="fulbito.model.Cancha"%>
+<%@page import="java.util.Collection"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,16 +23,16 @@
 
 		  if (document.f1.diasAtencion.value == ""){
            
-				alert("Ingresa tus nombres");
-          		document.f1.nombres.focus();
+				alert("Elige los días de atención");
+          		document.f1.diasAtencion.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.paterno.value == ""){
+		 if (document.f1.horasAtencion.value == ""){
            
-				alert("Ingresa tu apellido paterno");
-          		document.f1.paterno.focus();
+				alert("Elige las horas de atención");
+          		document.f1.horasAtencion.focus();
     		   
 		    return false;
          }
@@ -52,7 +55,7 @@
 <div id="cuerpo">
     <h3>Alquiler de cancha</h3>
     
-    <form action="" method="get">
+    <form name="f1" action="BuscarCanchaServlet" method="post" onsubmit="return validar();">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
           <td width="29%" align="right" valign="middle"><label for="distrito">Distrito</label></td>
@@ -111,84 +114,40 @@
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="fecha">D&iacute;a de atenci&oacute;n</label></td>
-          <td><select name="dia" id="dia">
-            <option selected="selected" value="">D&iacute;a</option>
-            <option value="1" >1</option>
-            <option value="2" >2</option>
-            <option value="3" >3</option>
-            <option value="4" >4</option>
-            <option value="5" >5</option>
-            <option value="6" >6</option>
-            <option value="7" >7</option>
-            <option value="8" >8</option>
-            <option value="9" >9</option>
-            <option value="10" >10</option>
-            <option value="11" >11</option>
-            <option value="12" >12</option>
-            <option value="13" >13</option>
-            <option value="14" >14</option>
-            <option value="15" >15</option>
-            <option value="16" >16</option>
-            <option value="17" >17</option>
-            <option value="18" >18</option>
-            <option value="19" >19</option>
-            <option value="20" >20</option>
-            <option value="21" >21</option>
-            <option value="22" >22</option>
-            <option value="23" >23</option>
-            <option value="24" >24</option>
-            <option value="25" >25</option>
-            <option value="26" >26</option>
-            <option value="27" >27</option>
-            <option value="28" >28</option>
-            <option value="29" >29</option>
-            <option value="30" >30</option>
-            <option value="31" >31</option>
+          <td><select name="diasAtencion" id="diasAtencion" multiple="multiple">
+            <option selected="selected" value="">D&iacute;as</option>
+            <option value="LUN" >Lunes</option>
+            <option value="MAR" >Martes</option>
+            <option value="MIE" >Miercoles</option>
+            <option value="JUE" >Jueves</option>
+            <option value="VIE" >Viernes</option>
+            <option value="SAB" >Sabado</option>
+            <option value="DOM" >Domingo</option>
           </select>
-            <select name="mes" id="mes">
-				<option selected="selected" value="">Mes</option>
-				<option value="01" >Enero</option>
-				<option value="02" >Febrero</option>
-				<option value="03" >Marzo</option>
-				<option value="04" >Abril</option>
-				<option value="05" >Mayo</option>
-				<option value="06" >Junio</option>
-				<option value="07" >Julio</option>
-				<option value="08" >Agosto</option>
-				<option value="09" >Septiembre</option>
-				<option value="10" >Octubre</option>
-				<option value="11" >Noviembre</option>
-				<option value="12" >Diciembre</option>
-            </select>
-            <select name="anio" id="anio">
-				<option selected="selected" value="">A&ntilde;o</option>
-				<option value="2013" >2013</option>
-				<option value="2012" >2012</option>
-			</select>
 		</td>
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
-            <select name="horasAtencion" id="horasAtencion">
+            <select name="horasAtencion" id="horasAtencion" multiple="multiple">
 				<option selected="selected" value="">Seleccionar</option>
-				<option value="06:00-07:00">06:00-07:00</option>
-				<option value="07:00-08:00">07:00-08:00</option>
-				<option value="08:00-09:00">08:00-09:00</option>
-				<option value="09:00-10:00">09:00-10:00</option>
-				<option value="10:00-11:00">10:00-11:00</option>
-				<option value="11:00-12:00">11:00-12:00</option>
-				<option value="12:00-13:00">12:00-13:00</option>
-				<option value="13:00-14:00">13:00-14:00</option>
-				<option value="14:00-15:00">14:00-15:00</option>
-				<option value="15:00-16:00">15:00-16:00</option>
-				<option value="16:00-17:00">16:00-17:00</option>
-				<option value="17:00-18:00">17:00-18:00</option>
-				<option value="18:00-19:00">18:00-19:00</option>
-				<option value="19:00-20:00">19:00-20:00</option>
-				<option value="20:00-21:00">20:00-21:00</option>
-				<option value="21:00:22:00">21:00:22:00</option>
-				<option value="22:00:23:00">22:00:23:00</option>
+				<option value="06000700">06:00-07:00</option>
+				<option value="07000800">07:00-08:00</option>
+				<option value="08000900">08:00-09:00</option>
+				<option value="09001000">09:00-10:00</option>
+				<option value="10001100">10:00-11:00</option>
+				<option value="11001200">11:00-12:00</option>
+				<option value="12001300">12:00-13:00</option>
+				<option value="13001400">13:00-14:00</option>
+				<option value="14001500">14:00-15:00</option>
+				<option value="15001600">15:00-16:00</option>
+				<option value="16001700">16:00-17:00</option>
+				<option value="17001800">17:00-18:00</option>
+				<option value="18001900">18:00-19:00</option>
+				<option value="19002000">19:00-20:00</option>
+				<option value="20002100">20:00-21:00</option>
+				<option value="21002200">21:00-22:00</option>
+				<option value="22002300">22:00-23:00</option>
           </select></td>
         </tr>
         <tr>
@@ -206,18 +165,49 @@
     </form>
     
     <table border="0" cellspacing="0" cellpadding="0" class="resultadosTabla">
-  <tr>
+    <tr>
     <th scope="col">Nombre de la cancha</th>
     <th scope="col">Caracter&iacute;sticas</th>
     <th scope="col">Dias de atenci&oacute;n</th>
     <th scope="col">Horas de atenci&oacute;n</th>
-    <th scope="col">Tarifa</th>
+    <th scope="col">Tarifa Diurna</th>
+    <th scope="col">Tarifa Nocturna</th>
     <th scope="col">Local</th>
     <th scope="col">Distrito</th>
     <th scope="col">Disponibilidad</th>
 
   </tr>
-  <tr>
+    <% 
+	Collection<Cancha> canchas = new ArrayList<Cancha>();
+    if(request.getAttribute("listaCanchas") != null) canchas = (ArrayList<Cancha>)request.getAttribute("listaCanchas");
+    if(canchas.size() > 0) {
+	for(Cancha x: canchas) {
+	%>
+	<tr>
+	<td><a href="teofilo.jsp"><%=x.getNombre()%></a></td>
+	<td><%=x.getCaracteristicas()%></td>
+	<td><%=x.getDiasAtencion()%></td>
+	<td><%=x.getHorasAtencion()%></td>
+	<td><%=x.getTarifaDiurna()%></td>
+	<td><%=x.getTarifaNocturna()%></td>
+	<td><%=x.getoLocal().getDesLoc()%></td>
+	<td><%=x.getoLocal().getDistrito()%></td>
+	<td><input type="button" value="Disponibilidad" onclick="return false;" /></td>
+	</tr>
+	<%}} else {%>
+	<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<% }%>
+  <!-- tr>
     <td><a href="teofilo.html">Te&oacute;filo &quot;Nene&quot; Cubillas</a></td>
     <td>Pasto sint&eacute;tico, futbol 6</td>
     <td>31/02/12</td>
@@ -236,7 +226,7 @@
     <td>Leyendas peruanas</td>
     <td>San Miguel</td>
     <td><input type="submit" name="Alquilar" id="Alquilar2" value="Alquilar" disabled="disabled"/></td>
-  </tr>
+  </tr -->
   </table>
 
 </div></div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados </div>
