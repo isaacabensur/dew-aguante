@@ -16,9 +16,9 @@ public class ListarAlquilerDAO extends BaseDAO {
 
 
 	
-public void insertar(Cancha vo) throws DAOExcepcion {
+/*public void insertar(Cancha vo) throws DAOExcepcion {
 		System.out.println("CanchaDAO: insertar(Cancha vo)");
-		String query = "INSERT INTO cancha(nombre,caracteristicas,diasAtencion,horasAtencion,tarifa,promo,foto,disponible,Local_codLoc) VALUES (?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO cancha(nombre,caracteristicas,diasAtencion,horasAtencion,tarifa,promo,foto,Local_codLoc) VALUES (?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -32,7 +32,7 @@ public void insertar(Cancha vo) throws DAOExcepcion {
 			stmt.setLong(5, (long) vo.getTarifa());
 			stmt.setString(6, vo.getPromo());
 			stmt.setString(7, vo.getFoto());
-			stmt.setString(8, vo.getDisponible());
+			//stmt.setString(8, vo.getDisponible());
 			stmt.setInt(9, vo.getoLocal().getCodLoc());
 			
 			int i = stmt.executeUpdate();
@@ -46,7 +46,7 @@ public void insertar(Cancha vo) throws DAOExcepcion {
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-	}
+	}*/
 
 
 public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAOExcepcion {
