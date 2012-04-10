@@ -13,13 +13,13 @@
 </div><div id="barraSuperior">
     Bienvenido Dueño!
   </div><div id="menuInferior">
-  <ul>
+	<ul>
     
-    <li><a href="local.jsp">Registrar local</a></li>
-    <li><a href="cancha.jsp">Registrar cancha</a></li>
-    <li><a href="servicios-adicionales.jsp">Registrar Servicios adicionales</a></li>
-    <li><a href="evento.jsp">Eventos</a></li>
-        <li><a href="misalquileres.jsp">Mis alquileres</a></li>
+		<li><a href="local.jsp">Registrar local</a></li>
+		<li><a href="cancha.jsp">Registrar cancha</a></li>
+		<li><a href="servicios-adicionales.jsp">Registrar Servicios adicionales</a></li>
+		<li><a href="evento.jsp">Eventos</a></li>
+		<li><a href="misalquileres.jsp">Mis alquileres</a></li>
   </ul>
 </div>
   
