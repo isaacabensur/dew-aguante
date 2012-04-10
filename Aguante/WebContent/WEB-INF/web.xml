@@ -69,4 +69,14 @@
     <servlet-name>RegistroCanchaServlet</servlet-name>
     <url-pattern>/RegistroCanchaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuscarCanchaServlet</display-name>
+    <servlet-name>BuscarCanchaServlet</servlet-name>
+    <servlet-class>fulbito.servlet.BuscarCanchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarCanchaServlet</servlet-name>
+    <url-pattern>/BuscarCanchaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

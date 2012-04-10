@@ -16,7 +16,7 @@ public class InsertarCanchaTest {
 		InsertarCancha neg = new InsertarCancha();
 		try {
 		
-			neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", 1);
+			neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 50.50, 60.60, "Sin oferta", "/images/canchamessi.jpg", 1);
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló: " + e.getMessage());
 		} catch (Exception ex) {
@@ -30,7 +30,7 @@ public void insertarMensajeErrorTest(){
 		InsertarCancha neg = new InsertarCancha();
 		try {
 		
-			neg.insertarCancha("", "", "", "", 0.0 , "", "", 0);
+			neg.insertarCancha("", "", "", "", 0.0 , 0.0 , "", "", 0);
 		} catch (DAOExcepcion e) {
 			System.out.print(e.getMessage());
 			Assert.fail("Falló: " + e.getMessage());
@@ -48,7 +48,7 @@ public void MensajeErrorNombreDuplicadoTest(){
 	try {
          	
 		
-		neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 8.25 , "Sin oferta", "/images/canchamessi.jpg", 1);
+		neg.insertarCancha("Cancha Carlos", "Natural, sin iluminacion", "L-S", "09:00-17:00", 50.50, 60.60, "Sin oferta", "/images/canchamessi.jpg", 1);
 		
 		
 	} catch (DAOExcepcion e) {

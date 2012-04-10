@@ -9,18 +9,19 @@ import fulbito.model.Local;
 
 public class InsertarCancha {
 
-	public void insertarCancha(String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifa, String promo, String foto, int local) throws DAOExcepcion {
+	public void insertarCancha(String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifaDiurna, double tarifaNocturna, String promo, String foto, int local) throws DAOExcepcion {
 
 		Cancha model = new Cancha();
 		Local oLocal = new Local();
 		
 		
-		if(!nombre.equals("") && !caracteristicas.equals("") && !diasAtencion.equals("") && !horasAtencion.equals("") && tarifa >0 && !promo.equals("") && !foto.equals("") && local > 0 ){
+		if(!nombre.equals("") && !caracteristicas.equals("") && !diasAtencion.equals("") && !horasAtencion.equals("") && tarifaDiurna >0 && tarifaNocturna >0 && !promo.equals("") && !foto.equals("") && local > 0 ){
 		model.setNombre(nombre);
 		model.setCaracteristicas(caracteristicas);
 		model.setDiasAtencion(diasAtencion);
 		model.setHorasAtencion(horasAtencion);
-		model.setTarifa(tarifa);
+		model.setTarifaDiurna(tarifaDiurna);
+		model.setTarifaNocturna(tarifaNocturna);
 		model.setPromo(promo);
 		model.setFoto(foto);
 		//model.setDisponible(disponible);

@@ -107,7 +107,7 @@
         <tr>
           <td align="right" valign="middle"><label for="diasAtencion">Dias de atenci&oacute;n</label></td>
           <td>
-            <select name="diasAtencion" id="diasAtencion">
+            <select name="diasAtencion" id="diasAtencion" multiple="multiple">
               <option selected="selected">Seleccionar</option>
               <option value="LUN">Lunes</option>
               <option value="MAR">Martes</option>
@@ -121,25 +121,25 @@
         <tr>
           <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
-            <select name="horasAtencion" id="horasAtencion">
+            <select name="horasAtencion" id="horasAtencion" multiple="multiple">
 				<option selected="selected">Seleccionar</option>
-				<option value="06:00-07:00">06:00-07:00</option>
-				<option value="07:00-08:00">07:00-08:00</option>
-				<option value="08:00-09:00">08:00-09:00</option>
-				<option value="09:00-10:00">09:00-10:00</option>
-				<option value="10:00-11:00">10:00-11:00</option>
-				<option value="11:00-12:00">11:00-12:00</option>
-				<option value="12:00-13:00">12:00-13:00</option>
-				<option value="13:00-14:00">13:00-14:00</option>
-				<option value="14:00-15:00">14:00-15:00</option>
-				<option value="15:00-16:00">15:00-16:00</option>
-				<option value="16:00-17:00">16:00-17:00</option>
-				<option value="17:00-18:00">17:00-18:00</option>
-				<option value="18:00-19:00">18:00-19:00</option>
-				<option value="19:00-20:00">19:00-20:00</option>
-				<option value="20:00-21:00">20:00-21:00</option>
-				<option value="21:00:22:00">21:00:22:00</option>
-				<option value="22:00:23:00">22:00:23:00</option>
+				<option value="06000700">06:00-07:00</option>
+				<option value="07000800">07:00-08:00</option>
+				<option value="08000900">08:00-09:00</option>
+				<option value="09001000">09:00-10:00</option>
+				<option value="10001100">10:00-11:00</option>
+				<option value="11001200">11:00-12:00</option>
+				<option value="12001300">12:00-13:00</option>
+				<option value="13001400">13:00-14:00</option>
+				<option value="14001500">14:00-15:00</option>
+				<option value="15001600">15:00-16:00</option>
+				<option value="16001700">16:00-17:00</option>
+				<option value="17001800">17:00-18:00</option>
+				<option value="18001900">18:00-19:00</option>
+				<option value="19002000">19:00-20:00</option>
+				<option value="20002100">20:00-21:00</option>
+				<option value="21002200">21:00-22:00</option>
+				<option value="22002300">22:00-23:00</option>
           </select></td>
         </tr>
         <tr>

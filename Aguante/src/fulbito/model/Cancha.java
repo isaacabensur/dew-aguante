@@ -9,7 +9,8 @@ public class Cancha {
 	private String caracteristicas;
 	private String diasAtencion;
 	private String horasAtencion;
-	private double tarifa;
+	private double tarifaDiurna;
+	private double tarifaNocturna;
 	private String promo;
 	private String foto;
 	//private String disponible;
@@ -22,7 +23,7 @@ public class Cancha {
 	}
 
 	public Cancha(int numCan, String nombre, String caracteristicas,
-			String diasAtencion, String horasAtencion, double tarifa,
+			String diasAtencion, String horasAtencion, double tarifaDiurna, double tarifaNocturna,
 			String promo, String foto, //String disponible,
 			Collection<Horario> horarios, Collection<Comentario> comentarios,
 			Local oLocal) {
@@ -32,7 +33,8 @@ public class Cancha {
 		this.caracteristicas = caracteristicas;
 		this.diasAtencion = diasAtencion;
 		this.horasAtencion = horasAtencion;
-		this.tarifa = tarifa;
+		this.tarifaDiurna = tarifaDiurna;
+		this.tarifaNocturna = tarifaNocturna;
 		this.promo = promo;
 		this.foto = foto;
 		//this.disponible = disponible;
@@ -81,12 +83,20 @@ public class Cancha {
 		this.horasAtencion = horasAtencion;
 	}
 
-	public double getTarifa() {
-		return tarifa;
+	public double getTarifaDiurna() {
+		return tarifaDiurna;
 	}
 
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
+	public void setTarifaDiurna(double tarifaDiurna) {
+		this.tarifaDiurna = tarifaDiurna;
+	}
+
+	public double getTarifaNocturna() {
+		return tarifaNocturna;
+	}
+
+	public void setTarifaNocturna(double tarifaNocturna) {
+		this.tarifaNocturna = tarifaNocturna;
 	}
 
 	public String getPromo() {
