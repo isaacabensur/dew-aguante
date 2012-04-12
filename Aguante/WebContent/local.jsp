@@ -22,7 +22,7 @@
         <tr>
           <td width="29%" align="right" valign="middle"><label for="desLoc">Nombre de local</label></td>
           <td width="71%">
-          <input type="text" name="des	Loc" id="desLoc" /></td>
+          <input type="text" name="desLoc" id="desLoc" /></td>
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="direccion">Dirección</label></td>
