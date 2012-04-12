@@ -19,12 +19,12 @@
     <li><a href="#">Canchas</a></li>
     <li><a href="#">Alquileres</a></li>
     <li><a href="#">Eventos</a></li>
-    <li><a href="publicidad.html">Publicidad</a></li>
+    <li><a href="publicidad.jsp">Publicidad</a></li>
   </ul>
 </div>
   
 
   
-</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados Â® </div>
+</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados ® </div>
 </body>
 </html>

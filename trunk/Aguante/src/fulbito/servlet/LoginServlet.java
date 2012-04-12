@@ -66,7 +66,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 				session.setAttribute("USUARIO_ACTUAL", vo);
 				if(tipoPer.equals("dueno")) response.sendRedirect("index-duenio.jsp");
 				else if(tipoPer.equals("cliente")) response.sendRedirect("index-cliente.jsp");
-				else response.sendRedirect("index-administrador.jsp");
+				else if(tipoPer.equals("admin")) response.sendRedirect("index-administrador.jsp");
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 				rd.forward(request, response);	

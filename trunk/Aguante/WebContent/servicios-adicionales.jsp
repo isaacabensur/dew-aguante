@@ -32,7 +32,7 @@ request.setAttribute("listaLocales",listaLocales);
 <div id="cuerpo">
     <h3>Registrar servicios adicionales para el local</h3>
     
-    <form action="ServAdicionalServlet" method="post">
+    <form name action="ServAdicionalServlet" method="post" >
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
       
       <tr>

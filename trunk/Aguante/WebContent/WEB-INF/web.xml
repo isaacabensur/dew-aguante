@@ -79,4 +79,14 @@
     <servlet-name>BuscarCanchaServlet</servlet-name>
     <url-pattern>/BuscarCanchaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PublicidadServlet</display-name>
+    <servlet-name>PublicidadServlet</servlet-name>
+    <servlet-class>fulbito.servlet.PublicidadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicidadServlet</servlet-name>
+    <url-pattern>/PublicidadServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
