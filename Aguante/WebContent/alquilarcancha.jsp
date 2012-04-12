@@ -9,37 +9,61 @@
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
 
  <script>
-       function validar(){
-        
-		 
-		 
-		  if (document.f1.distrito.value == ""){
-           
-				alert("Ingresa el distrito");
-          		document.f1.distrito.focus();
+ 
+ 	/*function loopSelected() {
+		//var diasAtencionObj = document.getElementById('diasAtencion');
+		//var horasAtencionObj = document.getElementById('horasAtencion');
+		var diasAtencionArray = new Array();
+		var horasAtencionArray = new Array();
+		var diasAtencionObj = document.getElementById('diasAtencion');
+		var horasAtencionObj = document.getElementById('horasAtencion');
+		var count1 = 0;
+		var count2 = 0;
+		for (var i=0; i<diasAtencionObj.options.length; i++) {
+			if (diasAtencionObj.options[i].selected) {
+				diasAtencionArray[count1] = diasAtencionObj.options[i].value;
+				count1++;
+			}
+		}
+		for (var i=0; i<horasAtencionObj.options.length; i++) {
+			if (horasAtencionObj.options[i].selected) {
+				horasAtencionArray[count2] = horasAtencionObj.options[i].value;
+				count2++;
+			}
+		}
+		alert(diasAtencionArray+" "+horasAtencionArray)
+		//txtSelectedValuesObj.value = selectedArray;
+	}*/
+	function validar(){
+		//loopSelected();
+		if (document.f1.distrito.value == ""){
+			alert("Ingresa el distrito");
+			document.f1.distrito.focus();
     		   
-		    return false;
-         }	
+			return false;
+		}	
 
-		  if (document.f1.diasAtencion.value == ""){
+		if (document.f1.diasAtencion.value == ""){
            
-				alert("Elige los días de atención");
-          		document.f1.diasAtencion.focus();
+			alert("Elige los días de atención");
+			document.f1.diasAtencion.focus();
     		   
 		    return false;
-         }
+		}
 		 
-		 if (document.f1.horasAtencion.value == ""){
+		if (document.f1.horasAtencion.value == ""){
            
-				alert("Elige las horas de atención");
-          		document.f1.horasAtencion.focus();
+			alert("Elige las horas de atención");
+			document.f1.horasAtencion.focus();
     		   
-		    return false;
-         }
+			return false;
+		}
 			 		 
-
-         return true;
-       }
+		
+		return true;
+         
+         
+	}
     </script>
 
 </head>

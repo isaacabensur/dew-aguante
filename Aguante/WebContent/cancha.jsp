@@ -22,7 +22,37 @@
     request.setAttribute("Listadolocales",lstLocal);*/
     %>
     <script type="text/javascript"> 
+    function loopSelected() {
+		//var diasAtencionObj = document.getElementById('diasAtencion');
+		//var horasAtencionObj = document.getElementById('horasAtencion');
+		var diasAtencionArray = new Array();
+		var horasAtencionArray = new Array();
+		//var diasAtencionObj = document.getElementById('selDiasAtencion');
+		//var horasAtencionObj = document.getElementById('selHorasAtencion');
+		var diasAtencionObj = document.f1.selDiasAtencion;
+		var horasAtencionObj = document.f1.selHorasAtencion;
+		var count1 = 0;
+		var count2 = 0;
+		for (var i=0; i<diasAtencionObj.options.length; i++) {
+			if (diasAtencionObj.options[i].selected) {
+				diasAtencionArray[count1] = diasAtencionObj.options[i].value;
+				count1++;
+			}
+		}
+		for (var i=0; i<horasAtencionObj.options.length; i++) {
+			if (horasAtencionObj.options[i].selected) {
+				horasAtencionArray[count2] = horasAtencionObj.options[i].value;
+				count2++;
+			}
+		}
+		document.f1.diasAtencion.value = diasAtencionArray;
+		document.f1.horasAtencion.value = horasAtencionArray;
+		//alert(document.f1.diasAtencion.value+" "+document.f1.horasAtencion.value)
+		//alert(diasAtencionArray+" "+horasAtencionArray)
+		//txtSelectedValuesObj.value = selectedArray;
+	}
     function ValidarRegistroCancha(){
+    	loopSelected();
 		if (document.f1.local.value == "") {
 			alert("Selecciona el local");
 			document.f1.local.focus();
@@ -74,6 +104,8 @@
     <h3>Registro de cancha</h3>
 	
     <form name="f1" action="RegistroCanchaServlet" method="post" onSubmit="return ValidarRegistroCancha();">
+    <input type="hidden" name="diasAtencion" id="diasAtencion" />
+    <input type="hidden" name="horasAtencion" id="horasAtencion" />
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
       
       <tr>
@@ -107,8 +139,8 @@
         <tr>
           <td align="right" valign="middle"><label for="diasAtencion">Dias de atenci&oacute;n</label></td>
           <td>
-            <select name="diasAtencion" id="diasAtencion" multiple="multiple">
-              <option selected="selected">Seleccionar</option>
+            <select name="selDiasAtencion" id="selDiasAtencion" multiple="multiple">
+              <option value="">Seleccionar</option>
               <option value="LUN">Lunes</option>
               <option value="MAR">Martes</option>
               <option value="MIE">Miercoles</option>
@@ -121,8 +153,8 @@
         <tr>
           <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
-            <select name="horasAtencion" id="horasAtencion" multiple="multiple">
-				<option selected="selected">Seleccionar</option>
+            <select name="selHorasAtencion" id="selHorasAtencion" multiple="multiple">
+				<option value="">Seleccionar</option>
 				<option value="06000700">06:00-07:00</option>
 				<option value="07000800">07:00-08:00</option>
 				<option value="08000900">08:00-09:00</option>
@@ -161,7 +193,7 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><br />            <input type="submit" name="registrar" id="registrar" value="RegÃ­stra tu cancha" /></td>
+          <td><br />            <input type="submit" name="registrar" id="registrar" value="Regístra tu cancha" /></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
