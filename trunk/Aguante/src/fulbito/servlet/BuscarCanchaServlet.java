@@ -50,6 +50,9 @@ public class BuscarCanchaServlet extends HttpServlet {
 		//String mes = request.getParameter("mes");
 		//String anio = request.getParameter("anio");
 		String horasAtencion = request.getParameter("horasAtencion");
+		request.setAttribute("distrito",distrito);
+		request.setAttribute("diasAtencion",diasAtencion);
+		request.setAttribute("horasAtencion",horasAtencion);
 		//System.out.println("distrito:"+distrito+" diasAtencion:"+diasAtencion+" horasAtencion:"+horasAtencion);
 		//double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
 		//String promo = request.getParameter("promo");
@@ -57,7 +60,7 @@ public class BuscarCanchaServlet extends HttpServlet {
 		try {
 			canchas = negocio.BuscarCanchaFulbito(distrito, diasAtencion, horasAtencion);
 			request.setAttribute("listaCanchas", canchas);
-			request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
+			//request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
 			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("alquilarcancha.jsp");
 			rd.forward(request, response);
