@@ -57,7 +57,7 @@ public class RegistroServlet extends HttpServlet {
 			if(correo.equals(correoconf)) {
 				if(password.equals(passwordconf)) {
 					negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
-					response.sendRedirect(request.getContextPath() + "/index.jsp");
+					response.sendRedirect(request.getContextPath() + "/index-duenio.jsp");
 				} else {
 					
 				}
