@@ -22,7 +22,7 @@ public class SeguridadNegocioCancha {
 				i.hasNext();){
 			Cancha vo = (Cancha)i.next();
 			System.out.println("NumCan :" +  vo.getNumCan() +"  Nombre :" + vo.getNombre() + "  Caracteristicas :"+ vo.getCaracteristicas() + "  DiasAtencion :" + vo.getDiasAtencion() + "  HorasAtencion :" + vo.getHorasAtencion() + "  TarifaDiurna :" + vo.getTarifaDiurna() + "  TarifaNocturna :" + vo.getTarifaNocturna() + "  Promo :" + vo.getPromo() + "  Foto :" + vo.getFoto() + "  CodLoc :" + vo.getoLocal().getCodLoc());
-			throw new DAOExcepcion( "NumCan" + vo.getNumCan() + "Nombre" + vo.getNombre() + "Caracteristicas" + vo.getCaracteristicas() + "DiasAtencion" + vo.getDiasAtencion() + "HorasAtencion"+ vo.getHorasAtencion() + "TarifaDiurna" + vo.getTarifaDiurna() + "  TarifaNocturna :" + vo.getTarifaNocturna()  + "Promo" + vo.getPromo() + "Foto" + vo.getFoto() + "CodLoc" + vo.getoLocal().getCodLoc());
+			//throw new DAOExcepcion( "NumCan :" + vo.getNumCan() + "Nombre :" + vo.getNombre() + "Caracteristicas :" + vo.getCaracteristicas() + "DiasAtencion :" + vo.getDiasAtencion() + "HorasAtencion :"+ vo.getHorasAtencion() + "TarifaDiurna :" + vo.getTarifaDiurna() + "  TarifaNocturna :" + vo.getTarifaNocturna()  + "Promo :" + vo.getPromo() + "Foto :" + vo.getFoto() + "CodLoc :" + vo.getoLocal().getCodLoc());
 		}
 		
 		return cancha;

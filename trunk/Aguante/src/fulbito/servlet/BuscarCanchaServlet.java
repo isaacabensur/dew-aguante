@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,14 +50,16 @@ public class BuscarCanchaServlet extends HttpServlet {
 		//String mes = request.getParameter("mes");
 		//String anio = request.getParameter("anio");
 		String horasAtencion = request.getParameter("horasAtencion");
-		System.out.println("distrito:"+distrito+" diasAtencion:"+diasAtencion+" horasAtencion:"+horasAtencion);
+		//System.out.println("distrito:"+distrito+" diasAtencion:"+diasAtencion+" horasAtencion:"+horasAtencion);
 		//double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
 		//String promo = request.getParameter("promo");
 		//String foto = request.getParameter("foto");
 		try {
 			canchas = negocio.BuscarCanchaFulbito(distrito, diasAtencion, horasAtencion);
 			request.setAttribute("listaCanchas", canchas);
-			response.sendRedirect(request.getContextPath() + "/alquilarcancha.jsp");
+			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("alquilarcancha.jsp");
+			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
