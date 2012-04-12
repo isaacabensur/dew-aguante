@@ -17,6 +17,11 @@
 		Cancha x = (Cancha)it.next();
 		System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
 	}*/}
+    if(request.getAttribute("MENSAJE") != null) {
+    	%>
+    	 <script>alert("<%=request.getAttribute("MENSAJE")%>");</script>
+    	 <%
+    }
 	%>
  <script>
  
@@ -225,7 +230,7 @@
 	<td><%=x.getHorasAtencion()%></td>
 	<td><%=x.getTarifaDiurna()%></td>
 	<td><%=x.getTarifaNocturna()%></td>
-	<td><%=x.getoLocal().getDesLoc()%></td>
+	<td><%=x.getoLocal().getCodLoc()%></td>
 	<td><%=x.getoLocal().getDistrito()%></td>
 	<td><input type="button" value="Disponibilidad" onclick="return false;" /></td>
 	</tr>

@@ -57,6 +57,7 @@ public class BuscarCanchaServlet extends HttpServlet {
 		try {
 			canchas = negocio.BuscarCanchaFulbito(distrito, diasAtencion, horasAtencion);
 			request.setAttribute("listaCanchas", canchas);
+			request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
 			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("alquilarcancha.jsp");
 			rd.forward(request, response);

@@ -82,7 +82,7 @@ public Collection<Cancha> buscarPorNombre(String nombre,int codlocal) throws DAO
 
 public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion) throws DAOExcepcion {
 	System.out.println("CanchaDAO: buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion)");
-	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifaDiurna, a.tarifaNocturna, a.promo, a.foto, a.Local_codLoc from cancha a, local b where a.Local_codLoc = b.codLoc and b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
+	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifaDiurna, a.tarifaNocturna, a.promo, a.foto, a.Local_codLoc, b.distrito from cancha a, local b where a.Local_codLoc = b.codLoc and b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
 	Collection<Cancha> lista = new ArrayList<Cancha>();
 	Connection con = null;
 	PreparedStatement stmt = null;
@@ -103,15 +103,27 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 			String dAtencion = rs.getString("diasAtencion");
 			dAtencion = dAtencion.replaceAll(",", " ");
 			vo.setDiasAtencion(dAtencion);
-			String hAtencion = rs.getString("horasAtencion");
-			hAtencion = dAtencion.replaceAll(",", " ");
-			vo.setHorasAtencion(hAtencion);
+			String[] hAtencion = rs.getString("horasAtencion").split(",");
+			//hAtencion = hAtencion.replaceAll(",", " ");
+			String atencion = "";
+			for(int i=0; i<hAtencion.length;i++) {
+				System.out.println(hAtencion[i]);
+				for(int j=0; j<hAtencion[i].length();j++) {
+					//if(i%8 == 0 && i>0) atencion += " "+hAtencion[i].charAt(i);
+					if(j==hAtencion[i].length()-1) atencion += hAtencion[i].charAt(j)+" ";
+					if(j%4 == 0 && j>0) atencion += "-"+hAtencion[i].charAt(j);
+					else if(j%2 == 0 && j>0) atencion += ":"+hAtencion[i].charAt(j);
+					else atencion += hAtencion[i].charAt(j);
+				}
+			}
+			vo.setHorasAtencion(atencion);
 			vo.setTarifaDiurna(rs.getDouble("tarifaDiurna"));
 			vo.setTarifaNocturna(rs.getDouble("tarifaNocturna"));
 			vo.setPromo(rs.getString("promo"));
 			vo.setFoto(rs.getString("foto"));
 			//vo.setDisponible(rs.getString("disponible"));
 			_vo.setCodLoc(rs.getInt("Local_codLoc"));
+			_vo.setDistrito(rs.getString("distrito"));
 			vo.setoLocal(_vo);
 			lista.add(vo);
 		}
