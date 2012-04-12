@@ -100,8 +100,12 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 			vo.setNumCan(rs.getInt("numCancha"));
 			vo.setNombre(rs.getString("nombre"));
 			vo.setCaracteristicas(rs.getString("caracteristicas"));
-			vo.setDiasAtencion(rs.getString("diasAtencion"));
-			vo.setHorasAtencion(rs.getString("horasAtencion"));
+			String dAtencion = rs.getString("diasAtencion");
+			dAtencion = dAtencion.replaceAll(",", " ");
+			vo.setDiasAtencion(dAtencion);
+			String hAtencion = rs.getString("horasAtencion");
+			hAtencion = dAtencion.replaceAll(",", " ");
+			vo.setHorasAtencion(hAtencion);
 			vo.setTarifaDiurna(rs.getDouble("tarifaDiurna"));
 			vo.setTarifaNocturna(rs.getDouble("tarifaNocturna"));
 			vo.setPromo(rs.getString("promo"));

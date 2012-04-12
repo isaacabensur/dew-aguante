@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="fulbito.model.Cancha"%>
 <%@page import="java.util.Collection"%>
@@ -7,7 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
-
+<% 
+	Collection<Cancha> canchas = new ArrayList<Cancha>();
+    if(request.getAttribute("listaCanchas") != null) {
+    	canchas = (ArrayList<Cancha>)request.getAttribute("listaCanchas");
+    	//System.out.println("canchas="+canchas.size()+" elementos");
+	/*for(Iterator it = canchas.iterator(); it.hasNext();) {
+		Cancha x = (Cancha)it.next();
+		System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
+	}*/}
+	%>
  <script>
  
  	/*function loopSelected() {
@@ -138,7 +148,7 @@
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="fecha">D&iacute;a de atenci&oacute;n</label></td>
-          <td><select name="diasAtencion" id="diasAtencion" multiple="multiple">
+          <td><select name="diasAtencion" id="diasAtencion">
             <option selected="selected" value="">D&iacute;as</option>
             <option value="LUN" >Lunes</option>
             <option value="MAR" >Martes</option>
@@ -153,7 +163,7 @@
         <tr>
           <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
-            <select name="horasAtencion" id="horasAtencion" multiple="multiple">
+            <select name="horasAtencion" id="horasAtencion">
 				<option selected="selected" value="">Seleccionar</option>
 				<option value="06000700">06:00-07:00</option>
 				<option value="07000800">07:00-08:00</option>
@@ -202,10 +212,11 @@
 
   </tr>
     <% 
-	Collection<Cancha> canchas = new ArrayList<Cancha>();
-    if(request.getAttribute("listaCanchas") != null) canchas = (ArrayList<Cancha>)request.getAttribute("listaCanchas");
-    if(canchas.size() > 0) {
-	for(Cancha x: canchas) {
+    
+	if(canchas.size() > 0) {
+		for(Iterator it = canchas.iterator(); it.hasNext();) {
+			Cancha x = (Cancha)it.next();
+			//System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
 	%>
 	<tr>
 	<td><a href="teofilo.jsp"><%=x.getNombre()%></a></td>
