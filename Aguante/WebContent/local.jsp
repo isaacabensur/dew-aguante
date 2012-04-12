@@ -16,12 +16,13 @@
     
   </div>
 <div id="cuerpo">
-    <h3>Registro de local</h3><form name="registrarLocal" action="LocalServlet" method="post" onsubmit="return validarLocal();">
+    <h3>Registro de local</h3>
+    <form name="registrarLocal" action="LocalServlet" method="post" onsubmit="return validarLocal();">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
           <td width="29%" align="right" valign="middle"><label for="desLoc">Nombre de local</label></td>
           <td width="71%">
-          <input type="text" name="desLoc" id="desLoc" /></td>
+          <input type="text" name="des	Loc" id="desLoc" /></td>
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="direccion">Dirección</label></td>
