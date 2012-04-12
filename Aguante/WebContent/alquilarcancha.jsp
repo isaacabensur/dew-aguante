@@ -17,11 +17,6 @@
 		Cancha x = (Cancha)it.next();
 		System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
 	}*/}
-    if(request.getAttribute("MENSAJE") != null) {
-    	%>
-    	 <script>alert("<%=request.getAttribute("MENSAJE")%>");</script>
-    	 <%
-    }
 	%>
  <script>
  
@@ -79,11 +74,23 @@
          
          
 	}
+	
+	function doOnload(){
+		var dis = "";
+		var dias = "";
+		var horas = "";
+		if("<%=request.getAttribute("distrito")%>" != "null") dis = "<%=request.getAttribute("distrito")%>";
+		if("<%=request.getAttribute("diasAtencion")%>" != "null") dias = "<%=request.getAttribute("diasAtencion")%>";
+		if("<%=request.getAttribute("horasAtencion")%>" != "null") horas = "<%=request.getAttribute("horasAtencion")%>";
+		document.f1.distrito.value  = dis;
+		document.f1.diasAtencion.value = dias;
+		document.f1.horasAtencion.value = horas;
+	}
     </script>
 
 </head>
 
-<body>
+<body onload="doOnload();">
 <div id="contenedorPrincipal">
   <div id="cabecera">
     <div id="logo"><a href="index.html"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
@@ -99,7 +106,7 @@
         <tr>
           <td width="29%" align="right" valign="middle"><label for="distrito">Distrito</label></td>
           <td width="71%"><select name="distrito" id="distrito">
-            <option selected="selected">Seleccionar</option>
+            <option value="" selected="selected">Seleccionar</option>
             <option value="ANC">Anc&oacute;n</option>
             <option value="ATE">Ate</option>
             <option value="BAR">Barranco</option>
@@ -154,7 +161,7 @@
         <tr>
           <td align="right" valign="middle"><label for="fecha">D&iacute;a de atenci&oacute;n</label></td>
           <td><select name="diasAtencion" id="diasAtencion">
-            <option selected="selected" value="">D&iacute;as</option>
+            <option value="" selected="selected" value="">D&iacute;as</option>
             <option value="LUN" >Lunes</option>
             <option value="MAR" >Martes</option>
             <option value="MIE" >Miercoles</option>
@@ -169,7 +176,7 @@
           <td align="right" valign="middle"><label for="horasAtencion">Horas de atenci&oacute;n</label></td>
           <td>
             <select name="horasAtencion" id="horasAtencion">
-				<option selected="selected" value="">Seleccionar</option>
+				<option value="" selected="selected" value="">Seleccionar</option>
 				<option value="06000700">06:00-07:00</option>
 				<option value="07000800">07:00-08:00</option>
 				<option value="08000900">08:00-09:00</option>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Cancha;
+import fulbito.model.Horario;
 import fulbito.model.Local;
 import fulbito.util.ConexionBD;
 
@@ -97,6 +98,8 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 		while (rs.next()) {
 			Cancha vo = new Cancha();
 			Local _vo = new Local();
+			Collection<Horario> horarios = new ArrayList<Horario>();
+			Horario voH = new Horario();
 			vo.setNumCan(rs.getInt("numCancha"));
 			vo.setNombre(rs.getString("nombre"));
 			vo.setCaracteristicas(rs.getString("caracteristicas"));
@@ -107,11 +110,12 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 			//hAtencion = hAtencion.replaceAll(",", " ");
 			String atencion = "";
 			for(int i=0; i<hAtencion.length;i++) {
-				System.out.println(hAtencion[i]);
+				//atencion = "";
+				//System.out.println(hAtencion[i]);
 				for(int j=0; j<hAtencion[i].length();j++) {
 					//if(i%8 == 0 && i>0) atencion += " "+hAtencion[i].charAt(i);
 					if(j==hAtencion[i].length()-1) atencion += hAtencion[i].charAt(j)+" ";
-					if(j%4 == 0 && j>0) atencion += "-"+hAtencion[i].charAt(j);
+					else if(j%4 == 0 && j>0) atencion += "-"+hAtencion[i].charAt(j);
 					else if(j%2 == 0 && j>0) atencion += ":"+hAtencion[i].charAt(j);
 					else atencion += hAtencion[i].charAt(j);
 				}
@@ -122,8 +126,11 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 			vo.setPromo(rs.getString("promo"));
 			vo.setFoto(rs.getString("foto"));
 			//vo.setDisponible(rs.getString("disponible"));
+			voH.setEstado("Disponible");
+			horarios.add(voH);
 			_vo.setCodLoc(rs.getInt("Local_codLoc"));
 			_vo.setDistrito(rs.getString("distrito"));
+			vo.setHorarios(horarios);
 			vo.setoLocal(_vo);
 			lista.add(vo);
 		}
