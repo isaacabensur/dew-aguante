@@ -169,3 +169,42 @@
           return true;
         }
     
+       
+       
+       function validarServiciosAdicionales(){
+           
+    		 
+    		 
+  		  if (document.registrarServiciosAdicionales.tipo.value == ""){
+             
+  				alert("Ingresa el tipo de servicio adicional");
+            		document.registrarServiciosAdicionales.tipo.focus();
+      		   
+  		    return false;
+           }	
+
+  		  if (document.registrarServiciosAdicionales.descripcion.value == ""){
+             
+  				alert("Ingresa la descripción del servicio");
+            		document.registrarServiciosAdicionales.descripcion.focus();
+      		   
+  		    return false;
+           }
+  		 
+  		 if (document.registrarServiciosAdicionales.tarifa.value == ""){
+             
+  				alert("Ingresa la tarifa del servicio adicional");
+            		document.registrarServiciosAdicionales.tarifa.focus();
+      		   
+  		    return false;
+           }
+  		 if (document.registrarServiciosAdicionales.local.value == ""){
+             
+  				alert("Ingresa el nombre del local");
+            		document.registrarServiciosAdicionales.local.focus();
+      		   
+  		    return false;
+           }
+
+           return true;
+         }
