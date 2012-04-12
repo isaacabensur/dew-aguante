@@ -3,116 +3,116 @@
         
 		 
 		 
-		  if (document.f1.tipoPer.value == ""){
+		  if (document.registrarPersona.tipoPer.value == ""){
            
 				alert("Ingresa el tipo de persona");
-          		document.f1.tipoPer.focus();
+          		document.registrarPersona.tipoPer.focus();
     		   
 		    return false;
          }	
 
-		  if (document.f1.nombres.value == ""){
+		  if (document.registrarPersona.nombres.value == ""){
            
 				alert("Ingresa tus nombres");
-          		document.f1.nombres.focus();
+          		document.registrarPersona.nombres.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.paterno.value == ""){
+		 if (document.registrarPersona.paterno.value == ""){
            
 				alert("Ingresa tu apellido paterno");
-          		document.f1.paterno.focus();
+          		document.registrarPersona.paterno.focus();
     		   
 		    return false;
          }
-		 if (document.f1.materno.value == ""){
+		 if (document.registrarPersona.materno.value == ""){
            
 				alert("Ingresa tu apellido materno");
-          		document.f1.materno.focus();
+          		document.registrarPersona.materno.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.sexo.value == ""){
+		 if (document.registrarPersona.sexo.value == ""){
            
 				alert("Ingresa tu sexo");
-          		document.f1.sexo.focus();
+          		document.registrarPersona.sexo.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.tipoDoc.value == ""){
+		 if (document.registrarPersona.tipoDoc.value == ""){
            
 				alert("Ingresa tu tipo de documento");
-          		document.f1.tipoDoc.focus();
+          		document.registrarPersona.tipoDoc.focus();
     		   
 		    return false;
          }
-		 if (document.f1.numDoc.value == ""){
+		 if (document.registrarPersona.numDoc.value == ""){
            
 				alert("Ingresa tu número de documento");
-          		document.f1.numDoc.focus();
+          		document.registrarPersona.numDoc.focus();
     		   
 		    return false;
          }
-		 if (document.f1.correo.value == ""){
+		 if (document.registrarPersona.correo.value == ""){
            
 				alert("Ingresa tu correo electrónico");
-          		document.f1.correo.focus();
+          		document.registrarPersona.correo.focus();
     		   
 		    return false;
          }	
-		 if (document.f1.correoconf.value == ""){
+		 if (document.registrarPersona.correoconf.value == ""){
            
 				alert("Confirma tu correo electrónico");
-          		document.f1.correoconf.focus();
+          		document.registrarPersona.correoconf.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.password.value == ""){
+		 if (document.registrarPersona.password.value == ""){
            
 				alert("Ingresa tu contraseña");
-          		document.f1.password.focus();
+          		document.registrarPersona.password.focus();
     		   
 		    return false;
          }
-		 if (document.f1.passwordconf.value == ""){
+		 if (document.registrarPersona.passwordconf.value == ""){
            
 				alert("Confirma tu contraseña");
-          		document.f1.passwordconf.focus();
+          		document.registrarPersona.passwordconf.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.dia.value == ""){
+		 if (document.registrarPersona.dia.value == ""){
            
 				alert("Ingresar el dia de tu nacimiento");
-          		document.f1.dia.focus();
+          		document.registrarPersona.dia.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.mes.value == ""){
+		 if (document.registrarPersona.mes.value == ""){
            
 				alert("Ingresar el mes de tu nacimiento");
-          		document.f1.mes.focus();
+          		document.registrarPersona.mes.focus();
     		   
 		    return false;
          }
-		 if (document.f1.anio.value == ""){
+		 if (document.registrarPersona.anio.value == ""){
            
 				alert("Ingresa el año de tu nacimiento");
-          		document.f1.anio.focus();
+          		document.registrarPersona.anio.focus();
     		   
 		    return false;
          }
 		 
-		 if (document.f1.celular.value == ""){
+		 if (document.registrarPersona.celular.value == ""){
            
 				alert("Ingresa tu celular");
-          		document.f1.celular.focus();
+          		document.registrarPersona.celular.focus();
     		   
 		    return false;
          }
