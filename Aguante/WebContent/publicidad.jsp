@@ -17,10 +17,10 @@
 <div id="cuerpo">
     <h3>Registro de publicidad</h3>
     
-    <form action="" method="get">
+    <form name="registrarPublicidad" action="PublicidadServlet" method="post">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
-          <td width="29%" align="right" valign="middle"><label for="titulo">TÃ­tulo</label></td>
+          <td width="29%" align="right" valign="middle"><label for="titulo">Título</label></td>
           <td width="71%">
           <input type="text" name="titulo" id="titulo" /></td>
         </tr>
@@ -31,8 +31,8 @@
         </tr>
         <tr>
           <td align="right" valign="middle"><label for="materno">Fecha de inicio</label></td>
-          <td><select name="DÃ­a" id="dia">
-            <option selected="selected">DÃ­a</option>
+          <td><select name="diaInicio" id="diaInicio">
+            <option selected="selected" value="">Día</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -65,23 +65,23 @@
             <option value="30" >30</option>
             <option value="31" >31</option>
           </select>
-            <select name="mes" id="mes">
-              <option selected="selected">Mes</option>
-              <option value="Enero" >Enero</option>
-              <option value="Febrero" >Febrero</option>
-              <option value="Marzo" >Marzo</option>
-              <option value="Abril" >Abril</option>
-              <option value="Mayo" >Mayo</option>
-              <option value="Junio" >Junio</option>
-              <option value="Julio" >Julio</option>
-              <option value="Agosto" >Agosto</option>
-              <option value="Septiembre" >Septiembre</option>
-              <option value="Octubre" >Octubre</option>
-              <option value="Noviembre" >Noviembre</option>
-              <option value="Diciembre" >Diciembre</option>
+            <select name="mesInicio" id="mesInicio">
+              <option selected="selected" value="">Mes</option>
+              <option value="01" >Enero</option>
+              <option value="02" >Febrero</option>
+              <option value="03" >Marzo</option>
+              <option value="04" >Abril</option>
+              <option value="05" >Mayo</option>
+              <option value="06" >Junio</option>
+              <option value="07" >Julio</option>
+              <option value="08" >Agosto</option>
+              <option value="09" >Septiembre</option>
+              <option value="10" >Octubre</option>
+              <option value="11" >Noviembre</option>
+              <option value="12" >Diciembre</option>
             </select>
-            <select name="aÃ±o" id="aÃ±o">
-              <option selected="selected">AÃ±o</option>
+            <select name="añoInicio" id="añoInicio">
+              <option selected="selected" value="">Año</option>
               <option value="2012" >2012</option>
               <option value="2011" >2011</option>
               <option value="2010" >2010</option>
@@ -193,9 +193,9 @@
             </select></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="sexo">Fecha de fin</label></td>
-          <td><select name="DÃ­a" id="dia">
-            <option selected="selected">DÃ­a</option>
+          <td align="right" valign="middle"><label for="dia">Fecha de fin</label></td>
+          <td><select name="diaFin" id="diaFin" >
+            <option selected="selected" value="">Día</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -228,23 +228,23 @@
             <option value="30" >30</option>
             <option value="31" >31</option>
           </select>
-            <select name="mes" id="mes">
-              <option selected="selected">Mes</option>
-              <option value="Enero" >Enero</option>
-              <option value="Febrero" >Febrero</option>
-              <option value="Marzo" >Marzo</option>
-              <option value="Abril" >Abril</option>
-              <option value="Mayo" >Mayo</option>
-              <option value="Junio" >Junio</option>
-              <option value="Julio" >Julio</option>
-              <option value="Agosto" >Agosto</option>
-              <option value="Septiembre" >Septiembre</option>
-              <option value="Octubre" >Octubre</option>
-              <option value="Noviembre" >Noviembre</option>
-              <option value="Diciembre" >Diciembre</option>
+            <select name="mesFin" id="mesFin" >
+              <option selected="selected" value="">Mes</option>
+              <option value="01" >Enero</option>
+              <option value="02" >Febrero</option>
+              <option value="03" >Marzo</option>
+              <option value="04" >Abril</option>
+              <option value="05" >Mayo</option>
+              <option value="06" >Junio</option>
+              <option value="07" >Julio</option>
+              <option value="08" >Agosto</option>
+              <option value="09" >Septiembre</option>
+              <option value="10" >Octubre</option>
+              <option value="11" >Noviembre</option>
+              <option value="12" >Diciembre</option>
             </select>
-            <select name="aÃ±o" id="aÃ±o">
-              <option selected="selected">AÃ±o</option>
+            <select name="añoFin" id="añoFin">
+              <option selected="selected" value="">Año</option>
               <option value="2012" >2012</option>
               <option value="2011" >2011</option>
               <option value="2010" >2010</option>
@@ -360,16 +360,16 @@
           <td><input type="text" name="tarifa" id="tarifa" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="clicks">NÃºmero de clicks</label></td>
+          <td align="right" valign="middle"><label for="clicks">Número de clicks</label></td>
           <td><input type="text" name="clicks" id="clicks" /></td>
         </tr>
         <tr>
-          <td align="right" valign="middle"><label for="seccion">SecciÃ³n de exposiciÃ³n</label></td>
+          <td align="right" valign="middle"><label for="seccion">Sección de exposición</label></td>
           <td><select name="seccion" id="seccion">
-            <option selected="selected">Seleccionar</option>
-            <option value="principal">PÃ¡gina principal</option>
-            <option value="cliente">PÃ¡ginas del cliente</option>
-            <option value="dueno">PÃ¡ginas del dueÃ±o</option>
+            <option selected="selected" value="">Seleccionar</option>
+            <option value="principal">Página principal</option>
+            <option value="cliente">Páginas del cliente</option>
+            <option value="dueno">Páginas del dueño</option>
           </select></td>
         </tr>
         <tr>
@@ -385,6 +385,6 @@
     
     
     </form>
-  </div> </div><div id="piecera">Futbol Camp tiene todos los derechos Â® reservados  </div>
+  </div> </div><div id="piecera">Futbol Camp tiene todos los derechos reservados  ® </div>
 </body>
 </html>
