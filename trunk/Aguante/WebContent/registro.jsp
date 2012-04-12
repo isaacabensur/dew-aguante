@@ -15,7 +15,7 @@
       <div id="barraSuperior"> </div>
       <div id="cuerpo">
         <h3>Registro de usuario</h3>
-        <form name="f1" action="RegistroServlet" method="post" onsubmit="return validarRegistro();">
+        <form name="registrarPersona" action="RegistroServlet" method="post" onsubmit="return validarRegistro();">
           <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr>
               <td width="29%" align="right" valign="middle"><label for="tipoPer" id="tipoPerlabel">Tipo  de persona</label></td>
