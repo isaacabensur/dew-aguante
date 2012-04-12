@@ -9,11 +9,11 @@ import fulbito.model.Local;
 
 public class InsertarCancha {
 
-	public void insertarCancha(String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifaDiurna, double tarifaNocturna, String promo, String foto, int local) throws DAOExcepcion {
+	public boolean insertarCancha(String nombre, String caracteristicas, String diasAtencion, String horasAtencion, double tarifaDiurna, double tarifaNocturna, String promo, String foto, int local) throws DAOExcepcion {
 
 		Cancha model = new Cancha();
 		Local oLocal = new Local();
-		
+		boolean flag = true;
 		
 		if(!nombre.equals("") && !caracteristicas.equals("") && !diasAtencion.equals("") && !horasAtencion.equals("") && tarifaDiurna >0 && tarifaNocturna >0 && !promo.equals("") && !foto.equals("") && local > 0 ){
 		model.setNombre(nombre);
@@ -33,17 +33,23 @@ public class InsertarCancha {
 		
 		if(Canchas.size()==0){
 		dao.insertar(model);
+		
 		}else{
-			
+			flag = false;
 			throw new DAOExcepcion("El nombre de la cancha ya existe");
+			
+			
 		}
 		
 		}
 		
 		else {
-			
+			flag = false;
 			throw new DAOExcepcion("Ingrese datos");
+			
 		}
+		
+		return flag;
 		
 	}
 

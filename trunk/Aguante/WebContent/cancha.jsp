@@ -90,7 +90,18 @@
 		}
 		return true;
 	}
+    
+    <%
+    if(request.getAttribute("MENSAJE") != null) {
+    	%>
+    	 alert("<%=request.getAttribute("MENSAJE")%>");
+    	 <%
+    }
+	%>
+    
     </script>
+     
+    
 </head>
 <body>
 <div id="contenedorPrincipal">
@@ -204,4 +215,6 @@
     </form>
   </div></div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados  </div>
 </body>
+
+
 </html>
