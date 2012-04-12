@@ -185,7 +185,7 @@
 
   		  if (document.registrarServiciosAdicionales.descripcion.value == ""){
              
-  				alert("Ingresa la descripción del servicio");
+  				alert("Ingresa la descripcion del servicio");
             		document.registrarServiciosAdicionales.descripcion.focus();
       		   
   		    return false;
