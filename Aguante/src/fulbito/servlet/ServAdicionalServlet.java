@@ -1,6 +1,8 @@
 package fulbito.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,9 +48,15 @@ public class ServAdicionalServlet extends HttpServlet {
 	
 		try {
 			negocio.insertarServAdicional(tipo, descripcion, tarifa, local);
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			request.setAttribute("MENSAJE", "Se inserto el registro correctamente");
+			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
+			rd.forward(request, response);
+			
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
+			request.setAttribute("MENSAJE", "Error, no se ingresaron los datos correctos");
+			RequestDispatcher rd = request.getRequestDispatcher("servicios-adicionales.jsp");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 		
