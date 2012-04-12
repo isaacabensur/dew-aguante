@@ -46,6 +46,7 @@ public class RegistroCanchaServlet extends HttpServlet {
 		double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
 		String promo = request.getParameter("promo");
 		String foto = request.getParameter("foto");
+		System.out.println("local="+local+" nombre="+nombre+" caracteristicas="+caracteristicas+" diasAtencion="+diasAtencion+" horasAtencion="+horasAtencion+" tarifaDiurna="+tarifaDiurna+" tarifaNocturna="+tarifaNocturna+" promo="+promo+" foto="+foto);
 		try {
 			negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
 			response.sendRedirect(request.getContextPath() + "/index-duenio.jsp");
