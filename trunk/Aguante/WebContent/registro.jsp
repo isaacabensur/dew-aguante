@@ -5,6 +5,11 @@
     <title>Red social para alquiler de canchas de futbol</title>
     <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/validacionesJS.js"></script>
+	
+	<%if(request.getAttribute("MENSAJE") != null) {%>
+	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
+<%}%>
+	
 	</head>
 
     <body>
