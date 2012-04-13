@@ -21,8 +21,7 @@ if(request.getAttribute("MENSAJE") != null) {
 	%>
 
 <% 
-HttpSession sesion = request.getSession();
-Persona vo = (Persona)sesion.getAttribute("USUARIO_ACTUAL");
+Persona vo = (Persona)session.getAttribute("USUARIO_ACTUAL");
 int codPersona = vo.getCodPer();
 InsertarLocal neg = new InsertarLocal();
 Collection<Local> listaLocales=neg.buscarPorPersona(codPersona);
