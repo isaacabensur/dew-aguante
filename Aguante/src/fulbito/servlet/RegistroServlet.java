@@ -1,6 +1,8 @@
 package fulbito.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,12 +59,20 @@ public class RegistroServlet extends HttpServlet {
 			if(correo.equals(correoconf)) {
 				if(password.equals(passwordconf)) {
 					negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
-					response.sendRedirect(request.getContextPath() + "/index.jsp");
+					request.setAttribute("MENSAJE", "Se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados");
+					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+					rd.forward(request, response);
 				} else {
-					
+					negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
+					request.setAttribute("MENSAJE", "La contraseña y la confimación de la constraseña no son iguales.");
+					RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
+					rd.forward(request, response);
 				}
 			} else {
-				
+				negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
+				request.setAttribute("MENSAJE", "El correo electrónico y la confimación del correo electrónico no son iguales.");
+				RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
+				rd.forward(request, response);
 			}
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
