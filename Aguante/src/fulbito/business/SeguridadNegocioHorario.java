@@ -15,6 +15,11 @@ public class SeguridadNegocioHorario {
 		Collection<Horario> lista =  null;
 		return lista = dao.buscarPorDiaHoras(dia, horainicio, horaFin);	
 	}
+	public Collection<String> obtenerDiasSemana() throws DAOExcepcion {
+		HorarioDAO dao = new HorarioDAO();
+		Collection<String> lista =  null;
+		return lista = dao.obtenerDiasSemana();	
+	}
 	public boolean buscarPorFecha(String fecha) throws DAOExcepcion {
 		
 		boolean flag = true; 

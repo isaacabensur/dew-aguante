@@ -90,7 +90,7 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	String horaInicio = horasAtencion.substring(0,4);
-	String horaFin = horasAtencion.substring(4);
+	String horaFin = horasAtencion.substring(5);
 	try {
 		
 		con = ConexionBD.obtenerConexion();
