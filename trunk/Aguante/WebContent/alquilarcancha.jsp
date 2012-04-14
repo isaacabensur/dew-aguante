@@ -231,7 +231,7 @@
 			//System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
 	%>
 	<tr>
-	<td><%=x.getNombre()%></td>
+	<td><a href="detalleCancha.jsp?numCancha=<%=x.getNumCan()%>"><%=x.getNombre()%></a></td>
 	<td><%=x.getCaracteristicas()%></td>
 	<td><%=x.getDiasAtencion()%></td>
 	<td><%=x.getHorasAtencion()%></td>
@@ -239,7 +239,7 @@
 	<td><%=x.getTarifaNocturna()%></td>
 	<td><%=x.getoLocal().getCodLoc()%></td>
 	<td><%=x.getoLocal().getDistrito()%></td>
-	<td><input type="button" value="Disponible" onclick="return false;" /></td>
+	<td><input type="button" value="Disponibilidad" onclick="return false;" /></td>
 	</tr>
 	<%}} else {%>
 	<tr>
