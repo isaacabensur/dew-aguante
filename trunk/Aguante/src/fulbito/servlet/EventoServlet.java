@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import fulbito.exception.DAOExcepcion;
 import fulbito.business.InsertarEvento;
-import fulbito.business.SeguridadNegocioPersona;
-
 /**
  * Servlet implementation class SerRegCliente
  */
