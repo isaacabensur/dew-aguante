@@ -45,11 +45,12 @@ public class PublicidadDAO extends BaseDAO {
 	}
 
 	
-public void insertar(Publicidad vo) throws DAOExcepcion {
+public int insertar(Publicidad vo) throws DAOExcepcion {
 		System.out.println("PublicidadDAO: insertar(Publicidad vo)");
 		String query = "INSERT INTO publicidad(titulo,contenido,fechaInicio,fechaFin,tarifa,clicks,seccion,Persona_codPer) VALUES (?,?,STR_TO_DATE(?,'%d/%m/%Y'),STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -62,10 +63,8 @@ public void insertar(Publicidad vo) throws DAOExcepcion {
 			stmt.setString(7, vo.getSeccion());
 			stmt.setInt(8, vo.getoAdministrador().getCodPer());
 			
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());

@@ -7,9 +7,11 @@ import fulbito.model.Publicidad;
 
 public class SeguridadNegocioPublicidad {
 	
-	public void isertarPublicidad(String titulo, String contenido, String fecInicio, String fecFin, Double tarifa, Integer clicks, String seccion, Integer codPersona) throws DAOExcepcion {
+	public String isertarPublicidad(String titulo, String contenido, String fecInicio, String fecFin, Double tarifa, Integer clicks, String seccion, Integer codPersona) throws DAOExcepcion {
 		
-		boolean flag = true; 
+		boolean flag = true;
+		String status = "";
+		String answer = "";
 		Publicidad model = new Publicidad();
 		Administrador admin = new Administrador();
 		model.setTitulo(titulo);
@@ -24,51 +26,73 @@ public class SeguridadNegocioPublicidad {
 		
 		if(titulo == null || titulo.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el título");
-			throw new DAOExcepcion("Ingrese el título");
+			status = "Ingrese el título.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(contenido == null || contenido.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el contenido");
-			throw new DAOExcepcion("Ingrese el contenido");
+			status = "Ingrese el contenido.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(fecInicio == null || fecInicio.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la fecha de inicio");
-			throw new DAOExcepcion("Ingrese la fecha de inicio");
+			status = "Ingrese la fecha de inicio.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(fecFin == null || fecFin.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la fecha de fin");
-			throw new DAOExcepcion("Ingrese la fecha de fin");
+			status = "Ingrese la fecha de fin.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(tarifa == null || tarifa.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la tarifa");
-			throw new DAOExcepcion("Ingrese la tarifa");
+			status = "Ingrese la tarifa.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(clicks == null || clicks.equals("")) {
 			flag = false;
-			System.out.println("Ingrese un número de clics");
-			throw new DAOExcepcion("Ingrese un número de clics");
+			status = "Ingrese un número de clics.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(seccion == null || seccion.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la seccion");
-			throw new DAOExcepcion("Ingrese la seccion");
+			status = "Ingrese la seccion.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(codPersona == null || codPersona.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la el código del Administrador");
-			throw new DAOExcepcion("Ingrese la el código del Administrador");
+			status = "Ingrese la el código del Administrador";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		PublicidadDAO dao = new PublicidadDAO();
 		if(flag) {
-			dao.insertar(model);
-			System.out.println("La publicidad con título "+titulo+" se ha insertado correctamente.");
-			throw new DAOExcepcion("La publicidad con título "+titulo+" se ha insertado correctamente.");
+			int state = dao.insertar(model);
+			if (state != 1) {
+				answer = "No se logró insertar. Intentelo nuevamente.";
+				System.out.println(answer);
+				throw new DAOExcepcion(answer);
+			} else {
+				answer = "El publicidad "+titulo+" se ha registrado con éxito.";
+				System.out.println(answer);
+			}
 		}
-		
+		return answer;
 	}
 	
 }
