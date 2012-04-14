@@ -44,20 +44,18 @@ public class ServAdicionalServlet extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		double tarifa = Double.parseDouble(request.getParameter("tarifa"));
 		int local = Integer.parseInt(request.getParameter("local"));
-		
 	
 		try {
-			negocio.insertarServAdicional(tipo, descripcion, tarifa, local);
-			request.setAttribute("MENSAJE", "Se inserto el registro correctamente");
+			String respuesta = negocio.insertarServAdicional(tipo, descripcion, tarifa, local);
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
 			rd.forward(request, response);
-			
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			request.setAttribute("MENSAJE", "Error, no se ingresaron los datos correctos");
+			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
 			RequestDispatcher rd = request.getRequestDispatcher("servicios-adicionales.jsp");
 			rd.forward(request, response);
-			e.printStackTrace();
 		}
 		
 		

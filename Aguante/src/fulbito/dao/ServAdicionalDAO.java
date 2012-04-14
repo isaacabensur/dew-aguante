@@ -13,11 +13,12 @@ public class ServAdicionalDAO extends BaseDAO {
 
 
 	
-public void insertar(ServAdicional vo) throws DAOExcepcion {
+	public int insertar(ServAdicional vo) throws DAOExcepcion {
 		System.out.println("ServAdicionalDAO: insertar(ServAdicional vo)");
 		String query = "INSERT INTO servadicional(tipo,descripcion,tarifa,Local_codLoc) VALUES (?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -26,11 +27,8 @@ public void insertar(ServAdicional vo) throws DAOExcepcion {
 			stmt.setString(2, vo.getDescripcion());
 			stmt.setLong(3, (long) vo.getTarifa());
 			stmt.setInt(4, vo.getoLocal().getCodLoc());
-			
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
