@@ -11,15 +11,6 @@
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/validacionesJS.js"></script>
-
-<%
-if(request.getAttribute("MENSAJE") != null) {
-    	%>
-    	 <script>alert("<%=request.getAttribute("MENSAJE")%>");</script>
-    	 <%
-    }
-	%>
-
 <% 
 Persona vo = (Persona)session.getAttribute("USUARIO_ACTUAL");
 int codPersona = vo.getCodPer();
@@ -92,7 +83,10 @@ request.setAttribute("listaLocales",listaLocales);
     
     
     </form>
-</div></div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
+</div></div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados  </div>
+<%if(request.getAttribute("MENSAJE") != null) {%>
+	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
+<%}%>
 </body>
 </html>
 
