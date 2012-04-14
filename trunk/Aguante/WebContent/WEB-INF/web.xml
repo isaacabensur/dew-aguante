@@ -16,6 +16,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>fulbito.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>RegistroServlet</display-name>
     <servlet-name>RegistroServlet</servlet-name>
     <servlet-class>fulbito.servlet.RegistroServlet</servlet-class>
