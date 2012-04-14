@@ -1,6 +1,8 @@
 package fulbito.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -60,11 +62,16 @@ public class PublicidadServlet extends HttpServlet {
 		String fecFin = diaFin+"/"+mesFin+"/"+anioFin;
 		
 		try {
-			negocio.isertarPublicidad(titulo, contenido, fecInicio, fecFin, tarifa, clicks, seccion, codPer);
-			response.sendRedirect(request.getContextPath() + "/index-administrador.jsp");
+			String respuesta = negocio.isertarPublicidad(titulo, contenido, fecInicio, fecFin, tarifa, clicks, seccion, codPer);
+			request.setAttribute("MENSAJE", respuesta);
+			RequestDispatcher rd = request.getRequestDispatcher("index-administrador.jsp");
+			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			RequestDispatcher rd = request.getRequestDispatcher("publicidad.jsp");
+			rd.forward(request, response);
 		}
 		
 		
