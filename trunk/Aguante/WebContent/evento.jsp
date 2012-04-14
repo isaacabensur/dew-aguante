@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="js/validacionesJS.js"></script>
 <% 
 Persona vo = (Persona)session.getAttribute("USUARIO_ACTUAL");
 int codPersona = vo.getCodPer();
@@ -30,7 +31,7 @@ request.setAttribute("listaLocales",listaLocales);
 <div id="cuerpo">
     <h3>Registro de evento</h3>
     
-    <form action="EventoServlet" method="post">
+    <form name="RegEvento" action="EventoServlet" method="post" onsubmit="return validarEvento();">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
           <td width="29%" align="right" valign="middle"><label for="nombre">Nombre</label></td>
@@ -50,7 +51,7 @@ request.setAttribute("listaLocales",listaLocales);
         <tr>
           <td align="right" valign="middle"><label for="fecha2">Plazo para la inscripci&oacute;n al evento</label></td>
           <td><select name="dia" id="dia">
-            <option selected="selected">D&iacute;a</option>
+            <option selected="selected" value="">D&iacute;a</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -84,7 +85,7 @@ request.setAttribute("listaLocales",listaLocales);
             <option value="31" >31</option>
           </select>
             <select name="mes" id="mes">
-              <option selected="selected">Mes</option>
+              <option selected="selected" value="">Mes</option>
               <option value="01" >Enero</option>
               <option value="02" >Febrero</option>
               <option value="03" >Marzo</option>
@@ -99,7 +100,7 @@ request.setAttribute("listaLocales",listaLocales);
               <option value="12" >Diciembre</option>
             </select>
             <select name="anio" id="anio">
-              <option selected="selected">A&ntilde;o</option>
+              <option selected="selected" value="">A&ntilde;o</option>
               <option value="2012" >2012</option>
               <option value="2011" >2011</option>
               <option value="2010" >2010</option>
@@ -214,7 +215,7 @@ request.setAttribute("listaLocales",listaLocales);
           <td align="right" valign="middle"><label for="local">Local</label></td>
           <td>
             <select name="local" id="local">
-            <option>Seleccionar</option>
+            <option value="">Seleccionar</option>
             <% 
             Collection<Local> locales = (ArrayList<Local>)request.getAttribute("listaLocales");
             for(Local x: locales) {
