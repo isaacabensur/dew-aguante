@@ -206,5 +206,70 @@
   		    return false;
            }
 
+  		 
+  		function validarEvento(){
+  			
+  			if (document.RegEvento.nombre.value == ""){
+  	             
+  				alert("Ingresa el nombre del Evento");
+            		document.RegEvento.nombre.focus();
+      		   
+  		    return false;
+  			}
+  		    
+  		  if (document.RegEvento.premio.value == ""){
+	             
+				alert("Ingresa el Premio del Evento");
+          		document.RegEvento.premio.focus();
+    		   
+		    return false;
+			
+		   }
+  			
+  		  
+  		if (document.RegEvento.limiteCantidad.value == ""){
+            
+			alert("Ingresa la cantidad limite");
+      		document.RegEvento.limiteCantidad.focus();
+		   
+	    return false;
+  		  
+  		}
+  			
+  			
+  		
+        if (document.RegEvento.dia.value == ""){
+            
+			alert("Seleccione un Dia");
+      		document.RegEvento.dia.focus();
+		   
+	    return false;
+  		  
+  		}
+  		
+  		
+       if (document.RegEvento.mes.value == ""){
+    
+	       alert("Seleccione un mes");
+		   document.RegEvento.mes.focus();
+   
+        return false;
+	  
+	   } 
+
+       
+       if (document.RegEvento.anio.value == ""){
+    	    
+	       alert("Seleccione un Año ");
+		   document.RegEvento.anio.focus();
+   
+        return false;
+	  
+	   } 
+
+
+  			
+  		}
+  		 
            return true;
          }
