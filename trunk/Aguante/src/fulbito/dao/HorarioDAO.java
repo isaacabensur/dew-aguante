@@ -54,8 +54,8 @@ public class HorarioDAO extends BaseDAO {
 		return lista;
 	}
 
-	public Collection<Horario> buscarPorDiaHoras(String dia, String horainicio, String HoraFin) throws DAOExcepcion {
-		System.out.println("HorarioDAO: buscarPorFecha(String fecha)");
+	public Collection<Horario> buscarPorDiaHoras(String dia, String horaInicio, String horaFin) throws DAOExcepcion {
+		System.out.println("HorarioDAO: buscarPorDiaHoras(String dia, String horainicio, String HoraFin)");
 		String query = "SELECT codHorario, fecha, horaInicio, HoraFin, estado, Cancha_numCancha, Alquiler_codAlquiler FROM horario WHERE DATE_FORMAT(fecha, '%w') = ? and horaInicio = ? and HoraFin = ? and fecha <= DATE_ADD(CURDATE(),INTERVAL 30 DAY);";
 		Collection<Horario> lista = new ArrayList<Horario>();
 		Cancha cancha = new Cancha();
@@ -63,16 +63,18 @@ public class HorarioDAO extends BaseDAO {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
+		int idia = getDia(dia);
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, dia);
-			stmt.setString(2, horainicio);
-			stmt.setString(3, HoraFin);
+			stmt.setInt(1, idia);
+			stmt.setString(2, horaInicio);
+			stmt.setString(3, horaFin);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Horario vo = new Horario();
 				vo.setCodHorario(rs.getInt("codHorario"));
+				vo.setFecha(rs.getString("fecha"));
 				vo.setHoraInicio(rs.getString("horaInicio"));
 				vo.setHoraFin(rs.getString("horaFin"));
 				vo.setEstado(rs.getString("estado"));
@@ -91,6 +93,36 @@ public class HorarioDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return lista;
+	}
+	
+	public String obtenerDiasSemana() throws DAOExcepcion {
+		System.out.println("HorarioDAO: buscarPorDiaSemana(String dia)");
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String out = "";
+		String query = "select DATE_FORMAT(a.Date, '%w, %d de %m del %Y %H:%i') fecha " +
+			"from ( " +
+			"    select curdate() - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY as Date " +
+			"    from (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as a " +
+			"    cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as b " +
+			"    cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as c " +
+			") a " +
+			"where a.Date <= DATE_ADD(CURDATE(),INTERVAL 30 DAY);";
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			out = (rs.getString("fecha"));
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return out;
 	}
 	
 	public void insertar(Horario vo) throws DAOExcepcion {
@@ -242,6 +274,18 @@ public class HorarioDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return c;
+	}
+	
+	private int getDia(String dia) {
+		int idia = 0;
+		if(dia.equals("LUN")) idia = 1;
+		else if(dia.equals("MAR")) idia = 2;
+		else if(dia.equals("MIE")) idia = 3;
+		else if(dia.equals("JUE")) idia = 4;
+		else if(dia.equals("VIE")) idia = 5;
+		else if(dia.equals("SAB")) idia = 6;
+		else if(dia.equals("DOM")) idia = 0;
+		return idia;
 	}
 
 }

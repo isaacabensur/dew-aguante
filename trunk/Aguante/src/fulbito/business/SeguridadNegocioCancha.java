@@ -5,8 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import fulbito.dao.CanchaDAO;
+import fulbito.dao.HorarioDAO;
 import fulbito.exception.DAOExcepcion;
 import fulbito.model.Cancha;
+import fulbito.model.Horario;
 
 
 public class SeguridadNegocioCancha {
@@ -15,8 +17,9 @@ public class SeguridadNegocioCancha {
 						
 		Collection<Cancha> cancha = new ArrayList<Cancha>();
 		CanchaDAO dao = new CanchaDAO();
+		HorarioDAO hdao = new HorarioDAO();
 		cancha = dao.buscarcanchafulbito(distrito, diasAtencion, horasAtencion);
-		
+		//Collection<Horario> horarios = hdao.buscarPorDiaHoras(dia, horainicio, horaFin);
 		for(Iterator<Cancha> i = cancha.iterator();
 				i.hasNext();){
 			Cancha vo = (Cancha)i.next();

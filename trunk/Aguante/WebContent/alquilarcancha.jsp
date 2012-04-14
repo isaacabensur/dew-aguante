@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="fulbito.model.Horario"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="fulbito.model.Cancha"%>
@@ -86,6 +87,7 @@
 		document.f1.diasAtencion.value = dias;
 		document.f1.horasAtencion.value = horas;
 	}
+	
     </script>
 
 </head>
@@ -229,9 +231,11 @@
 		for(Iterator it = canchas.iterator(); it.hasNext();) {
 			Cancha x = (Cancha)it.next();
 			//System.out.println("Nombre="+x.getNombre()+" Característica="+x.getCaracteristicas());
+			Collection<Horario> horarios= new ArrayList<Horario>();
+			horarios = x.getHorarios();
 	%>
 	<tr>
-	<td><a href="detalleCancha.jsp?numCancha=<%=x.getNumCan()%>"><%=x.getNombre()%></a></td>
+	<td><a href="<%=request.getContextPath() %>/AlquilarServlet?numCancha=<%=x.getNumCan()%>"><%=x.getNombre()%></a></td>
 	<td><%=x.getCaracteristicas()%></td>
 	<td><%=x.getDiasAtencion()%></td>
 	<td><%=x.getHorasAtencion()%></td>
@@ -239,19 +243,15 @@
 	<td><%=x.getTarifaNocturna()%></td>
 	<td><%=x.getoLocal().getCodLoc()%></td>
 	<td><%=x.getoLocal().getDistrito()%></td>
-	<td><input type="button" value="Disponibilidad" onclick="return false;" /></td>
+	<%if(horarios.size() > 0) {%>
+	<td style="color:#0000FF;">DISPONIBLE</td>
+	<%} else {%>
+	<td style="color:#FF0000;">NO DISPONIBLE</td>
+	<%}%>
 	</tr>
 	<%}} else {%>
 	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td colspan = 9>No se ha encontrado registros</td>
 	</tr>
 	<% }%>
   <!-- tr>

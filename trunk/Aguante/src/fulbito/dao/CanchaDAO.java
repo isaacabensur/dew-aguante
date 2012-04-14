@@ -84,10 +84,15 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 	System.out.println("CanchaDAO: buscarcanchafulbito(String distrito, String diasAtencion, String horasAtencion)");
 	String query = "select a.numCancha, a.nombre, a.caracteristicas, a.diasAtencion, a.horasAtencion, a.tarifaDiurna, a.tarifaNocturna, a.promo, a.foto, a.Local_codLoc, b.distrito from cancha a, local b where a.Local_codLoc = b.codLoc and b.distrito like ? and a.diasAtencion like ? and a.horasAtencion like ? ";
 	Collection<Cancha> lista = new ArrayList<Cancha>();
+	//Collection<Horario> horarios = new ArrayList<Horario>();
+	HorarioDAO hdao = new HorarioDAO();
 	Connection con = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
+	String horaInicio = horasAtencion.substring(0,4);
+	String horaFin = horasAtencion.substring(4);
 	try {
+		
 		con = ConexionBD.obtenerConexion();
 		stmt = con.prepareStatement(query);
 		stmt.setString(1, "%" + distrito + "%");
@@ -125,8 +130,9 @@ public Collection<Cancha> buscarcanchafulbito(String distrito, String diasAtenci
 			vo.setPromo(rs.getString("promo"));
 			vo.setFoto(rs.getString("foto"));
 			//vo.setDisponible(rs.getString("disponible"));
-			voH.setEstado("Disponible");
-			horarios.add(voH);
+			//voH.setEstado("Disponible");
+			//horarios.add(voH);
+			horarios = hdao.buscarPorDiaHoras(diasAtencion, horaInicio, horaFin);
 			_vo.setCodLoc(rs.getInt("Local_codLoc"));
 			_vo.setDistrito(rs.getString("distrito"));
 			vo.setHorarios(horarios);
