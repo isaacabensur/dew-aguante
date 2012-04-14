@@ -74,9 +74,10 @@ public class RegistroServlet extends HttpServlet {
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
+			rd.forward(request, response);
 		}
-		
-		
 	}
 
 }

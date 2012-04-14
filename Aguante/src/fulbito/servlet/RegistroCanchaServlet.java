@@ -48,29 +48,19 @@ public class RegistroCanchaServlet extends HttpServlet {
 		double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
 		String promo = request.getParameter("promo");
 		String foto = request.getParameter("foto");
-		System.out.println("local="+local+" nombre="+nombre+" caracteristicas="+caracteristicas+" diasAtencion="+diasAtencion+" horasAtencion="+horasAtencion+" tarifaDiurna="+tarifaDiurna+" tarifaNocturna="+tarifaNocturna+" promo="+promo+" foto="+foto);
-		
-		
+		//System.out.println("local="+local+" nombre="+nombre+" caracteristicas="+caracteristicas+" diasAtencion="+diasAtencion+" horasAtencion="+horasAtencion+" tarifaDiurna="+tarifaDiurna+" tarifaNocturna="+tarifaNocturna+" promo="+promo+" foto="+foto);
 		try {
 			
-			boolean flag = negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
-			
-			
-			if(flag){request.setAttribute("MENSAJE", "Se insertó correctamente");}
-			
-			else
-			request.setAttribute("MENSAJE", "El nombre de la cancha ya existe para ese local");
+			String respuesta = negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
 			rd.forward(request, response);
-			
-			
-			
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
-			request.setAttribute("MENSAJE", "El nombre de la cancha ya existe para ese local");
+			e.printStackTrace();
+			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
 			RequestDispatcher rd = request.getRequestDispatcher("cancha.jsp");
 			rd.forward(request, response);
-			e.printStackTrace();
 		}
 		
 		
