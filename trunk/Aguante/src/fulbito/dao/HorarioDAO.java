@@ -95,13 +95,14 @@ public class HorarioDAO extends BaseDAO {
 		return lista;
 	}
 	
-	public String obtenerDiasSemana() throws DAOExcepcion {
-		System.out.println("HorarioDAO: buscarPorDiaSemana(String dia)");
+	public Collection<String> obtenerDiasSemana() throws DAOExcepcion {
+		System.out.println("HorarioDAO: obtenerDiasSemana()");
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String out = "";
-		String query = "select DATE_FORMAT(a.Date, '%w, %d de %m del %Y %H:%i') fecha " +
+		Collection<String> lista = new ArrayList<String>();
+		String query = "select DATE_FORMAT(a.Date, '%w %d/%m/%Y) fecha " +
 			"from ( " +
 			"    select curdate() - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY as Date " +
 			"    from (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as a " +
@@ -113,7 +114,10 @@ public class HorarioDAO extends BaseDAO {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
-			out = (rs.getString("fecha"));
+			while (rs.next()) {
+				out = (rs.getString("fecha"));
+				lista.add(out);
+			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -122,7 +126,7 @@ public class HorarioDAO extends BaseDAO {
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		return out;
+		return lista;
 	}
 	
 	public void insertar(Horario vo) throws DAOExcepcion {

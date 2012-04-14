@@ -1,11 +1,20 @@
 package fulbito.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import fulbito.business.SeguridadNegocioHorario;
+import fulbito.exception.DAOExcepcion;
+import fulbito.model.Cancha;
+import fulbito.model.Horario;
 
 /**
  * Servlet implementation class sercerrarsesion
@@ -36,10 +45,49 @@ public class AlquilarServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String a = request.getParameter("numCancha");
-		HttpSession sesion = request.getSession();
-		sesion.invalidate();
-		response.sendRedirect("index.jsp");
+		String numCancha = request.getParameter("numCancha");
+		String diasAtencion = request.getParameter("diasAtencion");
+		int idia = 0;
+		if(diasAtencion.equals("LUN")) idia = 1;
+		else if(diasAtencion.equals("MAR")) idia = 2;
+		else if(diasAtencion.equals("MIE")) idia = 3;
+		else if(diasAtencion.equals("JUE")) idia = 4;
+		else if(diasAtencion.equals("VIE")) idia = 5;
+		else if(diasAtencion.equals("SAB")) idia = 6;
+		else if(diasAtencion.equals("DOM")) idia = 0;
+		//String mes = request.getParameter("mes");
+		//String anio = request.getParameter("anio");
+		String horasAtencion = request.getParameter("horasAtencion");
+		String horaInicio = horasAtencion.substring(0,4);
+		String horaFin = horasAtencion.substring(5);
+		SeguridadNegocioHorario negocio = new SeguridadNegocioHorario();
+		Collection<Horario> horarios = new ArrayList<Horario>();
+		try {
+			Collection<String> lista =  negocio.obtenerDiasSemana();
+			//Collection<Horario> horarios =  negocio.buscarPorDiaHoras(diasAtencion, horaInicio, horaFin);
+			for(String x: lista) {
+				String fecha = (String)x;
+				String[] arrFecha = fecha.split(" ");
+				if(arrFecha[0].equals(idia)) {
+					Horario horario = new Horario();
+					horario.setFecha(arrFecha[1]);
+					horario.setHoraInicio(horaInicio);
+					horario.setHoraFin(horaFin);
+					horarios.add(horario);
+				}
+			}
+			//request.setAttribute("listaCanchas", canchas);
+			//request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
+			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
+			request.setAttribute("listaHorarios", horarios);
+			//request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
+			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("teofilo.jsp");
+			rd.forward(request, response);
+		} catch (DAOExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
