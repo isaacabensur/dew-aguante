@@ -94,4 +94,14 @@
     <servlet-name>PublicidadServlet</servlet-name>
     <url-pattern>/PublicidadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AlquilarServlet</display-name>
+    <servlet-name>AlquilarServlet</servlet-name>
+    <servlet-class>fulbito.servlet.AlquilarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlquilarServlet</servlet-name>
+    <url-pattern>/AlquilarServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

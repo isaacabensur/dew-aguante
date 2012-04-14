@@ -10,6 +10,11 @@ import fulbito.model.Horario;
 
 public class SeguridadNegocioHorario {
 	
+	public Collection<Horario> buscarPorDiaHoras(String dia, String horainicio, String horaFin) throws DAOExcepcion {
+		HorarioDAO dao = new HorarioDAO();
+		Collection<Horario> lista =  null;
+		return lista = dao.buscarPorDiaHoras(dia, horainicio, horaFin);	
+	}
 	public boolean buscarPorFecha(String fecha) throws DAOExcepcion {
 		
 		boolean flag = true; 
