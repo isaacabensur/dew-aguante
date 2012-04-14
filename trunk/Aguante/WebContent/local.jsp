@@ -10,7 +10,7 @@
 <body>
 <div id="contenedorPrincipal">
   <div id="cabecera">
-    <div id="logo"><a href="index.jsp"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
+    <div id="logo"><a href="index-duenio.jsp"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div>
   <div id="barraSuperior">
     
@@ -108,6 +108,9 @@
     
     
     </form>
-  </div></div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
+  </div></div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados  </div>
+<%if(request.getAttribute("MENSAJE") != null) {%>
+	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
+<%}%>
 </body>
 </html>

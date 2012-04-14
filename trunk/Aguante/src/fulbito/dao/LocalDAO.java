@@ -43,11 +43,12 @@ public class LocalDAO extends BaseDAO {
 		return lista;
 	}
 	
-	public void insertar(Local vo) throws DAOExcepcion {
+	public int insertar(Local vo) throws DAOExcepcion {
 		System.out.println("LocalDAO: insertar(Local vo)");
 		String query = "INSERT INTO Local(desLoc,direccion,distrito,dicGoogle,telefonoFijo,Persona_codPer ) VALUES (?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -58,22 +59,8 @@ public class LocalDAO extends BaseDAO {
 			stmt.setString(4, vo.getDicGoogle());
 			stmt.setInt(5, vo.getTelefonoFijo());
 			stmt.setInt(6, vo.getoDuenio().getCodPer());
-			
-			Local localBusca = null;
-		
-			localBusca=buscarDescripcion(vo.getDesLoc());
-			if (localBusca!=null)
-				throw new SQLException("El local ya existe");
-			
-			
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
-			else
-			{
-				System.out.println("El registro fue ingresado correctamente");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());

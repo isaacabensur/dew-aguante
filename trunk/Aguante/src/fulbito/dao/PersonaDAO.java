@@ -66,8 +66,6 @@ public class PersonaDAO extends BaseDAO {
 			stmt.setString(9, vo.getPassword());
 			stmt.setString(10, vo.getFecNac());
 			stmt.setInt(11, vo.getCelular());
-			
-			
 			state = stmt.executeUpdate();
 			return state;
 		} catch (SQLException e) {

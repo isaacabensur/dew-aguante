@@ -2,20 +2,19 @@ package fulbito.business;
 
 import java.util.Collection;
 
-import fulbito.dao.HorarioDAO;
 import fulbito.dao.LocalDAO;
 import fulbito.exception.DAOExcepcion;
-import fulbito.model.Horario;
 import fulbito.model.Local;
 import fulbito.model.Duenio;
 
 public class InsertarLocal {
 
-	public void insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo, Integer codPer ) throws DAOExcepcion {
+	public String insertarLocal(String desLoc, String direccion, String distrito, String dicGoogle, Integer telefonoFijo, Integer codPer ) throws DAOExcepcion {
 		
 		Duenio oDuenio = new Duenio();
-		
 		boolean flag = true; 
+		String status = "";
+		String answer = "";
 		Local model = new Local();
 		model.setDesLoc(desLoc);
 		model.setDireccion(direccion);
@@ -27,36 +26,62 @@ public class InsertarLocal {
 				
 		if(desLoc == null || desLoc.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la descripción del local");
-			throw new DAOExcepcion("Ingrese la descripción del local");
+			status = "Ingrese la descripción del local.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(direccion == null || direccion.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la direción");
-			throw new DAOExcepcion("Ingrese la direción");
+			status = "Ingrese la direción.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(distrito == null || distrito.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el distrito");
-			throw new DAOExcepcion("Ingrese el distrito");
+			status = "Ingrese el distrito.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(dicGoogle == null || dicGoogle.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la dirección en Google");
-			throw new DAOExcepcion("Ingrese la dirección en Google");
+			status = "Ingrese la dirección en Google.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(telefonoFijo == null || telefonoFijo.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el teléfono fijo");
-			throw new DAOExcepcion("Ingrese el teléfono fijo");
+			status = "Ingrese el teléfono fijo";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 				
 		LocalDAO dao = new LocalDAO();
-		if(flag) {
-			dao.insertar(model);
-			System.out.println("El local con teléfono fijo N° "+telefonoFijo+" se ha insertado correctamente.");
+		Local localBusca = null;
+		localBusca=dao.buscarDescripcion(desLoc);
+		if (localBusca!=null) {
+			flag = false;
+			status = "El local "+desLoc+" ya se encuentra registrado.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
-		
+		if(flag) {
+			int state = dao.insertar(model);
+			if (state != 1) {
+				answer = "No se logró insertar. Intentelo nuevamente.";
+				System.out.println(answer);
+				throw new DAOExcepcion(answer);
+			} else {
+				answer = "El local "+desLoc+" se ha registrado con éxito. Puede registrar canchas para este local.";
+				System.out.println(answer);
+			}
+		}
+		return answer;
 	}
 		
 	public Collection<Local> buscarPorPersona(int codPersona) throws DAOExcepcion {

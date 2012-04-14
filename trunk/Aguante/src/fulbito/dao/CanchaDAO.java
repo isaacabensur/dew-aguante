@@ -18,11 +18,12 @@ public class CanchaDAO extends BaseDAO {
 
 
 	
-public void insertar(Cancha vo) throws DAOExcepcion {
+public int insertar(Cancha vo) throws DAOExcepcion {
 		System.out.println("CanchaDAO: insertar(Cancha vo)");
 		String query = "INSERT INTO cancha(nombre,caracteristicas,diasAtencion,horasAtencion,tarifaDiurna,tarifaNocturna,promo,foto,Local_codLoc) VALUES (?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -38,10 +39,8 @@ public void insertar(Cancha vo) throws DAOExcepcion {
 			//stmt.setString(8, vo.getDisponible());
 			stmt.setInt(9, vo.getoLocal().getCodLoc());
 			
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
