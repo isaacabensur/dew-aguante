@@ -45,11 +45,12 @@ public class PersonaDAO extends BaseDAO {
 		return lista;
 	}
 	
-	public void insertar(Persona vo) throws DAOExcepcion {
+	public int insertar(Persona vo) throws DAOExcepcion {
 		System.out.println("PersonaDAO: insertar(Persona vo)");
 		String query = "INSERT INTO Persona(tipoPer,nombres,paterno,materno,sexo,tipoDoc,numDoc,correo,password,fecNac,celular) VALUES (?,?,?,?,?,?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -66,25 +67,9 @@ public class PersonaDAO extends BaseDAO {
 			stmt.setString(10, vo.getFecNac());
 			stmt.setInt(11, vo.getCelular());
 			
-			Persona personaBusca = null;
-		
-			personaBusca=buscarCorreo(vo.getCorreo());
-			if (personaBusca!=null)
-				throw new SQLException("El correo ya existe");
 			
-			
-			personaBusca=buscarNumDoc(vo.getNumDoc());
-			if (personaBusca!=null)
-				throw new SQLException("El DNI ingresado ya existe");
-		
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
-			else
-			{
-				System.out.println("El registro fue ingresado correctamente");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());

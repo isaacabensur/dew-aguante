@@ -6,9 +6,11 @@ import fulbito.model.Persona;
 
 public class SeguridadNegocioPersona {
 	
-	public void insertarPersona(String tipoPer, String nombres, String paterno, String materno, String sexo, String tipoDoc, String numDoc, String correo, String password, String fecNac, Integer celular) throws DAOExcepcion {
+	public String insertarPersona(String tipoPer, String nombres, String paterno, String materno, String sexo, String tipoDoc, String numDoc, String correo, String password, String fecNac, Integer celular) throws DAOExcepcion {
 		
-		boolean flag = true; 
+		boolean flag = true;
+		String status = "";
+		String answer = "";
 		Persona model = new Persona();
 		model.setTipoPer(tipoPer);
 		model.setNombres(nombres);
@@ -24,66 +26,111 @@ public class SeguridadNegocioPersona {
 		
 		if(tipoPer == null || tipoPer.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el tipo de persona");
-			throw new DAOExcepcion("Ingrese el tipo de persona");
+			status = "Ingrese el tipo de persona.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(nombres == null || nombres.equals("")) {
 			flag = false;
-			System.out.println("Ingrese los nombres");
-			throw new DAOExcepcion("Ingrese los nombres");
+			status = "Ingrese los nombres.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(paterno == null || paterno.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el apellido paterno");
-			throw new DAOExcepcion("Ingrese el apellido paterno");
+			status = "Ingrese el apellido paterno.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(materno == null || materno.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el apellido materno");
-			throw new DAOExcepcion("Ingrese el apellido materno");
+			status = "Ingrese el apellido materno.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(sexo == null || sexo.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el sexo");
-			throw new DAOExcepcion("Ingrese el sexo");
+			status = "Ingrese el sexo.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(tipoDoc == null || tipoDoc.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el tipo de documento");
-			throw new DAOExcepcion("Ingrese el tipo de documento");
+			status = "Ingrese el tipo de documento.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(numDoc == null || numDoc.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el número de documento");
-			throw new DAOExcepcion("Ingrese el número de documento");
+			status = "Ingrese el número de documento.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(correo == null || correo.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el correo");
-			throw new DAOExcepcion("Ingrese el correo");
+			status = "Ingrese el correo.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(password == null || password.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el password");
-			throw new DAOExcepcion("Ingrese el password");
+			status = "Ingrese la contraseña.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(fecNac == null || fecNac.equals("")) {
 			flag = false;
-			System.out.println("Ingrese la fecha de nacimiento");
-			throw new DAOExcepcion("Ingrese la fecha de nacimiento");
+			status = "Ingrese la fecha de nacimiento.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		if(celular == null || celular.equals("")) {
 			flag = false;
-			System.out.println("Ingrese el celular");
-			throw new DAOExcepcion("Ingrese el celular");
+			status = "Ingrese el celular.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
-		
 		PersonaDAO dao = new PersonaDAO();
-		if(flag) {
-			dao.insertar(model);
-			System.out.println("El usuario "+nombres+" "+paterno+" "+materno+" se ha insertado correctamente.");
+		Persona personaBusca = dao.buscarCorreo(model.getCorreo());
+		if (personaBusca!=null) {
+			flag = false;
+			status = "El correo "+model.getCorreo()+" ya se encuentra registrado.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
 		}
 		
+		personaBusca = dao.buscarNumDoc(model.getNumDoc());
+		if (personaBusca!=null) {
+			flag = false;
+			status = "El DNI "+model.getNumDoc()+" ya se encuentra registrado.";
+			answer += status+"\\n";
+			System.out.println(status);
+			throw new DAOExcepcion(status);
+		}
+		if(flag) {
+			int state = dao.insertar(model);
+			if (state != 1) {
+				answer = "No se logró insertar. Intentelo nuevamente.";
+				System.out.println(answer);
+				throw new DAOExcepcion(answer);
+			} else {
+				answer = "El usuario "+nombres+" "+paterno+" "+materno+" se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados.";
+				System.out.println(answer);
+			}
+		}
+		return answer;
 	}
 	
 	public Persona validarPersona(String correo, String password) throws DAOExcepcion {
