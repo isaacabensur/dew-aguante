@@ -4,19 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Red social para alquiler de canchas de futbol</title>
 <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
-
-
-<%if(request.getAttribute("MENSAJE") != null) {%>
-	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
-<%}%>
-
-
 </head>
 
 <body>
 <div id="contenedorPrincipal">
   <div id="cabecera">
-    <div id="logo"><a href="/"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
+    <div id="logo"><a href="#"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div><div id="barraSuperior">
     Bienvenido Dueño!
   </div><div id="menuInferior">
@@ -32,6 +25,9 @@
   
 
   
-</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados ® </div>
+</div><div id="piecera">Futbol Camp tiene todos los derechos  reservados &reg; </div>
+<%if(request.getAttribute("MENSAJE") != null) {%>
+	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
+<%}%>
 </body>
 </html>

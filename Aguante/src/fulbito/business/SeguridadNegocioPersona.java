@@ -102,19 +102,19 @@ public class SeguridadNegocioPersona {
 			throw new DAOExcepcion(status);
 		}
 		PersonaDAO dao = new PersonaDAO();
-		Persona personaBusca = dao.buscarCorreo(model.getCorreo());
+		Persona personaBusca = dao.buscarCorreo(correo);
 		if (personaBusca!=null) {
 			flag = false;
-			status = "El correo "+model.getCorreo()+" ya se encuentra registrado.";
+			status = "El correo "+correo+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
 			throw new DAOExcepcion(status);
 		}
 		
-		personaBusca = dao.buscarNumDoc(model.getNumDoc());
+		personaBusca = dao.buscarNumDoc(numDoc);
 		if (personaBusca!=null) {
 			flag = false;
-			status = "El DNI "+model.getNumDoc()+" ya se encuentra registrado.";
+			status = "El DNI "+numDoc+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
 			throw new DAOExcepcion(status);

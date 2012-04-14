@@ -9,7 +9,7 @@
 <body>
 <div id="contenedorPrincipal">
   <div id="cabecera">
-    <div id="logo"><a href="/"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
+    <div id="logo"><a href="#"><img src="imagenes/logo.jpg" alt="Futbol Camp" width="167" height="120" border="0" /></a></div>
 </div>
   <div id="barraSuperior">
     
