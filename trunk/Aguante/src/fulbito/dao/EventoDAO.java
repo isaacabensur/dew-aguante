@@ -20,11 +20,12 @@ public class EventoDAO extends BaseDAO {
 
 	
 	
-public void insertar(Evento vo) throws DAOExcepcion {
+public int insertar(Evento vo) throws DAOExcepcion {
 		System.out.println("EventoDAO: insertar(Evento vo)");
 		String query = "INSERT INTO Evento(codEvento,nombre,premio,limiteCantidad,plazoInscripcion,Local_codLoc) VALUES (?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int state = 0;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
@@ -34,13 +35,8 @@ public void insertar(Evento vo) throws DAOExcepcion {
 			stmt.setLong(4, vo.getLimiteCantidad());
 			stmt.setString(5, vo.getPlazoInscripcion());
 			stmt.setInt(6, vo.getoLocal().getCodLoc());
-		
-			
-			
-			int i = stmt.executeUpdate();
-			if (i != 1) {
-				throw new SQLException("No se pudo insertar");
-			}
+			state = stmt.executeUpdate();
+			return state;
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());

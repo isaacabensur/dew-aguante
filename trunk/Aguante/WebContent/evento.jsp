@@ -238,6 +238,9 @@ request.setAttribute("listaLocales",listaLocales);
     
     
     </form>
-  </div> </div><div id="piecera">Futbol Camp tiene todos los derechos ® reservados  </div>
+  </div> </div><div id="piecera">Futbol Camp tiene todos los derechos &reg; reservados  </div>
+<%if(request.getAttribute("MENSAJE") != null) {%>
+	<script type="text/javascript" language="javascript">alert("<%=request.getAttribute("MENSAJE")%>");	</script>
+<%}%>
 </body>
 </html>

@@ -54,8 +54,46 @@ public class HorarioDAO extends BaseDAO {
 		return lista;
 	}
 
+	public Collection<Horario> buscarPorDiaHoras(String dia, String horainicio, String HoraFin) throws DAOExcepcion {
+		System.out.println("HorarioDAO: buscarPorFecha(String fecha)");
+		String query = "SELECT codHorario, fecha, horaInicio, HoraFin, estado, Cancha_numCancha, Alquiler_codAlquiler FROM horario WHERE DATE_FORMAT(fecha, '%w') = ? and horaInicio = ? and HoraFin = ? and fecha <= DATE_ADD(CURDATE(),INTERVAL 30 DAY);";
+		Collection<Horario> lista = new ArrayList<Horario>();
+		Cancha cancha = new Cancha();
+		Alquiler alquiler = new Alquiler();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, dia);
+			stmt.setString(2, horainicio);
+			stmt.setString(3, HoraFin);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Horario vo = new Horario();
+				vo.setCodHorario(rs.getInt("codHorario"));
+				vo.setHoraInicio(rs.getString("horaInicio"));
+				vo.setHoraFin(rs.getString("horaFin"));
+				vo.setEstado(rs.getString("estado"));
+				cancha.setNumCan(rs.getInt("Cancha_numCancha"));
+				vo.setoCancha(cancha);
+				alquiler.setCodAlquiler(rs.getInt("Alquiler_codAlquiler"));
+				vo.setoAlquiler(alquiler);
+				lista.add(vo);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return lista;
+	}
 	
-public void insertar(Horario vo) throws DAOExcepcion {
+	public void insertar(Horario vo) throws DAOExcepcion {
 		System.out.println("HorarioDAO: insertar(Horario vo)");
 		String query = "INSERT INTO horario(fecha,horaInicio,horaFin,estado,Cancha_numCancha,Alquiler_codAlquiler) VALUES (STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?,?)";
 		Connection con = null;
@@ -170,7 +208,7 @@ public void insertar(Horario vo) throws DAOExcepcion {
 	}
 
 	
-public Collection<Horario> listar() throws DAOExcepcion {
+	public Collection<Horario> listar() throws DAOExcepcion {
 		System.out.println("HorarioDAO: listar()");
 		Collection<Horario> c = new ArrayList<Horario>();
 		Cancha ca = new Cancha();
