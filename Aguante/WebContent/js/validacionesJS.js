@@ -204,72 +204,72 @@
             		document.registrarServiciosAdicionales.local.focus();
       		   
   		    return false;
-           }
-
-  		 
-  		function validarEvento(){
-  			
-  			if (document.RegEvento.nombre.value == ""){
-  	             
-  				alert("Ingresa el nombre del Evento");
-            		document.RegEvento.nombre.focus();
-      		   
-  		    return false;
-  			}
-  		    
-  		  if (document.RegEvento.premio.value == ""){
+           }  		 
+  		 		 
+           return true;
+         }
+       
+       function validarEvento(){
+ 			
+ 			if (document.RegEvento.nombre.value == ""){
+ 	             
+ 				alert("Ingresa el nombre del Evento");
+           		document.RegEvento.nombre.focus();
+     		   
+ 		    return false;
+ 			}
+ 		    
+ 		  if (document.RegEvento.premio.value == ""){
 	             
 				alert("Ingresa el Premio del Evento");
-          		document.RegEvento.premio.focus();
-    		   
+         		document.RegEvento.premio.focus();
+   		   
 		    return false;
 			
 		   }
-  			
-  		  
-  		if (document.RegEvento.limiteCantidad.value == ""){
-            
+ 			
+ 		  
+ 		if (document.RegEvento.limiteCantidad.value == ""){
+           
 			alert("Ingresa la cantidad limite");
-      		document.RegEvento.limiteCantidad.focus();
+     		document.RegEvento.limiteCantidad.focus();
 		   
 	    return false;
-  		  
-  		}
-  			
-  			
-  		
-        if (document.RegEvento.dia.value == ""){
-            
+ 		  
+ 		}
+ 			
+ 			
+ 		
+       if (document.RegEvento.dia.value == ""){
+           
 			alert("Seleccione un Dia");
-      		document.RegEvento.dia.focus();
+     		document.RegEvento.dia.focus();
 		   
 	    return false;
-  		  
-  		}
-  		
-  		
-       if (document.RegEvento.mes.value == ""){
-    
+ 		  
+ 		}
+ 		
+ 		
+      if (document.RegEvento.mes.value == ""){
+   
 	       alert("Seleccione un mes");
 		   document.RegEvento.mes.focus();
-   
-        return false;
+  
+       return false;
 	  
 	   } 
 
-       
-       if (document.RegEvento.anio.value == ""){
-    	    
+      
+      if (document.RegEvento.anio.value == ""){
+   	    
 	       alert("Seleccione un Año ");
 		   document.RegEvento.anio.focus();
-   
-        return false;
+  
+       return false;
 	  
 	   } 
 
 
-  			
-  		}
-  		 
-           return true;
-         }
+      return true;
+       }    
+       
