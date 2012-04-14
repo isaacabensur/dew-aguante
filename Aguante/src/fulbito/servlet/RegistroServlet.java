@@ -38,7 +38,6 @@ public class RegistroServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		SeguridadNegocioPersona negocio = new SeguridadNegocioPersona();
-		
 		String tipoPer = request.getParameter("tipoPer");
 		String nombres = request.getParameter("nombres");
 		String paterno = request.getParameter("paterno");
@@ -58,18 +57,16 @@ public class RegistroServlet extends HttpServlet {
 		try {
 			if(correo.equals(correoconf)) {
 				if(password.equals(passwordconf)) {
-					negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
-					request.setAttribute("MENSAJE", "Se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados");
+					String respuesta = negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
+					request.setAttribute("MENSAJE", respuesta);
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
 				} else {
-					negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
 					request.setAttribute("MENSAJE", "La contraseña y la confimación de la constraseña no son iguales.");
 					RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
 					rd.forward(request, response);
 				}
 			} else {
-				negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
 				request.setAttribute("MENSAJE", "El correo electrónico y la confimación del correo electrónico no son iguales.");
 				RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
 				rd.forward(request, response);
