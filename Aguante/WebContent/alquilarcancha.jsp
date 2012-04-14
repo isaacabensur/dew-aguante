@@ -235,7 +235,7 @@
 			horarios = x.getHorarios();
 	%>
 	<tr>
-	<td><a href="<%=request.getContextPath() %>/AlquilarServlet?numCancha=<%=x.getNumCan()%>"><%=x.getNombre()%></a></td>
+	<td><a href="<%=request.getContextPath() %>/AlquilarServlet?numCancha=<%=x.getNumCan()%>&"><%=x.getNombre()%></a></td>
 	<td><%=x.getCaracteristicas()%></td>
 	<td><%=x.getDiasAtencion()%></td>
 	<td><%=x.getHorasAtencion()%></td>
