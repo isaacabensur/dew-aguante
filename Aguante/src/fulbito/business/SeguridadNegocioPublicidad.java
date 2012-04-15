@@ -86,7 +86,7 @@ public class SeguridadNegocioPublicidad {
 			if (state != 1) {
 				answer = "No se logró insertar. Intentelo nuevamente.";
 				System.out.println(answer);
-				throw new DAOExcepcion(answer);
+				//throw new DAOExcepcion(answer);
 			} else {
 				answer = "El publicidad "+titulo+" se ha registrado con éxito.";
 				System.out.println(answer);

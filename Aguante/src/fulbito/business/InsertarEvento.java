@@ -59,14 +59,14 @@ public class InsertarEvento {
 			status = "El evento "+nombre+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
-			throw new DAOExcepcion(status);
+			//throw new DAOExcepcion(status);
 		}
 		if(flag) {
 			int state = dao.insertar(model);
 			if (state != 1) {
 				answer = "No se logró insertar. Intentelo nuevamente.";
 				System.out.println(answer);
-				throw new DAOExcepcion(answer);
+				//throw new DAOExcepcion(answer);
 			} else {
 				answer = "El evento "+nombre+" se ha registrado con éxito.";
 				System.out.println(answer);
