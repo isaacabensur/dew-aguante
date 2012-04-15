@@ -234,7 +234,7 @@
 			horarios = x.getHorarios();
 	%>
 	<tr>
-	<td><a href="<%=request.getContextPath() %>/AlquilarServlet?numCancha=<%=x.getNumCan()%>&diasAtencion=<%=request.getAttribute("diasAtencion")%>&horasAtencion=<%=request.getAttribute("horasAtencion")%>"><%=x.getNombre()%></a></td>
+	<td><a href="<%=request.getContextPath() %>/AlquilarServlet?numCancha=<%=x.getNumCan()%>&diasAtencion=<%=request.getAttribute("diasAtencion")%>&horasAtencion=<%=request.getAttribute("horasAtencion")%>&nomCan=<%=x.getNombre()%>&caracCan=<%=x.getCaracteristicas()%>&tarifaDiurna=<%=x.getTarifaDiurna()%>&tarifaNocturna=<%=x.getTarifaNocturna()%>&nomLocal=<%=x.getoLocal().getDesLoc()%>&promocion=<%=x.getPromo()%>&foto=<%=x.getFoto()%>"><%=x.getNombre()%></a></td>
 	<td><%=x.getCaracteristicas()%></td>
 	<td><%=x.getDiasAtencion()%></td>
 	<td><%=x.getHorasAtencion()%></td>
@@ -243,14 +243,14 @@
 	<td><%=x.getoLocal().getCodLoc()%></td>
 	<td><%=x.getoLocal().getDistrito()%></td>
 	<%if(horarios.size() > 0) {%>
-	<td style="color:#0000FF;">DISPONIBLE</td>
-	<%} else {%>
 	<td style="color:#FF0000;">NO DISPONIBLE</td>
+	<%} else {%>
+	<td style="color:#0000FF;">DISPONIBLE</td>
 	<%}%>
 	</tr>
 	<%}} else {%>
 	<tr>
-	<td colspan = 9>No se ha encontrado registros</td>
+	<td colspan="9">No se ha encontrado registros</td>
 	</tr>
 	<% }%>
   <!-- tr>
