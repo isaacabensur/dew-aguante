@@ -50,7 +50,7 @@ public class InsertarServAdicional {
 				System.out.println(answer);
 				throw new DAOExcepcion(answer);
 			} else {
-				answer = "El servicio adicional "+descripcion+" se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados.";
+				answer = "El servicio adicional "+descripcion+" se ha registrado con éxito.";
 				System.out.println(answer);
 			}
 		}
