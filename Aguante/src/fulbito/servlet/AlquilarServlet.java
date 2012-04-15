@@ -46,7 +46,15 @@ public class AlquilarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String numCancha = request.getParameter("numCancha");
+		String nomCancha = request.getParameter("nomCan");
+		String caracCancha = request.getParameter("caracCan");
+		String tarifaDiurna = request.getParameter("tarifaDiurna");
+		String tarifaNocturna = request.getParameter("tarifaNocturna");
+		String nomLocal = request.getParameter("nomLocal");
+		String promocion = request.getParameter("promocion");
+		String foto = request.getParameter("foto");
 		String diasAtencion = request.getParameter("diasAtencion");
+		
 		int idia = 0;
 		if(diasAtencion.equals("LUN")) idia = 1;
 		else if(diasAtencion.equals("MAR")) idia = 2;
@@ -79,6 +87,15 @@ public class AlquilarServlet extends HttpServlet {
 			//request.setAttribute("listaCanchas", canchas);
 			//request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
 			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
+			request.setAttribute("numCancha", numCancha);
+			request.setAttribute("nomCancha", nomCancha);
+			request.setAttribute("caracCancha", caracCancha);
+			request.setAttribute("tarifaDiurna", tarifaDiurna);
+			request.setAttribute("tarifaNocturna", tarifaNocturna);
+			request.setAttribute("nomCancha", nomCancha);
+			request.setAttribute("nomLocal", nomLocal);
+			request.setAttribute("promocion", promocion);
+			request.setAttribute("foto", foto);
 			request.setAttribute("listaHorarios", horarios);
 			//request.setAttribute("MENSAJE", "ERROR NO SE INSERTO");
 			//response.sendRedirect(request.getContextPath() + "alquilarcancha.jsp");
