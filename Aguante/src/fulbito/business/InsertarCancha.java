@@ -58,14 +58,14 @@ public class InsertarCancha {
 			System.out.println(status);
 			throw new DAOExcepcion(status);
 		}
-		if(tarifaDiurna == null || tarifaDiurna > 0) {
+		if(tarifaDiurna == null || tarifaDiurna == 0.0) {
 			flag = false;
 			status = "Ingrese la tarifa diurna.";
 			answer += status+"\\n";
 			System.out.println(status);
 			throw new DAOExcepcion(status);
 		}
-		if(tarifaNocturna == null || tarifaNocturna > 0) {
+		if(tarifaNocturna == null || tarifaNocturna == 0.0) {
 			flag = false;
 			status = "Ingrese la tarifa nocturna.";
 			answer += status+"\\n";

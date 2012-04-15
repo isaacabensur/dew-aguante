@@ -38,7 +38,7 @@ public class InsertarEvento {
 			System.out.println(status);
 			throw new DAOExcepcion(status);
 		}
-		if(limiteCantidad == null || limiteCantidad>0) {
+		if(limiteCantidad == null || limiteCantidad==0) {
 			flag = false;
 			status = "Ingrese el límite de cantidad de equipos.";
 			answer += status+"\\n";

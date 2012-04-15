@@ -35,7 +35,7 @@ public class InsertarServAdicional {
 			System.out.println(status);
 			throw new DAOExcepcion(status);
 		}
-		if(tarifa == null || tarifa>0) {
+		if(tarifa == null || tarifa==0) {
 			flag = false;
 			status = "Ingrese la tarifa del servicio adicional.";
 			answer += status+"\\n";
