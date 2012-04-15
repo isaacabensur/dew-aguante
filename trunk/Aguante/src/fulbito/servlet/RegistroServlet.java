@@ -54,10 +54,11 @@ public class RegistroServlet extends HttpServlet {
 		String anio = request.getParameter("anio");
 		int celular = Integer.parseInt(request.getParameter("celular"));
 		String fecNac = dia+"/"+mes+"/"+anio;
+		String respuesta = "";
 		try {
 			if(correo.equals(correoconf)) {
 				if(password.equals(passwordconf)) {
-					String respuesta = negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
+					respuesta = negocio.insertarPersona(tipoPer, nombres, paterno, materno, sexo, tipoDoc, numDoc, correo, password, fecNac, celular);
 					request.setAttribute("MENSAJE", respuesta);
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
@@ -74,7 +75,7 @@ public class RegistroServlet extends HttpServlet {
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("registro.jsp");
 			rd.forward(request, response);
 		}

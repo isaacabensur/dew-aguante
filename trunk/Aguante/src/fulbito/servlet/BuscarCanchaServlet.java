@@ -67,6 +67,9 @@ public class BuscarCanchaServlet extends HttpServlet {
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("MENSAJE", "No se encontraron datos.");
+			RequestDispatcher rd = request.getRequestDispatcher("alquilarcancha.jsp");
+			rd.forward(request, response);
 		}
 		
 		

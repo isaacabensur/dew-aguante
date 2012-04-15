@@ -68,7 +68,7 @@ public class InsertarEvento {
 				System.out.println(answer);
 				throw new DAOExcepcion(answer);
 			} else {
-				answer = "El evento "+nombre+" se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados.";
+				answer = "El evento "+nombre+" se ha registrado con éxito.";
 				System.out.println(answer);
 			}
 		}

@@ -74,6 +74,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("MENSAJE", "Correo o contraseña inválido.");
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+			rd.forward(request, response);
 		}
 
 	}
