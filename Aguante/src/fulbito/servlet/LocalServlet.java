@@ -49,16 +49,16 @@ public class LocalServlet extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		Persona vo = (Persona)sesion.getAttribute("USUARIO_ACTUAL");
 		int codPer = vo.getCodPer();
-		
+		String respuesta = "";
 		try {
-			String respuesta = negocio.insertarLocal(desLoc, direccion, distrito, dicGoogle, telefonoFijo, codPer);
+			respuesta = negocio.insertarLocal(desLoc, direccion, distrito, dicGoogle, telefonoFijo, codPer);
 			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
 			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("local.jsp");
 			rd.forward(request, response);
 		}

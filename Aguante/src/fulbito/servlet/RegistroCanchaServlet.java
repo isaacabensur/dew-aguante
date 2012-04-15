@@ -48,17 +48,18 @@ public class RegistroCanchaServlet extends HttpServlet {
 		double tarifaNocturna = Double.parseDouble(request.getParameter("tarifaNocturna"));
 		String promo = request.getParameter("promo");
 		String foto = request.getParameter("foto");
+		String respuesta = "";
 		//System.out.println("local="+local+" nombre="+nombre+" caracteristicas="+caracteristicas+" diasAtencion="+diasAtencion+" horasAtencion="+horasAtencion+" tarifaDiurna="+tarifaDiurna+" tarifaNocturna="+tarifaNocturna+" promo="+promo+" foto="+foto);
 		try {
 			
-			String respuesta = negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
+			respuesta = negocio.insertarCancha(nombre, caracteristicas, diasAtencion, horasAtencion, tarifaDiurna, tarifaNocturna, promo, foto, local);
 			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
 			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("cancha.jsp");
 			rd.forward(request, response);
 		}

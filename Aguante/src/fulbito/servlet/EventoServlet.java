@@ -46,15 +46,16 @@ public class EventoServlet extends HttpServlet {
 		String anio = request.getParameter("anio");
 		int local = Integer.parseInt(request.getParameter("local"));
 		String plazoInscripcion = dia+"/"+mes+"/"+anio;
+		String respuesta = "";
 		try {
-			String respuesta = negocio.insertarEvento(nombre, premio, limiteCantidad, plazoInscripcion, local);
+			respuesta = negocio.insertarEvento(nombre, premio, limiteCantidad, plazoInscripcion, local);
 			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-duenio.jsp");
 			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("evento.jsp");
 			rd.forward(request, response);
 		}

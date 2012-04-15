@@ -60,16 +60,16 @@ public class PublicidadServlet extends HttpServlet {
 		int codPer = vo.getCodPer();
 		String fecInicio = diaInicio+"/"+mesInicio+"/"+anioInicio;
 		String fecFin = diaFin+"/"+mesFin+"/"+anioFin;
-		
+		String respuesta ="";
 		try {
-			String respuesta = negocio.isertarPublicidad(titulo, contenido, fecInicio, fecFin, tarifa, clicks, seccion, codPer);
+			respuesta = negocio.isertarPublicidad(titulo, contenido, fecInicio, fecFin, tarifa, clicks, seccion, codPer);
 			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("index-administrador.jsp");
 			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("MENSAJE", "Ha ocurrido un error inesperado. Vuelva a intentarlo en unos minutos.");
+			request.setAttribute("MENSAJE", respuesta);
 			RequestDispatcher rd = request.getRequestDispatcher("publicidad.jsp");
 			rd.forward(request, response);
 		}
