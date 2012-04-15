@@ -74,7 +74,7 @@ public class InsertarCancha {
 		}
 		CanchaDAO dao = new CanchaDAO();
 		Collection<Cancha> Canchas = dao.buscarPorNombre(nombre, local);
-		if (Canchas.size()==0) {
+		if (Canchas.size()>0) {
 			flag = false;
 			status = "La cancha "+nombre+" ya se encuentra registrado.";
 			answer += status+"\\n";

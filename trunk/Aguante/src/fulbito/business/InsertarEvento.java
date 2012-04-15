@@ -54,7 +54,7 @@ public class InsertarEvento {
 		}
 		EventoDAO dao = new EventoDAO();
 		Collection<Evento> Eventos = dao.buscarPorNombre(nombre);
-		if (Eventos.size()==0) {
+		if (Eventos.size()>0) {
 			flag = false;
 			status = "El evento "+nombre+" ya se encuentra registrado.";
 			answer += status+"\\n";
