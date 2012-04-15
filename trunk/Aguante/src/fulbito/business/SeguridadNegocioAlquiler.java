@@ -30,7 +30,7 @@ public class SeguridadNegocioAlquiler {
 		if(flag) {
 			dao.insertar(model);
 			System.out.println("El alquiler para la fecha "+fecAlquiler+" se ha insertado correctamente.");
-			throw new DAOExcepcion("El alquiler para la fecha "+fecAlquiler+" se ha insertado correctamente.");
+			//throw new DAOExcepcion("El alquiler para la fecha "+fecAlquiler+" se ha insertado correctamente.");
 		}
 		
 	}

@@ -86,7 +86,7 @@ public class SeguridadNegocioHorario {
 		if(flag) {
 			dao.insertar(model);
 			System.out.println("El horario para la fecha "+fecha+" se ha insertado correctamente.");
-			throw new DAOExcepcion("El horario para la fecha "+fecha+" se ha insertado correctamente.");
+			//throw new DAOExcepcion("El horario para la fecha "+fecha+" se ha insertado correctamente.");
 		}
 		
 	}

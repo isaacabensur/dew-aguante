@@ -79,14 +79,14 @@ public class InsertarCancha {
 			status = "La cancha "+nombre+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
-			throw new DAOExcepcion(status);
+			//throw new DAOExcepcion(status);
 		}
 		if(flag) {
 			int state = dao.insertar(model);
 			if (state != 1) {
 				answer = "No se logró insertar. Intentelo nuevamente.";
 				System.out.println(answer);
-				throw new DAOExcepcion(answer);
+				//throw new DAOExcepcion(answer);
 			} else {
 				answer = "La cancha "+nombre+" se ha registrado con éxito.";
 				System.out.println(answer);

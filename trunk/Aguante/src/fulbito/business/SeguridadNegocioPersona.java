@@ -108,7 +108,7 @@ public class SeguridadNegocioPersona {
 			status = "El correo "+correo+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
-			throw new DAOExcepcion(status);
+			//throw new DAOExcepcion(status);
 		}
 		
 		personaBusca = dao.buscarNumDoc(numDoc);
@@ -117,14 +117,14 @@ public class SeguridadNegocioPersona {
 			status = "El DNI "+numDoc+" ya se encuentra registrado.";
 			answer += status+"\\n";
 			System.out.println(status);
-			throw new DAOExcepcion(status);
+			//throw new DAOExcepcion(status);
 		}
 		if(flag) {
 			int state = dao.insertar(model);
 			if (state != 1) {
 				answer = "No se logró insertar. Intentelo nuevamente.";
 				System.out.println(answer);
-				throw new DAOExcepcion(answer);
+				//throw new DAOExcepcion(answer);
 			} else {
 				answer = "El usuario "+nombres+" "+paterno+" "+materno+" se ha registrado con éxito. Ingrese al sistema con el correo y contraseña registrados.";
 				System.out.println(answer);
